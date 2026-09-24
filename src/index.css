@@ -36,6 +36,72 @@ html {
   outline-offset: 3px;
 }
 
+/* Unique Luminous Editorial Glow */
+@keyframes text-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))
+            drop-shadow(0 0 30px rgba(220, 220, 220, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.75))
+            drop-shadow(0 0 45px rgba(240, 240, 240, 0.45));
+  }
+}
+
+@keyframes light-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glowing-editorial-text {
+  background: linear-gradient(
+    110deg,
+    #FFFFFF 0%,
+    #E4E4E7 22%,
+    #FFFFFF 45%,
+    #A1A1AA 65%,
+    #FFFFFF 85%,
+    #E4E4E7 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: light-sweep 7s ease-in-out infinite, text-glow-pulse 4s ease-in-out infinite;
+  transition: filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glowing-editorial-text:hover {
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.9))
+          drop-shadow(0 0 60px rgba(240, 240, 240, 0.6));
+}
+
+.glowing-editorial-subtext {
+  background: linear-gradient(
+    110deg,
+    #D4D4D8 0%,
+    #FFFFFF 30%,
+    #9CA3AF 60%,
+    #E5E7EB 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: light-sweep 9s ease-in-out infinite reverse, text-glow-pulse 4.5s ease-in-out infinite;
+  transition: filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glowing-editorial-subtext:hover {
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8))
+          drop-shadow(0 0 50px rgba(214, 214, 214, 0.5));
+}
+
 /* Reduced motion preference support */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -50,4 +116,11 @@ html {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  .glowing-editorial-text,
+  .glowing-editorial-subtext {
+    animation: none !important;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5)) !important;
+  }
 }
+

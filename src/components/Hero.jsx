@@ -37,16 +37,28 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* Large Editorial Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-heading font-extrabold text-5xl sm:text-7xl xl:text-8xl tracking-tighter leading-[0.9] text-text-primary uppercase mb-6"
-          >
-            Romeel<br />
-            <span className="text-[#888888]">Iqbal</span>
-          </motion.h1>
+          {/* Large Editorial Headline with Unique Luminous Glow */}
+          <div className="relative inline-block mb-6">
+            {/* Ambient diffuse back-glow aura */}
+            <div
+              className="absolute -inset-x-8 -inset-y-6 bg-gradient-to-r from-white/[0.09] via-white/[0.04] to-transparent blur-3xl rounded-full pointer-events-none -z-10 opacity-75"
+              aria-hidden="true"
+            />
+
+            <motion.h1
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="font-heading font-extrabold text-5xl sm:text-7xl xl:text-8xl tracking-tighter leading-[0.9] uppercase select-none"
+            >
+              <span className="glowing-editorial-text block">
+                Romeel
+              </span>
+              <span className="glowing-editorial-subtext block">
+                Iqbal
+              </span>
+            </motion.h1>
+          </div>
 
           {/* Subtitle & Role */}
           <motion.div
