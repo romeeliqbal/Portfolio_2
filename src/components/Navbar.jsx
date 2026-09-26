@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: 'ABOUT', href: '#about' },
-  { label: 'EXPERIENCE', href: '#experience' },
-  { label: 'TECHNOLOGIES', href: '#technologies' },
-  { label: 'WORK', href: '#projects' },
-  { label: 'EDUCATION', href: '#education' },
-  { label: 'RESUME', href: '#resume' },
-  { label: 'CONTACT', href: '#contact' },
+  { label: "ABOUT", href: "#about" },
+  { label: "EXPERIENCE", href: "#experience" },
+  { label: "TECHNOLOGIES", href: "#technologies" },
+  { label: "WORK", href: "#projects" },
+  { label: "EDUCATION", href: "#education" },
+  { label: "RESUME", href: "#resume" },
+  { label: "CONTACT", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -24,19 +24,19 @@ export default function Navbar() {
         setScrolled(false);
       }
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Prevent background scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [mobileMenuOpen]);
 
@@ -44,8 +44,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${
         scrolled
-          ? 'bg-[#0B0B0B] py-3.5 border-b border-[#222222]'
-          : 'bg-[#0B0B0B]/95 py-5 border-b border-[#1A1A1A]'
+          ? "bg-[#0B0B0B] py-3.5 border-b border-[#222222]"
+          : "bg-[#0B0B0B]/95 py-5 border-b border-[#1A1A1A]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -64,7 +64,10 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+        <nav
+          className="hidden md:flex items-center gap-8"
+          aria-label="Main Navigation"
+        >
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
@@ -86,7 +89,9 @@ export default function Navbar() {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden flex items-center gap-2 text-xs font-mono tracking-editorial text-text-primary p-2 focus:outline-none border border-[#2A2A2A]"
-          aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+          aria-label={
+            mobileMenuOpen ? "Close Navigation Menu" : "Open Navigation Menu"
+          }
           aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? (

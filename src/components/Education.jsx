@@ -1,10 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { educationList } from '../data/education';
+import React from "react";
+import { motion } from "framer-motion";
+import { educationList } from "../data/education";
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]">
+    <section
+      id="education"
+      className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column */}
         <div className="lg:col-span-4">
@@ -43,7 +46,10 @@ export default function Education() {
               </div>
 
               <div className="text-sm font-medium text-text-secondary">
-                {edu.institution} &bull; <span className="text-text-muted font-normal">{edu.location}</span>
+                {edu.institution} &bull;{" "}
+                <span className="text-text-muted font-normal">
+                  {edu.location}
+                </span>
               </div>
 
               <p className="text-sm text-text-secondary font-light leading-relaxed">

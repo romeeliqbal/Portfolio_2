@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus } from "lucide-react";
 
 export default function ExperienceItem({ experience, isLast }) {
   const [isExpanded, setIsExpanded] = useState(true);
@@ -9,10 +9,10 @@ export default function ExperienceItem({ experience, isLast }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6 }}
       className={`py-10 group transition-all duration-300 ${
-        !isLast ? 'border-b border-[#2A2A2A]' : ''
+        !isLast ? "border-b border-[#2A2A2A]" : ""
       }`}
     >
       {/* Top row: Number, Period, Role */}
@@ -39,9 +39,7 @@ export default function ExperienceItem({ experience, isLast }) {
               <span className="text-text-primary font-medium">
                 {experience.company}
               </span>
-              <span className="text-text-muted">
-                / {experience.location}
-              </span>
+              <span className="text-text-muted">/ {experience.location}</span>
             </div>
           </div>
         </div>
@@ -53,9 +51,17 @@ export default function ExperienceItem({ experience, isLast }) {
           <button
             type="button"
             className="w-7 h-7 border border-[#2A2A2A] flex items-center justify-center text-text-muted group-hover:border-white group-hover:text-white transition-colors"
-            aria-label={isExpanded ? "Collapse experience details" : "Expand experience details"}
+            aria-label={
+              isExpanded
+                ? "Collapse experience details"
+                : "Expand experience details"
+            }
           >
-            {isExpanded ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+            {isExpanded ? (
+              <Minus className="w-3.5 h-3.5" />
+            ) : (
+              <Plus className="w-3.5 h-3.5" />
+            )}
           </button>
         </div>
       </div>
@@ -65,9 +71,9 @@ export default function ExperienceItem({ experience, isLast }) {
         {isExpanded && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
             className="overflow-hidden pl-0 sm:pl-16 md:pl-20 mt-6"
           >
             <p className="text-sm sm:text-base text-text-secondary font-light leading-relaxed mb-6 max-w-3xl">
@@ -81,9 +87,12 @@ export default function ExperienceItem({ experience, isLast }) {
               </span>
               <ul className="space-y-3 max-w-3xl">
                 {experience.responsibilities.map((resp, idx) => (
-                  <li key={idx} className="flex items-start gap-3.5 text-xs sm:text-sm text-text-secondary">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3.5 text-xs sm:text-sm text-text-secondary"
+                  >
                     <span className="font-mono text-[10px] text-text-muted shrink-0 mt-0.5">
-                      {String(idx + 1).padStart(2, '0')}.
+                      {String(idx + 1).padStart(2, "0")}.
                     </span>
                     <span className="leading-relaxed">{resp}</span>
                   </li>

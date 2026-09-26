@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Linkedin, Copy, Check, Send } from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, Mail, Linkedin, Copy, Check, Send } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -15,8 +15,8 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const directEmail = 'romeelshaikh3@gmail.com';
-  const linkedinUrl = 'https://www.linkedin.com/in/romeel-iqbal-6277493a0/';
+  const directEmail = "romeelshaikh3@gmail.com";
+  const linkedinUrl = "https://www.linkedin.com/in/romeel-iqbal-6277493a0/";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(directEmail);
@@ -26,14 +26,14 @@ export default function Contact() {
 
   const validate = () => {
     const errs = {};
-    if (!formData.name.trim()) errs.name = 'Please provide your name.';
+    if (!formData.name.trim()) errs.name = "Please provide your name.";
     if (!formData.email.trim()) {
-      errs.email = 'Please provide your email address.';
+      errs.email = "Please provide your email address.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errs.email = 'Please provide a valid email address.';
+      errs.email = "Please provide a valid email address.";
     }
-    if (!formData.subject.trim()) errs.subject = 'Please provide a subject.';
-    if (!formData.message.trim()) errs.message = 'Please provide a message.';
+    if (!formData.subject.trim()) errs.subject = "Please provide a subject.";
+    if (!formData.message.trim()) errs.message = "Please provide a message.";
     return errs;
   };
 
@@ -51,9 +51,9 @@ export default function Contact() {
     // Realistic brief client dispatch preparation
     setTimeout(() => {
       const mailtoLink = `mailto:${directEmail}?subject=${encodeURIComponent(
-        `[Portfolio Inquiry] ${formData.subject}`
+        `[Portfolio Inquiry] ${formData.subject}`,
       )}&body=${encodeURIComponent(
-        `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`
+        `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`,
       )}`;
 
       window.location.href = mailtoLink;
@@ -63,7 +63,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]">
+    <section
+      id="contact"
+      className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column - Large Editorial Heading & Direct Links */}
         <div className="lg:col-span-6 space-y-8">
@@ -72,13 +75,16 @@ export default function Contact() {
               08 &bull; INITIATE CONTACT
             </span>
             <h2 className="font-heading font-extrabold text-4xl sm:text-6xl xl:text-7xl tracking-tighter leading-[0.95] text-text-primary uppercase mb-6">
-              Have a project<br />
-              in mind?<br />
+              Have a project
+              <br />
+              in mind?
+              <br />
               <span className="text-[#888888]">Let's talk.</span>
             </h2>
             <p className="text-base sm:text-lg text-text-secondary font-light max-w-lg leading-relaxed">
-              Open for software engineering internships, technical collaborations,
-              and full-stack web engagements. Let's discuss requirements and architecture.
+              Open for software engineering internships, technical
+              collaborations, and full-stack web engagements. Let's discuss
+              requirements and architecture.
             </p>
           </div>
 
@@ -146,7 +152,8 @@ export default function Contact() {
                 Draft Prepared
               </h3>
               <p className="text-sm text-text-secondary font-light max-w-sm mx-auto leading-relaxed">
-                Your email client was prompted with the message content. You can also write directly to{' '}
+                Your email client was prompted with the message content. You can
+                also write directly to{" "}
                 <span className="text-white font-mono">{directEmail}</span>.
               </p>
               <button
@@ -170,12 +177,16 @@ export default function Contact() {
                   id="name"
                   type="text"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   placeholder="e.g. Alex Henderson"
                   className="w-full bg-[#141414] border border-[#262626] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors"
                 />
                 {errors.name && (
-                  <p className="text-xs font-mono text-red-400 mt-1.5">{errors.name}</p>
+                  <p className="text-xs font-mono text-red-400 mt-1.5">
+                    {errors.name}
+                  </p>
                 )}
               </div>
 
@@ -190,12 +201,16 @@ export default function Contact() {
                   id="email"
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   placeholder="alex@company.com"
                   className="w-full bg-[#141414] border border-[#262626] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors"
                 />
                 {errors.email && (
-                  <p className="text-xs font-mono text-red-400 mt-1.5">{errors.email}</p>
+                  <p className="text-xs font-mono text-red-400 mt-1.5">
+                    {errors.email}
+                  </p>
                 )}
               </div>
 
@@ -210,12 +225,16 @@ export default function Contact() {
                   id="subject"
                   type="text"
                   value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, subject: e.target.value })
+                  }
                   placeholder="Software Engineering Role / Project Inquiry"
                   className="w-full bg-[#141414] border border-[#262626] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors"
                 />
                 {errors.subject && (
-                  <p className="text-xs font-mono text-red-400 mt-1.5">{errors.subject}</p>
+                  <p className="text-xs font-mono text-red-400 mt-1.5">
+                    {errors.subject}
+                  </p>
                 )}
               </div>
 
@@ -230,12 +249,16 @@ export default function Contact() {
                   id="message"
                   rows={5}
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   placeholder="Outline your timeline, requirements, or role specifications..."
                   className="w-full bg-[#141414] border border-[#262626] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors resize-none"
                 />
                 {errors.message && (
-                  <p className="text-xs font-mono text-red-400 mt-1.5">{errors.message}</p>
+                  <p className="text-xs font-mono text-red-400 mt-1.5">
+                    {errors.message}
+                  </p>
                 )}
               </div>
 
@@ -245,7 +268,9 @@ export default function Contact() {
                 className="w-full flex items-center justify-center gap-3 py-3.5 bg-[#161616] border border-[#2A2A2A] text-text-primary font-heading font-semibold text-xs tracking-editorial uppercase hover:bg-white hover:text-black transition-all disabled:opacity-50"
               >
                 {submitting ? (
-                  <span className="font-mono text-xs tracking-spacious uppercase">[PREPARING DISPATCH...]</span>
+                  <span className="font-mono text-xs tracking-spacious uppercase">
+                    [PREPARING DISPATCH...]
+                  </span>
                 ) : (
                   <>
                     <span>Send Message</span>
@@ -256,7 +281,9 @@ export default function Contact() {
 
               {/* Minimal Privacy Note */}
               <p className="text-[10px] font-mono text-text-muted leading-relaxed pt-2 border-t border-[#1A1A1A]">
-                Privacy note: Your contact details are used solely to reply directly to your inquiry. No information is stored in tracking databases or shared with third parties.
+                Privacy note: Your contact details are used solely to reply
+                directly to your inquiry. No information is stored in tracking
+                databases or shared with third parties.
               </p>
             </form>
           )}

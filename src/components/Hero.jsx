@@ -1,15 +1,18 @@
-import React, { Suspense, lazy } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
-import portraitImg from '../assets/portrait.jpg';
+import React, { Suspense, lazy } from "react";
+import { motion } from "framer-motion";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import portraitImg from "../assets/portrait.jpg";
 
 // Lazy-load Three.js 3D component to keep initial load instantaneous
-const Hero3D = lazy(() => import('./Hero3D'));
+const Hero3D = lazy(() => import("./Hero3D"));
 
 // Purposeful geometric skeleton state while Three.js loads
 function Hero3DSkeleton() {
   return (
-    <div className="w-full h-full border border-[#222222] bg-[#0E0E0E] flex flex-col items-center justify-center gap-2 select-none" aria-hidden="true">
+    <div
+      className="w-full h-full border border-[#222222] bg-[#0E0E0E] flex flex-col items-center justify-center gap-2 select-none"
+      aria-hidden="true"
+    >
       <div className="w-8 h-8 border border-[#333333] rotate-45 animate-pulse" />
       <span className="text-[8px] font-mono tracking-spacious text-[#555555] uppercase">
         GEOMETRY_READY
@@ -57,12 +60,8 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="font-heading font-extrabold text-5xl sm:text-7xl xl:text-8xl tracking-tighter leading-[0.9] uppercase select-none"
             >
-              <span className="editorial-display-text block">
-                Romeel
-              </span>
-              <span className="editorial-display-subtext block">
-                Iqbal
-              </span>
+              <span className="editorial-display-text block">Romeel</span>
+              <span className="editorial-display-subtext block">Iqbal</span>
             </motion.h1>
           </div>
 
@@ -77,7 +76,8 @@ export default function Hero() {
               SOFTWARE ENGINEER
             </h2>
             <p className="text-xs font-mono tracking-editorial uppercase text-text-muted">
-              Web Architecture &bull; Intelligent Systems &bull; Software Quality
+              Web Architecture &bull; Intelligent Systems &bull; Software
+              Quality
             </p>
           </motion.div>
 
@@ -88,8 +88,9 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-base sm:text-lg text-text-secondary max-w-xl font-light leading-relaxed mb-10 border-l border-[#2A2A2A] pl-5"
           >
-            Building practical, resilient digital experiences through full-stack engineering,
-            defensive software principles, and intelligent automation.
+            Building practical, resilient digital experiences through full-stack
+            engineering, defensive software principles, and intelligent
+            automation.
           </motion.p>
 
           {/* Editorial CTAs */}
@@ -145,7 +146,7 @@ export default function Hero() {
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   background:
-                    'linear-gradient(to bottom, transparent 65%, rgba(11,11,11,0.6) 85%, #0B0B0B 100%), linear-gradient(to left, transparent 85%, rgba(11,11,11,0.4) 100%), linear-gradient(to right, transparent 85%, rgba(11,11,11,0.4) 100%)'
+                    "linear-gradient(to bottom, transparent 65%, rgba(11,11,11,0.6) 85%, #0B0B0B 100%), linear-gradient(to left, transparent 85%, rgba(11,11,11,0.4) 100%), linear-gradient(to right, transparent 85%, rgba(11,11,11,0.4) 100%)",
                 }}
               />
             </div>
@@ -174,7 +175,9 @@ export default function Hero() {
           aria-label="Scroll to professional summary"
         >
           <span>INDEX &bull; 00 STATEMENT</span>
-          <span className="text-text-secondary group-hover:translate-y-0.5 transition-transform">↓</span>
+          <span className="text-text-secondary group-hover:translate-y-0.5 transition-transform">
+            ↓
+          </span>
         </a>
       </motion.div>
     </section>

@@ -1,15 +1,15 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowRight } from 'lucide-react';
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ArrowRight } from "lucide-react";
 
 export default function TechnologyModal({ node, onClose, onSelectRelated }) {
   if (!node) return null;
 
   const statusColorMap = {
-    'CURRENT FOCUS': 'border-[#D6D6D6] text-text-primary bg-[#1C1C1C]',
-    'USED IN PROJECTS': 'border-[#444444] text-text-secondary bg-[#151515]',
-    'WORKING WITH': 'border-[#333333] text-text-secondary bg-[#121212]',
-    'EXPERIENCE': 'border-[#2A2A2A] text-text-muted bg-[#0E0E0E]'
+    "CURRENT FOCUS": "border-[#D6D6D6] text-text-primary bg-[#1C1C1C]",
+    "USED IN PROJECTS": "border-[#444444] text-text-secondary bg-[#151515]",
+    "WORKING WITH": "border-[#333333] text-text-secondary bg-[#121212]",
+    EXPERIENCE: "border-[#2A2A2A] text-text-muted bg-[#0E0E0E]",
   };
 
   return (
@@ -57,7 +57,8 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
               </span>
               <span
                 className={`inline-block text-xs font-mono px-3 py-1 border uppercase tracking-editorial ${
-                  statusColorMap[node.status] || 'border-[#2A2A2A] text-text-secondary'
+                  statusColorMap[node.status] ||
+                  "border-[#2A2A2A] text-text-secondary"
                 }`}
               >
                 {node.status}

@@ -1,10 +1,13 @@
-import React from 'react';
-import { projects } from '../data/projects';
-import ProjectItem from './ProjectItem';
+import React from "react";
+import { projects } from "../data/projects";
+import ProjectItem from "./ProjectItem";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]">
+    <section
+      id="projects"
+      className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]"
+    >
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>

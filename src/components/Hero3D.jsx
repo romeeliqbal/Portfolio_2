@@ -1,6 +1,6 @@
-import React, { useRef, useMemo, useEffect, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
+import React, { useRef, useMemo, useEffect, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 function Sculpture({ mousePosition, reducedMotion }) {
   const groupRef = useRef();
@@ -22,8 +22,16 @@ function Sculpture({ mousePosition, reducedMotion }) {
     const targetX = mousePosition.x * 0.25;
     const targetY = -mousePosition.y * 0.25;
 
-    groupRef.current.position.x = THREE.MathUtils.lerp(groupRef.current.position.x, targetX, 0.05);
-    groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, targetY, 0.05);
+    groupRef.current.position.x = THREE.MathUtils.lerp(
+      groupRef.current.position.x,
+      targetX,
+      0.05,
+    );
+    groupRef.current.position.y = THREE.MathUtils.lerp(
+      groupRef.current.position.y,
+      targetY,
+      0.05,
+    );
   });
 
   return (
@@ -58,11 +66,7 @@ function Sculpture({ mousePosition, reducedMotion }) {
       {/* Minimal dark metallic core */}
       <mesh>
         <dodecahedronGeometry args={[0.45, 0]} />
-        <meshStandardMaterial
-          color="#1A1A1A"
-          roughness={0.6}
-          metalness={0.7}
-        />
+        <meshStandardMaterial color="#1A1A1A" roughness={0.6} metalness={0.7} />
       </mesh>
     </group>
   );
@@ -75,15 +79,16 @@ export default function Hero3D() {
 
   useEffect(() => {
     // Check reduced motion preference
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReducedMotion(mediaQuery.matches);
     const handler = (e) => setReducedMotion(e.matches);
-    mediaQuery.addEventListener('change', handler);
+    mediaQuery.addEventListener("change", handler);
 
     // Check basic WebGL support
     try {
-      const canvas = document.createElement('canvas');
-      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      const canvas = document.createElement("canvas");
+      const gl =
+        canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
       if (!gl) setHasWebGL(false);
     } catch {
       setHasWebGL(false);
@@ -96,11 +101,11 @@ export default function Hero3D() {
       setMousePosition({ x, y });
     };
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     return () => {
-      mediaQuery.removeEventListener('change', handler);
-      window.removeEventListener('mousemove', handleMouseMove);
+      mediaQuery.removeEventListener("change", handler);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -116,13 +121,24 @@ export default function Hero3D() {
         gl={{
           antialias: true,
           alpha: true,
-          powerPreference: 'low-power'
+          powerPreference: "low-power",
         }}
       >
         <ambientLight intensity={0.8} />
-        <directionalLight position={[4, 5, 2]} intensity={1.2} color="#E0E0E0" />
-        <directionalLight position={[-4, -3, -2]} intensity={0.4} color="#666666" />
-        <Sculpture mousePosition={mousePosition} reducedMotion={reducedMotion} />
+        <directionalLight
+          position={[4, 5, 2]}
+          intensity={1.2}
+          color="#E0E0E0"
+        />
+        <directionalLight
+          position={[-4, -3, -2]}
+          intensity={0.4}
+          color="#666666"
+        />
+        <Sculpture
+          mousePosition={mousePosition}
+          reducedMotion={reducedMotion}
+        />
       </Canvas>
     </div>
   );

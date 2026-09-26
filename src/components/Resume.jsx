@@ -1,10 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FileText, Download, ExternalLink } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { FileText, Download, ExternalLink } from "lucide-react";
 
 export default function Resume() {
   return (
-    <section id="resume" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]">
+    <section
+      id="resume"
+      className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Large Heading */}
         <div className="lg:col-span-6">
@@ -12,7 +15,8 @@ export default function Resume() {
             07 &bull; DOCUMENTATION
           </span>
           <h2 className="font-heading font-extrabold text-4xl sm:text-6xl tracking-tighter leading-[0.95] text-text-primary uppercase">
-            Curriculum<br />
+            Curriculum
+            <br />
             Vitae
           </h2>
         </div>
@@ -20,8 +24,9 @@ export default function Resume() {
         {/* Action area */}
         <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
           <p className="text-base sm:text-lg text-text-secondary font-light leading-relaxed">
-            Detailed breakdown of engineering coursework, cross-functional internship coordination,
-            independent client deliverables, technical project write-ups, and verified credentials.
+            Detailed breakdown of engineering coursework, cross-functional
+            internship coordination, independent client deliverables, technical
+            project write-ups, and verified credentials.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-4">
@@ -47,7 +52,8 @@ export default function Resume() {
           </div>
 
           <div className="pt-4 text-xs font-mono text-text-muted">
-            Format: PDF &bull; Updated for 2026 &bull; Verified Academic & Professional Records
+            Format: PDF &bull; Updated for 2026 &bull; Verified Academic &
+            Professional Records
           </div>
         </div>
       </div>

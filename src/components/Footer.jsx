@@ -1,9 +1,9 @@
-import React from 'react';
-import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
+import React from "react";
+import { ArrowUp, Github, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -21,7 +21,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-xs font-mono text-text-secondary tracking-tight">
-              Software Engineer &bull; Mehran University of Engineering and Technology
+              Software Engineer &bull; Mehran University of Engineering and
+              Technology
             </p>
           </div>
 
@@ -92,12 +93,36 @@ export default function Footer() {
               PORTFOLIO SECTIONS
             </span>
             <div className="grid grid-cols-2 gap-2 text-xs font-mono text-text-secondary">
-              <a href="#about" className="hover:text-white transition-colors">About</a>
-              <a href="#experience" className="hover:text-white transition-colors">Experience</a>
-              <a href="#technologies" className="hover:text-white transition-colors">Technologies</a>
-              <a href="#projects" className="hover:text-white transition-colors">Work</a>
-              <a href="#education" className="hover:text-white transition-colors">Education</a>
-              <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+              <a href="#about" className="hover:text-white transition-colors">
+                About
+              </a>
+              <a
+                href="#experience"
+                className="hover:text-white transition-colors"
+              >
+                Experience
+              </a>
+              <a
+                href="#technologies"
+                className="hover:text-white transition-colors"
+              >
+                Technologies
+              </a>
+              <a
+                href="#projects"
+                className="hover:text-white transition-colors"
+              >
+                Work
+              </a>
+              <a
+                href="#education"
+                className="hover:text-white transition-colors"
+              >
+                Education
+              </a>
+              <a href="#contact" className="hover:text-white transition-colors">
+                Contact
+              </a>
             </div>
           </div>
 
@@ -106,7 +131,8 @@ export default function Footer() {
               SPECIFICATION
             </span>
             <p className="text-xs font-mono text-text-muted leading-relaxed">
-              BUILT WITH REACT &bull; TAILWIND CSS &bull; THREE.JS &bull; FRAMER MOTION
+              BUILT WITH REACT &bull; TAILWIND CSS &bull; THREE.JS &bull; FRAMER
+              MOTION
             </p>
             <div className="mt-3 text-[10px] font-mono text-text-muted">
               Design System: Architectural Monochrome Specification
@@ -117,7 +143,10 @@ export default function Footer() {
         {/* Bottom copyright */}
         <div className="pt-8 border-t border-[#1E1E1E] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-text-muted">
           <span>&copy; 2026 Romeel Iqbal. All rights reserved.</span>
-          <span>Designed and engineered by Romeel Iqbal. Built with React, Tailwind CSS, Three.js, and Framer Motion.</span>
+          <span>
+            Designed and engineered by Romeel Iqbal. Built with React, Tailwind
+            CSS, Three.js, and Framer Motion.
+          </span>
         </div>
       </div>
     </footer>

@@ -1,10 +1,13 @@
-import React from 'react';
-import { experiences } from '../data/experience';
-import ExperienceItem from './ExperienceItem';
+import React from "react";
+import { experiences } from "../data/experience";
+import ExperienceItem from "./ExperienceItem";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]">
+    <section
+      id="experience"
+      className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]"
+    >
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
@@ -16,7 +19,8 @@ export default function Experience() {
           </h2>
         </div>
         <p className="text-xs font-mono tracking-editorial text-text-secondary uppercase max-w-xs">
-          Structured problem-solving &bull; Technical execution &bull; Agile delivery
+          Structured problem-solving &bull; Technical execution &bull; Agile
+          delivery
         </p>
       </div>
 

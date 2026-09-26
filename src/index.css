@@ -8,7 +8,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #0B0B0B;
+  background-color: #0b0b0b;
 }
 
 /* Custom minimal dark scrollbar */
@@ -18,7 +18,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0B0B;
+  background: #0b0b0b;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -32,13 +32,13 @@ html {
 
 /* Focus styles for keyboard accessibility */
 *:focus-visible {
-  outline: 1px solid #D6D6D6;
+  outline: 1px solid #d6d6d6;
   outline-offset: 3px;
 }
 
 /* Editorial Typography & Mechanical States */
 .editorial-display-text {
-  color: #FFFFFF;
+  color: #ffffff;
   letter-spacing: -0.04em;
   transition: opacity 0.2s ease;
 }
@@ -50,7 +50,7 @@ html {
 }
 
 .editorial-display-subtext:hover {
-  color: #CCCCCC;
+  color: #cccccc;
 }
 
 /* Reduced motion preference support */
@@ -58,7 +58,7 @@ html {
   html {
     scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -68,4 +68,3 @@ html {
     scroll-behavior: auto !important;
   }
 }
-
