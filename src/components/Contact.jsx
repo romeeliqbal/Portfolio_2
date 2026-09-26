@@ -11,6 +11,7 @@ export default function Contact() {
   });
 
   const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -45,17 +46,20 @@ export default function Contact() {
     }
 
     setErrors({});
-    
-    // Prepare mailto link as reliable direct transport
-    const mailtoLink = `mailto:${directEmail}?subject=${encodeURIComponent(
-      `[Portfolio Inquiry] ${formData.subject}`
-    )}&body=${encodeURIComponent(
-      `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`
-    )}`;
+    setSubmitting(true);
 
-    // Open mail client fallback
-    window.location.href = mailtoLink;
-    setSubmitted(true);
+    // Realistic brief client dispatch preparation
+    setTimeout(() => {
+      const mailtoLink = `mailto:${directEmail}?subject=${encodeURIComponent(
+        `[Portfolio Inquiry] ${formData.subject}`
+      )}&body=${encodeURIComponent(
+        `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`
+      )}`;
+
+      window.location.href = mailtoLink;
+      setSubmitting(false);
+      setSubmitted(true);
+    }, 450);
   };
 
   return (
@@ -80,7 +84,7 @@ export default function Contact() {
 
           {/* Direct channels */}
           <div className="space-y-4 pt-4 border-t border-[#2A2A2A]">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-[#111111] border border-[#2A2A2A]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-[#0E0E0E] border border-[#222222]">
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-text-muted" />
                 <span className="text-xs sm:text-sm font-mono text-text-primary">
@@ -107,7 +111,7 @@ export default function Contact() {
               </button>
             </div>
 
-            <div className="p-4 bg-[#111111] border border-[#2A2A2A] flex items-center justify-between">
+            <div className="p-4 bg-[#0E0E0E] border border-[#222222] flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Linkedin className="w-4 h-4 text-text-muted" />
                 <span className="text-xs sm:text-sm font-mono text-text-primary">
@@ -128,14 +132,14 @@ export default function Contact() {
         </div>
 
         {/* Right Column - Minimal Editorial Contact Form */}
-        <div className="lg:col-span-6 bg-[#111111] border border-[#2A2A2A] p-8 sm:p-10">
+        <div className="lg:col-span-6 bg-[#0E0E0E] border border-[#222222] p-8 sm:p-10">
           {submitted ? (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               className="py-12 text-center space-y-4"
             >
-              <div className="w-12 h-12 rounded-full border border-white flex items-center justify-center mx-auto text-white">
+              <div className="w-12 h-12 border border-white flex items-center justify-center mx-auto text-white">
                 <Check className="w-6 h-6" />
               </div>
               <h3 className="font-heading font-bold text-2xl text-text-primary uppercase">
@@ -168,7 +172,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Alex Henderson"
-                  className="w-full bg-[#161616] border border-[#2A2A2A] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors"
+                  className="w-full bg-[#141414] border border-[#262626] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors"
                 />
                 {errors.name && (
                   <p className="text-xs font-mono text-red-400 mt-1.5">{errors.name}</p>
@@ -188,7 +192,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="alex@company.com"
-                  className="w-full bg-[#161616] border border-[#2A2A2A] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors"
+                  className="w-full bg-[#141414] border border-[#262626] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors"
                 />
                 {errors.email && (
                   <p className="text-xs font-mono text-red-400 mt-1.5">{errors.email}</p>
@@ -208,7 +212,7 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   placeholder="Software Engineering Role / Project Inquiry"
-                  className="w-full bg-[#161616] border border-[#2A2A2A] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors"
+                  className="w-full bg-[#141414] border border-[#262626] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors"
                 />
                 {errors.subject && (
                   <p className="text-xs font-mono text-red-400 mt-1.5">{errors.subject}</p>
@@ -228,7 +232,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Outline your timeline, requirements, or role specifications..."
-                  className="w-full bg-[#161616] border border-[#2A2A2A] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors resize-none"
+                  className="w-full bg-[#141414] border border-[#262626] px-4 py-3 text-sm text-text-primary placeholder:text-[#444444] focus:border-white focus:outline-none transition-colors resize-none"
                 />
                 {errors.message && (
                   <p className="text-xs font-mono text-red-400 mt-1.5">{errors.message}</p>
@@ -237,11 +241,23 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-3 py-3.5 bg-[#161616] border border-[#2A2A2A] text-text-primary font-heading font-semibold text-xs tracking-editorial uppercase hover:bg-white hover:text-black transition-all"
+                disabled={submitting}
+                className="w-full flex items-center justify-center gap-3 py-3.5 bg-[#161616] border border-[#2A2A2A] text-text-primary font-heading font-semibold text-xs tracking-editorial uppercase hover:bg-white hover:text-black transition-all disabled:opacity-50"
               >
-                <span>Send Message</span>
-                <ArrowRight className="w-4 h-4" />
+                {submitting ? (
+                  <span className="font-mono text-xs tracking-spacious uppercase">[PREPARING DISPATCH...]</span>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
               </button>
+
+              {/* Minimal Privacy Note */}
+              <p className="text-[10px] font-mono text-text-muted leading-relaxed pt-2 border-t border-[#1A1A1A]">
+                Privacy note: Your contact details are used solely to reply directly to your inquiry. No information is stored in tracking databases or shared with third parties.
+              </p>
             </form>
           )}
         </div>

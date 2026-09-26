@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { educationList } from '../data/education';
-import { GraduationCap, BookOpen } from 'lucide-react';
 
 export default function Education() {
   return (
@@ -32,9 +31,9 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="p-8 bg-[#111111] border border-[#2A2A2A] space-y-4"
+              className="p-8 bg-[#0E0E0E] border border-[#222222] hover:border-[#383838] transition-colors space-y-4"
             >
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-[#1F1F1F] pb-4">
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-[#1A1A1A] pb-4">
                 <h3 className="font-heading font-bold text-2xl text-text-primary">
                   {edu.degree}
                 </h3>
@@ -59,7 +58,7 @@ export default function Education() {
                   {edu.coursework.map((course) => (
                     <span
                       key={course}
-                      className="text-xs font-mono px-3 py-1 bg-[#161616] border border-[#262626] text-text-secondary"
+                      className="text-xs font-mono px-3 py-1 bg-[#141414] border border-[#262626] text-text-secondary"
                     >
                       {course}
                     </span>

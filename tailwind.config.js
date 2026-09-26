@@ -25,8 +25,8 @@ export default {
         }
       },
       fontFamily: {
-        heading: ['"Space Grotesk"', 'sans-serif'],
-        body: ['"Inter"', 'sans-serif'],
+        heading: ['"Syne"', '"Space Grotesk"', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', '"Inter"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       letterSpacing: {

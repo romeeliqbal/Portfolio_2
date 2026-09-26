@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { X, ArrowRight } from 'lucide-react';
 
 export default function TechnologyModal({ node, onClose, onSelectRelated }) {
   if (!node) return null;
@@ -14,13 +14,13 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 15 }}
+          initial={{ opacity: 0, scale: 0.96, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          transition={{ duration: 0.25 }}
-          className="relative w-full max-w-lg bg-[#111111] border border-[#2A2A2A] p-6 sm:p-8 shadow-2xl"
+          exit={{ opacity: 0, scale: 0.96, y: 10 }}
+          transition={{ duration: 0.2 }}
+          className="relative w-full max-w-lg bg-[#101010] border border-[#333333] p-6 sm:p-8"
           role="dialog"
           aria-modal="true"
           aria-labelledby="tech-modal-title"

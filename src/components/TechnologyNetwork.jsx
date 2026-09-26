@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { categories, technologyNodes } from '../data/technologies';
 import TechnologyModal from './TechnologyModal';
-import { Network, Grid, Info, Sparkles } from 'lucide-react';
+import { Network, Grid, Info } from 'lucide-react';
 
 export default function TechnologyNetwork() {
   const [activeCategory, setActiveCategory] = useState('ALL');
@@ -114,14 +114,16 @@ export default function TechnologyNetwork() {
           ref={containerRef}
           className="relative w-full h-[580px] sm:h-[640px] bg-[#0E0E0E] border border-[#2A2A2A] overflow-hidden select-none"
         >
-          {/* Subtle grid background */}
-          <div
-            className="absolute inset-0 opacity-[0.03] pointer-events-none"
-            style={{
-              backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
-              backgroundSize: '24px 24px'
-            }}
-          />
+          {/* Architectural coordinate grid lines (replacing generic dot matrix) */}
+          <div className="absolute inset-0 pointer-events-none opacity-20">
+            <div
+              className="w-full h-full"
+              style={{
+                backgroundImage: 'linear-gradient(to right, #262626 1px, transparent 1px), linear-gradient(to bottom, #262626 1px, transparent 1px)',
+                backgroundSize: '64px 64px'
+              }}
+            />
+          </div>
 
           {/* SVG Connection Lines */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
@@ -163,9 +165,9 @@ export default function TechnologyNetwork() {
                   top: `${hub.y}%`,
                   transform: 'translate(-50%, -50%)'
                 }}
-                className={`absolute z-20 px-3 py-1.5 border font-mono text-[10px] tracking-spacious uppercase transition-all duration-300 cursor-pointer ${
+                className={`absolute z-20 px-3 py-1.5 border font-mono text-[10px] tracking-spacious uppercase transition-all duration-200 cursor-pointer ${
                   isFocus
-                    ? 'border-white text-white bg-[#1C1C1C] shadow-md shadow-black'
+                    ? 'border-white text-white bg-[#1C1C1C]'
                     : 'border-[#2A2A2A] text-text-muted bg-[#111111] opacity-40'
                 }`}
                 onClick={() => setActiveCategory(activeCategory === cat.id ? 'ALL' : cat.id)}
@@ -177,73 +179,72 @@ export default function TechnologyNetwork() {
             );
           })}
 
-          {/* Technology Nodes with subtle floating motion */}
-          {technologyNodes.map((node, index) => {
+          {/* Technology Nodes with purposeful, mechanical hover states (no floating loops) */}
+          {technologyNodes.map((node) => {
             const isHighlighted =
               !currentCategoryFocus || currentCategoryFocus === node.category;
 
             return (
-              <motion.button
+              <button
                 key={node.id}
-                animate={{
-                  y: [0, (index % 2 === 0 ? -4 : 4), 0],
-                  x: [0, (index % 3 === 0 ? 3 : -3), 0]
-                }}
-                transition={{
-                  duration: 4 + (index % 3),
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  repeatType: 'reverse'
-                }}
                 style={{
                   left: `${node.coords.x}%`,
                   top: `${node.coords.y}%`,
                   transform: 'translate(-50%, -50%)'
                 }}
                 onClick={() => setSelectedNode(node)}
-                className={`absolute z-10 px-3.5 py-1.5 border text-xs font-mono transition-all duration-300 cursor-pointer group flex items-center gap-2 ${
+                className={`absolute z-10 px-3.5 py-1.5 border text-xs font-mono transition-all duration-150 cursor-pointer group flex items-center gap-2 ${
                   isHighlighted
-                    ? 'border-[#383838] hover:border-white text-text-primary hover:text-white bg-[#141414] hover:bg-[#1E1E1E]'
+                    ? 'border-[#383838] hover:border-white text-text-primary hover:text-white bg-[#141414] hover:bg-[#202020]'
                     : 'border-[#1C1C1C] text-[#444444] bg-[#0E0E0E] opacity-30 hover:opacity-100 hover:text-text-secondary hover:border-[#333333]'
                 }`}
                 aria-label={`Inspect ${node.name}`}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#777777] group-hover:bg-white transition-colors" />
+                <span className="w-1.5 h-1.5 bg-[#777777] group-hover:bg-white transition-colors" />
                 <span className="tracking-tight">{node.name}</span>
-              </motion.button>
+              </button>
             );
           })}
 
           {/* Interactive Hint */}
-          <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2 text-[10px] font-mono text-text-muted bg-[#0B0B0B]/80 px-3 py-1.5 border border-[#2A2A2A]">
+          <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2 text-[10px] font-mono text-text-muted bg-[#0E0E0E] px-3 py-1.5 border border-[#2A2A2A]">
             <Info className="w-3 h-3 text-[#888888]" />
             <span>Click any technology node to inspect practical implementation</span>
           </div>
         </div>
       ) : (
-        /* MATRIX / GROUPED VIEW (Highly readable, excellent for all screen sizes) */
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories
-            .filter((cat) => activeCategory === 'ALL' || activeCategory === cat.id)
-            .map((cat) => {
-              const nodesInCat = technologyNodes.filter((n) => n.category === cat.id);
+        /* STRUCTURED TAXONOMY MATRIX (Asymmetrical 2-column system, replacing generic 3-in-a-row cards) */
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Left Column: Core Systems & Web Architecture */}
+          <div className="lg:col-span-7 space-y-6">
+            <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block pb-2 border-b border-[#2A2A2A]">
+              SECTION A &bull; CLIENT-SIDE & CORE SYSTEMS
+            </span>
 
-              return (
-                <div
-                  key={cat.id}
-                  className="p-6 bg-[#111111] border border-[#2A2A2A] flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#2A2A2A]">
-                      <h3 className="font-heading font-bold text-lg text-text-primary">
-                        {cat.label}
-                      </h3>
+            {categories
+              .filter((cat) => ['WEB', 'DEVELOPMENT', 'TOOLS'].includes(cat.id))
+              .filter((cat) => activeCategory === 'ALL' || activeCategory === cat.id)
+              .map((cat) => {
+                const nodesInCat = technologyNodes.filter((n) => n.category === cat.id);
+
+                return (
+                  <div
+                    key={cat.id}
+                    className="p-6 bg-[#0E0E0E] border border-[#222222] hover:border-[#333333] transition-colors"
+                  >
+                    <div className="flex items-baseline justify-between pb-3 mb-3 border-b border-[#1A1A1A]">
+                      <div className="flex items-baseline gap-3">
+                        <span className="font-mono text-xs text-text-muted">[{cat.id}]</span>
+                        <h3 className="font-heading font-bold text-base text-text-primary">
+                          {cat.label}
+                        </h3>
+                      </div>
                       <span className="text-[10px] font-mono text-text-muted">
                         {cat.count} NODES
                       </span>
                     </div>
 
-                    <p className="text-xs text-text-secondary font-light mb-6">
+                    <p className="text-xs text-text-secondary font-light mb-5">
                       {cat.description}
                     </p>
 
@@ -252,17 +253,67 @@ export default function TechnologyNetwork() {
                         <button
                           key={node.id}
                           onClick={() => setSelectedNode(node)}
-                          className="px-3 py-1.5 text-xs font-mono bg-[#161616] border border-[#2A2A2A] hover:border-white text-text-secondary hover:text-white transition-all text-left flex items-center justify-between gap-2"
+                          className="px-3 py-1.5 text-xs font-mono bg-[#141414] border border-[#262626] hover:border-white text-text-secondary hover:text-white transition-all text-left flex items-center justify-between gap-3"
                         >
                           <span>{node.name}</span>
-                          <span className="text-[9px] text-text-muted">{node.status}</span>
+                          <span className="text-[9px] text-text-muted uppercase">[{node.status}]</span>
                         </button>
                       ))}
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+          </div>
+
+          {/* Right Column: Intelligent Systems & Quality Engineering */}
+          <div className="lg:col-span-5 space-y-6">
+            <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block pb-2 border-b border-[#2A2A2A]">
+              SECTION B &bull; AI SYSTEMS & DEFENSIVE TESTING
+            </span>
+
+            {categories
+              .filter((cat) => ['AI', 'QA'].includes(cat.id))
+              .filter((cat) => activeCategory === 'ALL' || activeCategory === cat.id)
+              .map((cat) => {
+                const nodesInCat = technologyNodes.filter((n) => n.category === cat.id);
+
+                return (
+                  <div
+                    key={cat.id}
+                    className="p-6 bg-[#0E0E0E] border border-[#222222] hover:border-[#333333] transition-colors"
+                  >
+                    <div className="flex items-baseline justify-between pb-3 mb-3 border-b border-[#1A1A1A]">
+                      <div className="flex items-baseline gap-3">
+                        <span className="font-mono text-xs text-text-muted">[{cat.id}]</span>
+                        <h3 className="font-heading font-bold text-base text-text-primary">
+                          {cat.label}
+                        </h3>
+                      </div>
+                      <span className="text-[10px] font-mono text-text-muted">
+                        {cat.count} NODES
+                      </span>
+                    </div>
+
+                    <p className="text-xs text-text-secondary font-light mb-5">
+                      {cat.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {nodesInCat.map((node) => (
+                        <button
+                          key={node.id}
+                          onClick={() => setSelectedNode(node)}
+                          className="px-3 py-1.5 text-xs font-mono bg-[#141414] border border-[#262626] hover:border-white text-text-secondary hover:text-white transition-all text-left flex items-center justify-between gap-3"
+                        >
+                          <span>{node.name}</span>
+                          <span className="text-[9px] text-text-muted uppercase">[{node.status}]</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
         </div>
       )}
 

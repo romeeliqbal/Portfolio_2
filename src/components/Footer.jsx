@@ -109,7 +109,7 @@ export default function Footer() {
               BUILT WITH REACT &bull; TAILWIND CSS &bull; THREE.JS &bull; FRAMER MOTION
             </p>
             <div className="mt-3 text-[10px] font-mono text-text-muted">
-              Design System: Dark Editorial Engineer
+              Design System: Architectural Monochrome Specification
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function Footer() {
         {/* Bottom copyright */}
         <div className="pt-8 border-t border-[#1E1E1E] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-text-muted">
           <span>&copy; 2026 Romeel Iqbal. All rights reserved.</span>
-          <span>Zero templates. Zero AI hallucinated credentials. Handcrafted engineering.</span>
+          <span>Designed and engineered by Romeel Iqbal. Built with React, Tailwind CSS, Three.js, and Framer Motion.</span>
         </div>
       </div>
     </footer>

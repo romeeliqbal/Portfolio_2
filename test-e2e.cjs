@@ -62,6 +62,31 @@ async function run() {
     await new Promise(r => setTimeout(r, 400));
   }
 
+  // Test Project Demo Interaction
+  console.log('Testing Project Details & Live Demo panel...');
+  const projectBtn = await page.$('button[aria-label="View architecture details for EduPulse"]');
+  if (projectBtn) {
+    await projectBtn.click();
+    await new Promise(r => setTimeout(r, 600));
+    console.log('Expanded EduPulse project drawer');
+    await page.screenshot({ path: path.join(screenshotDir, 'desktop-project-demo.png') });
+  }
+
+  // Capture About Section & Certifications Section
+  const aboutEl = await page.$('#about');
+  if (aboutEl) {
+    await aboutEl.scrollIntoView();
+    await new Promise(r => setTimeout(r, 400));
+    await page.screenshot({ path: path.join(screenshotDir, 'desktop-about-matrix.png') });
+  }
+
+  const certsEl = await page.$('#certifications');
+  if (certsEl) {
+    await certsEl.scrollIntoView();
+    await new Promise(r => setTimeout(r, 400));
+    await page.screenshot({ path: path.join(screenshotDir, 'desktop-certifications-ledger.png') });
+  }
+
   // Test Mobile Viewport
   await page.setViewport({ width: 390, height: 844 });
   await page.goto('http://localhost:4173', { waitUntil: 'networkidle2' });

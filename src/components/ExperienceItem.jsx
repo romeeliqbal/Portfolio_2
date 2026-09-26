@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, ChevronDown, Building2, MapPin, Calendar } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 
 export default function ExperienceItem({ experience, isLast }) {
   const [isExpanded, setIsExpanded] = useState(true);
@@ -36,13 +36,11 @@ export default function ExperienceItem({ experience, isLast }) {
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-text-secondary">
-              <span className="flex items-center gap-1.5 text-text-primary font-medium">
-                <Building2 className="w-3.5 h-3.5 text-text-muted" />
+              <span className="text-text-primary font-medium">
                 {experience.company}
               </span>
-              <span className="flex items-center gap-1.5 text-text-muted">
-                <MapPin className="w-3.5 h-3.5 text-text-muted" />
-                {experience.location}
+              <span className="text-text-muted">
+                / {experience.location}
               </span>
             </div>
           </div>
@@ -54,7 +52,7 @@ export default function ExperienceItem({ experience, isLast }) {
           </span>
           <button
             type="button"
-            className="w-8 h-8 rounded-full border border-[#2A2A2A] flex items-center justify-center text-text-muted group-hover:border-text-secondary group-hover:text-white transition-colors"
+            className="w-7 h-7 border border-[#2A2A2A] flex items-center justify-center text-text-muted group-hover:border-white group-hover:text-white transition-colors"
             aria-label={isExpanded ? "Collapse experience details" : "Expand experience details"}
           >
             {isExpanded ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
@@ -81,10 +79,12 @@ export default function ExperienceItem({ experience, isLast }) {
               <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
                 KEY RESPONSIBILITIES & CONTRIBUTIONS
               </span>
-              <ul className="space-y-2.5 max-w-3xl">
+              <ul className="space-y-3 max-w-3xl">
                 {experience.responsibilities.map((resp, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-text-secondary">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#555555] mt-1.5 shrink-0" />
+                  <li key={idx} className="flex items-start gap-3.5 text-xs sm:text-sm text-text-secondary">
+                    <span className="font-mono text-[10px] text-text-muted shrink-0 mt-0.5">
+                      {String(idx + 1).padStart(2, '0')}.
+                    </span>
                     <span className="leading-relaxed">{resp}</span>
                   </li>
                 ))}
@@ -100,7 +100,7 @@ export default function ExperienceItem({ experience, isLast }) {
                 {experience.tools.map((tool) => (
                   <span
                     key={tool}
-                    className="text-xs font-mono px-3 py-1 bg-[#111111] border border-[#2A2A2A] text-text-secondary hover:text-white hover:border-[#444444] transition-colors"
+                    className="text-xs font-mono px-3 py-1 bg-[#0E0E0E] border border-[#222222] text-text-secondary hover:text-white hover:border-[#444444] transition-colors"
                   >
                     {tool}
                   </span>
