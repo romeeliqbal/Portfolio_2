@@ -24,18 +24,18 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]">
+    <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-border">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column - Editorial Tag */}
         <div className="lg:col-span-4">
           <div className="sticky top-28">
-            <span className="text-4xl sm:text-5xl font-heading font-bold text-text-muted tracking-tighter block mb-2">
-              01
+            <span className="text-[11px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
+              01 &bull; ENGINEERING PROFILE
             </span>
-            <h2 className="text-xl sm:text-2xl font-heading font-medium tracking-tight text-text-primary uppercase mb-4">
+            <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-text-primary uppercase mb-4">
               About
             </h2>
-            <div className="w-12 h-[1px] bg-[#2A2A2A] mb-6" />
+            <div className="w-12 h-[1px] bg-border mb-6" />
             <p className="text-xs font-mono tracking-editorial text-text-secondary uppercase">
               Engineering Mindset &bull; Systems Thinking
             </p>
@@ -44,8 +44,8 @@ export default function About() {
 
         {/* Right Column - Editorial Bio */}
         <div className="lg:col-span-8 space-y-10">
-          <div className="space-y-6 text-text-secondary text-base sm:text-lg leading-relaxed font-light">
-            <p className="text-text-primary font-normal">
+          <div className="space-y-6 text-text-secondary text-base sm:text-lg leading-relaxed font-normal">
+            <p className="text-text-primary font-medium">
               I am a Software Engineering undergraduate at Mehran University of Engineering and Technology (MUET),
               building production-ready web software, resilient backend scripts, and practical intelligent tools.
             </p>
@@ -61,34 +61,34 @@ export default function About() {
             </p>
           </div>
 
-          {/* Varied Asymmetrical Capability Matrix (Replaced generic 3-card grid) */}
-          <div className="pt-8 border-t border-[#2A2A2A]">
+          {/* Varied Asymmetrical Capability Matrix */}
+          <div className="pt-8 border-t border-border">
             <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-6">
               CORE ENGINEERING DISCIPLINES
             </span>
 
-            <div className="space-y-4">
+            <div className="space-y-3.5">
               {capabilities.map((cap) => (
                 <div
                   key={cap.index}
-                  className="grid grid-cols-1 md:grid-cols-12 gap-4 p-5 bg-[#0E0E0E] border border-[#222222] hover:border-[#383838] transition-colors"
+                  className="grid grid-cols-1 md:grid-cols-12 gap-4 p-5 bg-[#101216] border border-border hover:border-border-light transition-all"
                 >
-                  <div className="md:col-span-4 flex items-baseline gap-3">
-                    <span className="text-xs font-mono text-text-muted">
+                  <div className="md:col-span-5 flex items-start gap-3">
+                    <span className="text-xs font-mono text-text-muted mt-0.5 shrink-0">
                       [{cap.index}]
                     </span>
                     <div>
-                      <h3 className="font-heading font-semibold text-text-primary text-sm">
+                      <h3 className="font-heading font-semibold text-text-primary text-sm sm:text-base leading-snug">
                         {cap.title}
                       </h3>
-                      <span className="text-[9px] font-mono tracking-spacious text-text-muted uppercase">
+                      <span className="text-[9px] font-mono tracking-spacious text-text-muted uppercase mt-1 block">
                         {cap.tag}
                       </span>
                     </div>
                   </div>
 
-                  <div className="md:col-span-8 flex items-center">
-                    <p className="text-xs text-text-secondary font-light leading-relaxed">
+                  <div className="md:col-span-7 flex items-center">
+                    <p className="text-xs sm:text-sm text-text-secondary font-normal leading-relaxed">
                       {cap.description}
                     </p>
                   </div>

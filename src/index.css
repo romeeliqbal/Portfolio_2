@@ -32,25 +32,56 @@ html {
 
 /* Focus styles for keyboard accessibility */
 *:focus-visible {
-  outline: 1px solid #d6d6d6;
+  outline: 1px solid #ffffff;
   outline-offset: 3px;
 }
 
 /* Editorial Typography & Mechanical States */
 .editorial-display-text {
   color: #ffffff;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   transition: opacity 0.2s ease;
 }
 
 .editorial-display-subtext {
-  color: #888888;
-  letter-spacing: -0.04em;
+  color: #9ea3ab;
+  letter-spacing: -0.03em;
   transition: color 0.2s ease;
 }
 
 .editorial-display-subtext:hover {
-  color: #cccccc;
+  color: #e2e8f0;
+}
+
+/* Precision corner crosshair / architectural markers */
+.corner-crosshair {
+  position: relative;
+}
+.corner-crosshair::before,
+.corner-crosshair::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+}
+.corner-crosshair::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid #7E8590;
+  border-left: 1px solid #7E8590;
+}
+.corner-crosshair::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid #7E8590;
+  border-right: 1px solid #7E8590;
+}
+
+/* Subtle dot grid pattern */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Reduced motion preference support */

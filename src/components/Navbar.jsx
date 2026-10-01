@@ -49,23 +49,30 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Monogram Logo */}
-        <a
-          href="#"
-          className="group flex items-center gap-2 text-text-primary focus:outline-none"
-          aria-label="Romeel Iqbal - Home"
-        >
-          <span className="font-heading font-bold text-xl tracking-tighter text-text-primary group-hover:text-white transition-colors">
-            RI
-          </span>
-          <span className="text-[10px] uppercase font-mono tracking-editorial text-text-muted hidden sm:inline-block pl-2 border-l border-[#2A2A2A]">
-            Software Engineer
-          </span>
-        </a>
+        {/* Monogram Logo & Live Status */}
+        <div className="flex items-center gap-4">
+          <a
+            href="#"
+            className="group flex items-center gap-2 text-text-primary focus:outline-none"
+            aria-label="Romeel Iqbal - Home"
+          >
+            <span className="font-heading font-bold text-xl tracking-tighter text-text-primary group-hover:text-white transition-colors">
+              RI
+            </span>
+            <span className="text-[10px] uppercase font-mono tracking-editorial text-text-muted hidden sm:inline-block pl-2 border-l border-border">
+              Software Engineer
+            </span>
+          </a>
 
-        {/* Desktop Navigation */}
+          <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 border border-border-subtle bg-[#121418] text-[9px] font-mono text-text-secondary uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>AVAILABLE</span>
+          </div>
+        </div>
+
+        {/* Desktop Navigation (lg+) */}
         <nav
-          className="hidden md:flex items-center gap-8"
+          className="hidden lg:flex items-center gap-6 xl:gap-8"
           aria-label="Main Navigation"
         >
           {NAV_LINKS.map((link) => (
@@ -79,16 +86,16 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="text-xs uppercase font-mono tracking-editorial px-3 py-1.5 border border-[#2A2A2A] hover:border-white text-text-primary hover:text-white hover:bg-[#151515] transition-all"
+            className="text-xs uppercase font-mono tracking-editorial px-3.5 py-1.5 border border-border hover:border-white text-text-primary hover:text-white hover:bg-[#1A1A1A] transition-all"
           >
             LET'S TALK
           </a>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile / Tablet Menu Button (shown on < lg) */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden flex items-center gap-2 text-xs font-mono tracking-editorial text-text-primary p-2 focus:outline-none border border-[#2A2A2A]"
+          className="lg:hidden flex items-center gap-2 text-xs font-mono tracking-editorial text-text-primary px-3 py-1.5 focus:outline-none border border-border hover:border-border-light bg-[#121418]"
           aria-label={
             mobileMenuOpen ? "Close Navigation Menu" : "Open Navigation Menu"
           }
@@ -108,7 +115,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Clean Full-Screen Mobile Menu Overlay */}
+      {/* Clean Full-Screen Mobile/Tablet Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -116,7 +123,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 top-[57px] bg-[#0B0B0B] z-40 md:hidden flex flex-col justify-between px-8 py-10 border-t border-[#2A2A2A]"
+            className="fixed inset-0 top-[57px] bg-[#0B0B0B] z-40 lg:hidden flex flex-col justify-between px-8 py-10 border-t border-border"
           >
             <div className="flex flex-col space-y-6 pt-4">
               <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase">

@@ -14,19 +14,19 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 10 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-lg bg-[#101010] border border-[#333333] p-6 sm:p-8"
+          className="relative w-full max-w-lg bg-[#121418] border border-border-light p-6 sm:p-8 corner-crosshair shadow-2xl"
           role="dialog"
           aria-modal="true"
           aria-labelledby="tech-modal-title"
         >
           {/* Header */}
-          <div className="flex items-start justify-between gap-4 pb-5 border-b border-[#2A2A2A]">
+          <div className="flex items-start justify-between gap-4 pb-5 border-b border-border">
             <div>
               <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-1">
                 DOMAIN: {node.category}
@@ -41,7 +41,7 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
 
             <button
               onClick={onClose}
-              className="p-2 border border-[#2A2A2A] hover:border-white text-text-secondary hover:text-white transition-colors"
+              className="p-2 border border-border hover:border-white text-text-secondary hover:text-white transition-colors bg-[#181B20]"
               aria-label="Close details"
             >
               <X className="w-4 h-4" />
@@ -58,7 +58,7 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
               <span
                 className={`inline-block text-xs font-mono px-3 py-1 border uppercase tracking-editorial ${
                   statusColorMap[node.status] ||
-                  "border-[#2A2A2A] text-text-secondary"
+                  "border-border text-text-secondary"
                 }`}
               >
                 {node.status}
@@ -70,7 +70,7 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
               <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-2">
                 APPLICATION IN WORKFLOW
               </span>
-              <p className="text-sm sm:text-base text-text-secondary font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-text-secondary font-normal leading-relaxed">
                 {node.description}
               </p>
             </div>
@@ -86,7 +86,7 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
                     <button
                       key={relName}
                       onClick={() => onSelectRelated(relName)}
-                      className="text-xs font-mono px-3 py-1.5 bg-[#151515] border border-[#2A2A2A] text-text-secondary hover:border-white hover:text-white transition-all flex items-center gap-1.5"
+                      className="text-xs font-mono px-3 py-1.5 bg-[#181B20] border border-border text-text-secondary hover:border-white hover:text-white transition-all flex items-center gap-1.5"
                     >
                       <span>{relName}</span>
                       <ArrowRight className="w-3 h-3 text-text-muted" />
@@ -98,13 +98,13 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
           </div>
 
           {/* Footer note */}
-          <div className="pt-4 border-t border-[#2A2A2A] flex items-center justify-between">
+          <div className="pt-4 border-t border-border flex items-center justify-between">
             <span className="text-[10px] font-mono text-text-muted">
-              Live Network Node &bull; Verified Profile Data
+              Live Network Node &bull; Verified Technical Skill
             </span>
             <button
               onClick={onClose}
-              className="text-xs font-mono uppercase tracking-editorial text-text-primary hover:text-white"
+              className="text-xs font-mono uppercase tracking-editorial text-text-primary hover:text-white underline underline-offset-4"
             >
               Dismiss
             </button>
