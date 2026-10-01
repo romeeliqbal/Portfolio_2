@@ -10,11 +10,11 @@ export default function Resume() {
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Large Heading */}
-        <div className="lg:col-span-6">
+        <div className="lg:col-span-7">
           <span className="text-[11px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
             07 &bull; DOCUMENTATION
           </span>
-          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl tracking-tight leading-[1.0] text-text-primary uppercase">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl tracking-tight leading-[1.0] text-text-primary uppercase">
             Curriculum
             <br />
             Vitae
@@ -22,7 +22,7 @@ export default function Resume() {
         </div>
 
         {/* Action area */}
-        <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
+        <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
           <p className="text-base sm:text-lg text-text-secondary font-normal leading-relaxed">
             Detailed breakdown of engineering coursework, cross-functional
             internship coordination, independent client deliverables, technical

@@ -10,12 +10,12 @@ export default function Education() {
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column */}
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-5">
           <div className="sticky top-28">
             <span className="text-[11px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
               05 &bull; ACADEMIC FOUNDATIONS
             </span>
-            <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-text-primary uppercase mb-4">
+            <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight text-text-primary uppercase mb-4">
               Education
             </h2>
             <div className="w-12 h-[1px] bg-border mb-6" />
@@ -26,7 +26,7 @@ export default function Education() {
         </div>
 
         {/* Right Column - Editorial Education Items */}
-        <div className="lg:col-span-8 space-y-8">
+        <div className="lg:col-span-7 space-y-8">
           {educationList.map((edu, idx) => (
             <motion.div
               key={idx}
