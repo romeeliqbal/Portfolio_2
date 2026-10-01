@@ -8,8 +8,14 @@ export default function TechnologyNetwork() {
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [selectedNode, setSelectedNode] = useState(null);
-  const [viewMode, setViewMode] = useState("network"); // 'network' | 'matrix'
+  const [viewMode, setViewMode] = useState("matrix");
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
+      setViewMode("network");
+    }
+  }, []);
 
   // Category coordinates for the network layout hubs (percentage-based)
   const categoryHubCoords = {
@@ -35,7 +41,7 @@ export default function TechnologyNetwork() {
   return (
     <section
       id="technologies"
-      className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]"
+      className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-border"
     >
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -43,53 +49,53 @@ export default function TechnologyNetwork() {
           <span className="text-[11px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
             03 &bull; LIVE TECHNOLOGY NETWORK
           </span>
-          <h2 className="font-heading font-extrabold text-4xl sm:text-5xl tracking-tighter text-text-primary uppercase mb-3">
+          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-text-primary uppercase mb-3">
             Technologies
           </h2>
-          <p className="text-text-secondary text-sm sm:text-base font-light max-w-xl">
+          <p className="text-text-secondary text-sm sm:text-base font-normal max-w-xl leading-relaxed">
             Technologies I use to build, experiment, test, and solve problems.
             Click any node to inspect practical implementation context.
           </p>
         </div>
 
-        {/* View mode toggle */}
-        <div className="flex items-center gap-2 border border-[#2A2A2A] p-1 bg-[#111111] self-start md:self-end">
+        {/* View mode toggle - available on large screens */}
+        <div className="hidden lg:flex items-center gap-1.5 border border-border p-1 bg-[#121418] self-start md:self-end">
           <button
             onClick={() => setViewMode("network")}
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono tracking-editorial uppercase transition-colors ${
               viewMode === "network"
-                ? "bg-[#222222] text-white"
+                ? "bg-[#252830] text-white"
                 : "text-text-muted hover:text-text-secondary"
             }`}
             aria-label="Interactive network visualization view"
           >
             <Network className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Network</span>
+            <span>Network</span>
           </button>
           <button
             onClick={() => setViewMode("matrix")}
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono tracking-editorial uppercase transition-colors ${
               viewMode === "matrix"
-                ? "bg-[#222222] text-white"
+                ? "bg-[#252830] text-white"
                 : "text-text-muted hover:text-text-secondary"
             }`}
             aria-label="Structured category matrix view"
           >
             <Grid className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Matrix</span>
+            <span>Matrix</span>
           </button>
         </div>
       </div>
 
       {/* Category Filter Navigation */}
-      <div className="flex flex-wrap items-center gap-2 mb-8 pb-4 border-b border-[#2A2A2A]/50">
+      <div className="flex flex-wrap items-center gap-2 mb-8 pb-4 border-b border-border">
         <button
           onClick={() => setActiveCategory("ALL")}
           onMouseEnter={() => setHoveredCategory(null)}
-          className={`px-4 py-2 text-xs font-mono tracking-editorial uppercase transition-all border ${
+          className={`px-3.5 py-1.5 text-xs font-mono tracking-editorial uppercase transition-all border ${
             activeCategory === "ALL"
-              ? "border-white text-white bg-[#1A1A1A]"
-              : "border-[#2A2A2A] text-text-secondary hover:border-[#555555] hover:text-text-primary bg-[#111111]"
+              ? "border-white text-white bg-[#1E2127]"
+              : "border-border text-text-secondary hover:border-border-light hover:text-text-primary bg-[#121418]"
           }`}
         >
           ALL ({technologyNodes.length})
@@ -103,10 +109,10 @@ export default function TechnologyNetwork() {
             }
             onMouseEnter={() => setHoveredCategory(cat.id)}
             onMouseLeave={() => setHoveredCategory(null)}
-            className={`px-4 py-2 text-xs font-mono tracking-editorial uppercase transition-all border ${
+            className={`px-3.5 py-1.5 text-xs font-mono tracking-editorial uppercase transition-all border ${
               activeCategory === cat.id || hoveredCategory === cat.id
-                ? "border-white text-white bg-[#1A1A1A]"
-                : "border-[#2A2A2A] text-text-secondary hover:border-[#555555] hover:text-text-primary bg-[#111111]"
+                ? "border-white text-white bg-[#1E2127]"
+                : "border-border text-text-secondary hover:border-border-light hover:text-text-primary bg-[#121418]"
             }`}
           >
             {cat.label} ({cat.count})
@@ -225,11 +231,11 @@ export default function TechnologyNetwork() {
           </div>
         </div>
       ) : (
-        /* STRUCTURED TAXONOMY MATRIX (Asymmetrical 2-column system, replacing generic 3-in-a-row cards) */
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        /* STRUCTURED TAXONOMY MATRIX */
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           {/* Left Column: Core Systems & Web Architecture */}
           <div className="lg:col-span-7 space-y-6">
-            <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block pb-2 border-b border-[#2A2A2A]">
+            <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block pb-2 border-b border-border">
               SECTION A &bull; CLIENT-SIDE & CORE SYSTEMS
             </span>
 
@@ -246,9 +252,9 @@ export default function TechnologyNetwork() {
                 return (
                   <div
                     key={cat.id}
-                    className="p-6 bg-[#0E0E0E] border border-[#222222] hover:border-[#333333] transition-colors"
+                    className="p-6 bg-[#101216] border border-border hover:border-border-light transition-all corner-crosshair"
                   >
-                    <div className="flex items-baseline justify-between pb-3 mb-3 border-b border-[#1A1A1A]">
+                    <div className="flex items-baseline justify-between pb-3 mb-3 border-b border-border">
                       <div className="flex items-baseline gap-3">
                         <span className="font-mono text-xs text-text-muted">
                           [{cat.id}]
@@ -262,7 +268,7 @@ export default function TechnologyNetwork() {
                       </span>
                     </div>
 
-                    <p className="text-xs text-text-secondary font-light mb-5">
+                    <p className="text-xs sm:text-sm text-text-secondary font-normal mb-5 leading-relaxed">
                       {cat.description}
                     </p>
 
@@ -271,10 +277,10 @@ export default function TechnologyNetwork() {
                         <button
                           key={node.id}
                           onClick={() => setSelectedNode(node)}
-                          className="px-3 py-1.5 text-xs font-mono bg-[#141414] border border-[#262626] hover:border-white text-text-secondary hover:text-white transition-all text-left flex items-center justify-between gap-3"
+                          className="px-3 py-1.5 text-xs font-mono bg-[#16181D] border border-border hover:border-white text-text-secondary hover:text-white transition-all text-left flex items-center justify-between gap-3 group"
                         >
-                          <span>{node.name}</span>
-                          <span className="text-[9px] text-text-muted uppercase">
+                          <span className="font-medium">{node.name}</span>
+                          <span className="text-[9px] text-text-muted uppercase font-mono group-hover:text-text-secondary">
                             [{node.status}]
                           </span>
                         </button>
@@ -287,7 +293,7 @@ export default function TechnologyNetwork() {
 
           {/* Right Column: Intelligent Systems & Quality Engineering */}
           <div className="lg:col-span-5 space-y-6">
-            <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block pb-2 border-b border-[#2A2A2A]">
+            <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block pb-2 border-b border-border">
               SECTION B &bull; AI SYSTEMS & DEFENSIVE TESTING
             </span>
 
@@ -304,9 +310,9 @@ export default function TechnologyNetwork() {
                 return (
                   <div
                     key={cat.id}
-                    className="p-6 bg-[#0E0E0E] border border-[#222222] hover:border-[#333333] transition-colors"
+                    className="p-6 bg-[#101216] border border-border hover:border-border-light transition-all corner-crosshair"
                   >
-                    <div className="flex items-baseline justify-between pb-3 mb-3 border-b border-[#1A1A1A]">
+                    <div className="flex items-baseline justify-between pb-3 mb-3 border-b border-border">
                       <div className="flex items-baseline gap-3">
                         <span className="font-mono text-xs text-text-muted">
                           [{cat.id}]
@@ -320,7 +326,7 @@ export default function TechnologyNetwork() {
                       </span>
                     </div>
 
-                    <p className="text-xs text-text-secondary font-light mb-5">
+                    <p className="text-xs sm:text-sm text-text-secondary font-normal mb-5 leading-relaxed">
                       {cat.description}
                     </p>
 
@@ -329,10 +335,10 @@ export default function TechnologyNetwork() {
                         <button
                           key={node.id}
                           onClick={() => setSelectedNode(node)}
-                          className="px-3 py-1.5 text-xs font-mono bg-[#141414] border border-[#262626] hover:border-white text-text-secondary hover:text-white transition-all text-left flex items-center justify-between gap-3"
+                          className="px-3 py-1.5 text-xs font-mono bg-[#16181D] border border-border hover:border-white text-text-secondary hover:text-white transition-all text-left flex items-center justify-between gap-3 group"
                         >
-                          <span>{node.name}</span>
-                          <span className="text-[9px] text-text-muted uppercase">
+                          <span className="font-medium">{node.name}</span>
+                          <span className="text-[9px] text-text-muted uppercase font-mono group-hover:text-text-secondary">
                             [{node.status}]
                           </span>
                         </button>

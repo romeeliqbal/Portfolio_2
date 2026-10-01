@@ -7,28 +7,27 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-[#2A2A2A] bg-[#0E0E0E] text-text-secondary py-16 px-6 md:px-12">
+    <footer className="border-t border-border bg-[#0B0B0B] text-text-secondary py-16 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col justify-between space-y-12">
         {/* Top bar with Brand and Back to Top */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-12 border-b border-[#1E1E1E]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-12 border-b border-border">
           <div>
             <div className="flex items-center gap-3 mb-2">
               <span className="font-heading font-extrabold text-2xl tracking-tighter text-white">
                 RI
               </span>
-              <span className="text-xs font-mono tracking-editorial uppercase text-text-muted pl-3 border-l border-[#2A2A2A]">
+              <span className="text-xs font-mono tracking-editorial uppercase text-text-muted pl-3 border-l border-border">
                 Romeel Iqbal
               </span>
             </div>
             <p className="text-xs font-mono text-text-secondary tracking-tight">
-              Software Engineer &bull; Mehran University of Engineering and
-              Technology
+              Software Engineer &bull; Mehran University of Engineering and Technology (MUET)
             </p>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-xs font-mono tracking-editorial uppercase text-text-muted hover:text-white transition-colors self-start sm:self-auto p-2 border border-[#2A2A2A] hover:border-white"
+            className="flex items-center gap-2 text-xs font-mono tracking-editorial uppercase text-text-secondary hover:text-white transition-colors self-start sm:self-auto px-3 py-2 border border-border hover:border-white bg-[#121418]"
             aria-label="Scroll to top of page"
           >
             <span>Back to top</span>
@@ -46,7 +45,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:romeelshaikh3@gmail.com"
-                  className="hover:text-white transition-colors flex items-center gap-2"
+                  className="hover:text-white transition-colors flex items-center gap-2 text-text-secondary"
                 >
                   <Mail className="w-3.5 h-3.5 text-text-muted" />
                   <span>romeelshaikh3@gmail.com</span>
@@ -68,7 +67,7 @@ export default function Footer() {
                   href="https://www.linkedin.com/in/romeel-iqbal-6277493a0/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-2"
+                  className="hover:text-white transition-colors flex items-center gap-2 text-text-secondary"
                 >
                   <Linkedin className="w-3.5 h-3.5 text-text-muted" />
                   <span>LinkedIn Profile</span>
@@ -79,7 +78,7 @@ export default function Footer() {
                   href="https://github.com/romeeliqbal"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-2"
+                  className="hover:text-white transition-colors flex items-center gap-2 text-text-secondary"
                 >
                   <Github className="w-3.5 h-3.5 text-text-muted" />
                   <span>GitHub Repository</span>
@@ -121,7 +120,7 @@ export default function Footer() {
                 Education
               </a>
               <a href="#contact" className="hover:text-white transition-colors">
-                Contact
+                Contact & Feedback
               </a>
             </div>
           </div>
@@ -131,8 +130,7 @@ export default function Footer() {
               SPECIFICATION
             </span>
             <p className="text-xs font-mono text-text-muted leading-relaxed">
-              BUILT WITH REACT &bull; TAILWIND CSS &bull; THREE.JS &bull; FRAMER
-              MOTION
+              BUILT WITH REACT &bull; TAILWIND CSS &bull; THREE.JS &bull; FRAMER MOTION
             </p>
             <div className="mt-3 text-[10px] font-mono text-text-muted">
               Design System: Architectural Monochrome Specification
@@ -141,7 +139,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright */}
-        <div className="pt-8 border-t border-[#1E1E1E] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-text-muted">
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-text-muted">
           <span>&copy; 2026 Romeel Iqbal. All rights reserved.</span>
           <span>
             Designed and engineered by Romeel Iqbal. Built with React, Tailwind

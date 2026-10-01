@@ -6,7 +6,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-[#2A2A2A]"
+      className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-border"
     >
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -14,7 +14,7 @@ export default function Projects() {
           <span className="text-[11px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
             04 &bull; SELECTED WORK
           </span>
-          <h2 className="font-heading font-extrabold text-4xl sm:text-5xl tracking-tighter text-text-primary uppercase">
+          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-text-primary uppercase">
             Projects
           </h2>
         </div>
@@ -24,7 +24,7 @@ export default function Projects() {
       </div>
 
       {/* Projects list */}
-      <div className="border-t border-[#2A2A2A]">
+      <div className="border-t border-border">
         {projects.map((project, index) => (
           <ProjectItem
             key={project.id}

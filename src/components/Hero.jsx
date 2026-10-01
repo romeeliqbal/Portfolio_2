@@ -124,7 +124,7 @@ export default function Hero() {
             className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] corner-crosshair"
           >
             {/* 3D Floating Geometry Layer (neatly scaled and visible across screens) */}
-            <div className="absolute -top-8 -left-8 sm:-top-10 sm:-left-12 w-32 h-32 sm:w-48 sm:h-48 z-20 pointer-events-none opacity-85">
+            <div className="absolute -top-6 left-0 sm:-top-10 sm:-left-10 w-32 h-32 sm:w-48 sm:h-48 z-20 pointer-events-none opacity-85">
               <Suspense fallback={<Hero3DSkeleton />}>
                 <Hero3D />
               </Suspense>

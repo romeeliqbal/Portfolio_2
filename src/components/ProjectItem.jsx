@@ -390,19 +390,19 @@ export default function ProjectItem({ project, isLast }) {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6 }}
       className={`py-12 group transition-all duration-300 ${
-        !isLast ? "border-b border-[#2A2A2A]" : ""
+        !isLast ? "border-b border-border" : ""
       }`}
     >
       {/* Top Header Row */}
       <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-        <div className="flex items-start gap-6 sm:gap-10">
-          <span className="font-heading font-bold text-3xl sm:text-5xl text-text-muted group-hover:text-white transition-colors duration-300 w-12 shrink-0">
+        <div className="flex items-start gap-5 sm:gap-8">
+          <span className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-text-muted group-hover:text-white transition-colors duration-300 w-12 shrink-0">
             {project.id}
           </span>
 
           <div className="max-w-2xl">
-            <div className="flex flex-wrap items-center gap-3 mb-2">
-              <span className="text-[10px] font-mono tracking-editorial uppercase px-2 py-0.5 border border-[#2A2A2A] text-text-secondary bg-[#151515]">
+            <div className="flex flex-wrap items-center gap-2.5 mb-2.5">
+              <span className="text-[10px] font-mono tracking-editorial uppercase px-2.5 py-0.5 border border-border text-text-secondary bg-[#121418]">
                 {project.category}
               </span>
               <span className="text-xs font-mono text-text-muted">
@@ -410,11 +410,11 @@ export default function ProjectItem({ project, isLast }) {
               </span>
             </div>
 
-            <h3 className="font-heading font-bold text-2xl sm:text-4xl text-text-primary group-hover:text-white transition-colors mb-3">
+            <h3 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-text-primary group-hover:text-white transition-colors mb-3">
               {project.title}
             </h3>
 
-            <p className="text-sm sm:text-base text-text-secondary font-light leading-relaxed mb-6">
+            <p className="text-sm sm:text-base text-text-secondary font-normal leading-relaxed mb-6">
               {project.summary}
             </p>
 
@@ -423,7 +423,7 @@ export default function ProjectItem({ project, isLast }) {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="text-xs font-mono px-2.5 py-1 bg-[#0E0E0E] border border-[#222222] text-text-secondary"
+                  className="text-xs font-mono px-2.5 py-1 bg-[#101216] border border-border text-text-secondary hover:text-white hover:border-border-light transition-colors"
                 >
                   {tech}
                 </span>
@@ -433,10 +433,10 @@ export default function ProjectItem({ project, isLast }) {
         </div>
 
         {/* Action Controls */}
-        <div className="flex md:flex-col items-center md:items-end justify-between gap-4 pl-16 sm:pl-20 md:pl-0 shrink-0">
+        <div className="flex md:flex-col items-center md:items-end justify-between gap-3.5 pl-16 sm:pl-20 md:pl-0 shrink-0">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="inline-flex items-center gap-2 px-4 py-2 border border-[#2A2A2A] text-xs font-mono tracking-editorial uppercase text-text-primary hover:border-white hover:text-white hover:bg-[#151515] transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2 border border-border text-xs font-mono tracking-editorial uppercase text-text-primary hover:border-white hover:text-white hover:bg-[#1A1A1A] transition-all bg-[#121418]"
             aria-label={
               isExpanded
                 ? `Hide details for ${project.title}`
@@ -451,13 +451,13 @@ export default function ProjectItem({ project, isLast }) {
             )}
           </button>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 border border-[#2A2A2A] text-text-secondary hover:text-white hover:border-white transition-colors"
+                className="p-2 border border-border text-text-secondary hover:text-white hover:border-white transition-colors bg-[#121418]"
                 aria-label={`View ${project.title} on GitHub`}
               >
                 <Github className="w-4 h-4" />
@@ -469,7 +469,7 @@ export default function ProjectItem({ project, isLast }) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 border border-[#2A2A2A] text-text-secondary hover:text-white hover:border-white transition-colors"
+                className="p-2 border border-border text-text-secondary hover:text-white hover:border-white transition-colors bg-[#121418]"
                 aria-label={`View live demo for ${project.title}`}
               >
                 <ExternalLink className="w-4 h-4" />
@@ -487,18 +487,18 @@ export default function ProjectItem({ project, isLast }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="overflow-hidden pl-0 sm:pl-16 md:pl-22 mt-8"
+            className="overflow-hidden pl-0 sm:pl-16 md:pl-20 mt-8"
           >
-            <div className="p-6 sm:p-8 bg-[#0E0E0E] border border-[#2A2A2A] space-y-6">
+            <div className="p-6 sm:p-8 bg-[#101216] border border-border-light corner-crosshair space-y-6">
               {/* Drawer View Selector */}
-              <div className="flex items-center justify-between pb-4 border-b border-[#1E1E1E]">
+              <div className="flex items-center justify-between pb-4 border-b border-border">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setActiveTab("demo")}
                     className={`px-3 py-1.5 text-xs font-mono uppercase tracking-editorial transition-all border ${
                       activeTab === "demo"
-                        ? "border-white text-white bg-[#1A1A1A]"
-                        : "border-[#262626] text-text-secondary hover:text-white"
+                        ? "border-white text-white bg-[#1E2127]"
+                        : "border-border text-text-secondary hover:text-white bg-[#14171C]"
                     }`}
                   >
                     Interactive Verification Demo
@@ -507,8 +507,8 @@ export default function ProjectItem({ project, isLast }) {
                     onClick={() => setActiveTab("spec")}
                     className={`px-3 py-1.5 text-xs font-mono uppercase tracking-editorial transition-all border ${
                       activeTab === "spec"
-                        ? "border-white text-white bg-[#1A1A1A]"
-                        : "border-[#262626] text-text-secondary hover:text-white"
+                        ? "border-white text-white bg-[#1E2127]"
+                        : "border-border text-text-secondary hover:text-white bg-[#14171C]"
                     }`}
                   >
                     Architecture Specification
@@ -535,27 +535,27 @@ export default function ProjectItem({ project, isLast }) {
                 <div className="space-y-6">
                   {/* Problem vs Solution */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="p-4 bg-[#121212] border border-[#1E1E1E]">
+                    <div className="p-5 bg-[#14171C] border border-border">
                       <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-2">
                         THE TECHNICAL CHALLENGE
                       </span>
-                      <p className="text-xs sm:text-sm text-text-secondary font-light leading-relaxed">
+                      <p className="text-xs sm:text-sm text-text-secondary font-normal leading-relaxed">
                         {project.problem}
                       </p>
                     </div>
 
-                    <div className="p-4 bg-[#121212] border border-[#1E1E1E]">
+                    <div className="p-5 bg-[#14171C] border border-border">
                       <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-2">
                         ENGINEERING SOLUTION
                       </span>
-                      <p className="text-xs sm:text-sm text-text-secondary font-light leading-relaxed">
+                      <p className="text-xs sm:text-sm text-text-secondary font-normal leading-relaxed">
                         {project.solution}
                       </p>
                     </div>
                   </div>
 
                   {/* Architectural Highlights */}
-                  <div className="pt-4 border-t border-[#1F1F1F]">
+                  <div className="pt-4 border-t border-border">
                     <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
                       KEY ARCHITECTURAL HIGHLIGHTS
                     </span>
@@ -563,9 +563,9 @@ export default function ProjectItem({ project, isLast }) {
                       {project.highlights.map((highlight, idx) => (
                         <li
                           key={idx}
-                          className="flex items-start gap-3 text-xs sm:text-sm text-text-secondary"
+                          className="flex items-start gap-3 text-xs sm:text-sm text-text-secondary font-normal"
                         >
-                          <span className="font-mono text-[10px] text-text-muted shrink-0 mt-0.5">
+                          <span className="font-mono text-xs text-text-primary/70 font-semibold shrink-0 mt-0.5">
                             [{String(idx + 1).padStart(2, "0")}]
                           </span>
                           <span>{highlight}</span>
@@ -577,10 +577,9 @@ export default function ProjectItem({ project, isLast }) {
               )}
 
               {/* Links Bar */}
-              <div className="pt-4 border-t border-[#1F1F1F] flex flex-wrap items-center justify-between gap-4">
+              <div className="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-4">
                 <span className="text-[10px] font-mono text-text-muted uppercase">
-                  Verified Technical Project &bull; Code available on request /
-                  repo
+                  Verified Technical Project &bull; Code available on repository
                 </span>
 
                 <div className="flex items-center gap-4">
