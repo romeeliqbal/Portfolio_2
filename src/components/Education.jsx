@@ -15,7 +15,7 @@ export default function Education() {
             <span className="text-[11px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
               05 &bull; ACADEMIC FOUNDATIONS
             </span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-text-primary uppercase mb-4">
+            <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-text-primary uppercase mb-4">
               Education
             </h2>
             <div className="w-12 h-[1px] bg-border mb-6" />

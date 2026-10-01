@@ -76,7 +76,7 @@ export default function Contact() {
             <span className="text-[11px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
               08 &bull; {contactMode === "feedback" ? "FEEDBACK & REVIEWS" : "INITIATE CONTACT"}
             </span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight leading-[1.0] text-text-primary uppercase mb-6">
+            <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl tracking-tight leading-[1.0] text-text-primary uppercase mb-6">
               {contactMode === "feedback" ? (
                 <>
                   Share your

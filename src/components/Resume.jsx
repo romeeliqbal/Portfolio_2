@@ -14,7 +14,7 @@ export default function Resume() {
           <span className="text-[11px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
             07 &bull; DOCUMENTATION
           </span>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight leading-[1.0] text-text-primary uppercase">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl tracking-tight leading-[1.0] text-text-primary uppercase">
             Curriculum
             <br />
             Vitae

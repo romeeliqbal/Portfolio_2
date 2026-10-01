@@ -9,12 +9,12 @@ export default function Projects() {
       className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-border"
     >
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
         <div>
           <span className="text-[11px] font-mono tracking-spacious text-text-muted uppercase block mb-3">
             04 &bull; SELECTED WORK
           </span>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-text-primary uppercase">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-text-primary uppercase">
             Projects
           </h2>
         </div>
