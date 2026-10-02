@@ -51,7 +51,7 @@ export const technologyNodes = [
     description:
       "Building modular component-based user interfaces, declarative state management, and SPA architectures.",
     related: ["JavaScript", "Tailwind CSS", "HTML5", "Vite"],
-    coords: { x: 22, y: 22 },
+    coords: { x: 20, y: 28 },
   },
   {
     id: "javascript",
@@ -61,7 +61,7 @@ export const technologyNodes = [
     description:
       "Modern ES6+ syntax, asynchronous programming, DOM manipulation, and interactive client logic.",
     related: ["React", "HTML5", "CSS3"],
-    coords: { x: 33, y: 14 },
+    coords: { x: 10, y: 24 },
   },
   {
     id: "tailwind",
@@ -71,7 +71,7 @@ export const technologyNodes = [
     description:
       "Utility-first design systems, custom configuration, responsive layouts, and editorial typography.",
     related: ["React", "CSS3", "HTML5"],
-    coords: { x: 18, y: 36 },
+    coords: { x: 30, y: 24 },
   },
   {
     id: "html5",
@@ -81,7 +81,7 @@ export const technologyNodes = [
     description:
       "Semantic document structuring, accessible markup (ARIA), and SEO-friendly document outlines.",
     related: ["CSS3", "JavaScript", "Accessibility"],
-    coords: { x: 12, y: 20 },
+    coords: { x: 10, y: 38 },
   },
   {
     id: "css3",
@@ -91,7 +91,7 @@ export const technologyNodes = [
     description:
       "Custom layouts via Flexbox and Grid, CSS variables, transitions, and media queries.",
     related: ["HTML5", "Tailwind CSS"],
-    coords: { x: 30, y: 32 },
+    coords: { x: 28, y: 38 },
   },
 
   // DEVELOPMENT
@@ -103,7 +103,7 @@ export const technologyNodes = [
     description:
       "Scripting, defensive security lab simulation (file cryptography), data manipulation, and desktop GUIs.",
     related: ["OOP", "Sentiment Analysis", "Data Structures"],
-    coords: { x: 50, y: 16 },
+    coords: { x: 42, y: 26 },
   },
   {
     id: "dsa",
@@ -113,7 +113,7 @@ export const technologyNodes = [
     description:
       "Foundational computer science algorithms, arrays, trees, graphs, sorting, and algorithmic complexity.",
     related: ["Python", "OOP"],
-    coords: { x: 42, y: 28 },
+    coords: { x: 58, y: 26 },
   },
   {
     id: "oop",
@@ -123,7 +123,7 @@ export const technologyNodes = [
     description:
       "Object-oriented software design, encapsulation, abstraction, inheritance, and clean architecture patterns.",
     related: ["Python", "Data Structures"],
-    coords: { x: 56, y: 30 },
+    coords: { x: 44, y: 40 },
   },
   {
     id: "databases",
@@ -133,7 +133,7 @@ export const technologyNodes = [
     description:
       "Relational data modeling, SQL schema design, normal forms, and CRUD operations.",
     related: ["Python", "OOP"],
-    coords: { x: 62, y: 18 },
+    coords: { x: 58, y: 40 },
   },
 
   // AI
@@ -145,7 +145,7 @@ export const technologyNodes = [
     description:
       "Integrating large language model endpoints into functional workflows, structured outputs, and agentic tasks.",
     related: ["Prompt Engineering", "Python", "LLM Applications"],
-    coords: { x: 74, y: 22 },
+    coords: { x: 72, y: 26 },
   },
   {
     id: "prompt-eng",
@@ -155,7 +155,7 @@ export const technologyNodes = [
     description:
       "System prompting, zero-shot and few-shot conditioning, and constrained format extraction (Google certified).",
     related: ["AI APIs", "LLM Applications"],
-    coords: { x: 86, y: 16 },
+    coords: { x: 88, y: 26 },
   },
   {
     id: "llm-apps",
@@ -165,7 +165,7 @@ export const technologyNodes = [
     description:
       "Building interactive tools with conversational UI, feedback loops, and intelligent text analysis.",
     related: ["AI APIs", "Prompt Engineering", "Python"],
-    coords: { x: 82, y: 34 },
+    coords: { x: 72, y: 40 },
   },
   {
     id: "sentiment-nlp",
@@ -175,7 +175,7 @@ export const technologyNodes = [
     description:
       "Automated extraction of sentiment polarities, review categorization, and keyword distillation.",
     related: ["Python", "AI APIs", "LLM Applications"],
-    coords: { x: 70, y: 36 },
+    coords: { x: 88, y: 40 },
   },
 
   // QA & TESTING
@@ -187,7 +187,7 @@ export const technologyNodes = [
     description:
       "Systematic test case design, exploratory testing, bug logging, and user journey validation.",
     related: ["Accessibility", "Performance", "Lighthouse"],
-    coords: { x: 26, y: 68 },
+    coords: { x: 14, y: 78 },
   },
   {
     id: "accessibility",
@@ -197,7 +197,7 @@ export const technologyNodes = [
     description:
       "WCAG compliance audits, screen reader friendly markup, high-contrast checks, and keyboard navigation.",
     related: ["Manual Testing", "Lighthouse", "HTML5"],
-    coords: { x: 16, y: 80 },
+    coords: { x: 25, y: 84 },
   },
   {
     id: "performance",
@@ -207,7 +207,7 @@ export const technologyNodes = [
     description:
       "Benchmarking load times, Core Web Vitals, bundle size reduction, and asset compression.",
     related: ["Lighthouse", "Playwright"],
-    coords: { x: 38, y: 78 },
+    coords: { x: 36, y: 78 },
   },
   {
     id: "playwright",
@@ -217,7 +217,7 @@ export const technologyNodes = [
     description:
       "End-to-end automated browser test scripting, regression verification, and flow simulation.",
     related: ["Manual Testing", "Performance Audits"],
-    coords: { x: 22, y: 90 },
+    coords: { x: 15, y: 62 },
   },
   {
     id: "lighthouse",
@@ -227,7 +227,7 @@ export const technologyNodes = [
     description:
       "Automated performance, accessibility, SEO, and best-practices auditing.",
     related: ["Performance Audits", "Accessibility (a11y)"],
-    coords: { x: 34, y: 92 },
+    coords: { x: 35, y: 62 },
   },
 
   // TOOLS
@@ -239,7 +239,7 @@ export const technologyNodes = [
     description:
       "Version control, atomic commits, branching strategies, rebase workflows, and conflict resolution.",
     related: ["GitHub", "VS Code"],
-    coords: { x: 68, y: 70 },
+    coords: { x: 64, y: 78 },
   },
   {
     id: "github",
@@ -249,7 +249,7 @@ export const technologyNodes = [
     description:
       "Repository management, pull requests, issue tracking, and collaborative code reviews.",
     related: ["Git", "Netlify"],
-    coords: { x: 80, y: 64 },
+    coords: { x: 75, y: 84 },
   },
   {
     id: "vscode",
@@ -259,7 +259,7 @@ export const technologyNodes = [
     description:
       "Primary IDE workflow, debugging, extensions ecosystem, and integrated terminal management.",
     related: ["Git", "Vite"],
-    coords: { x: 74, y: 82 },
+    coords: { x: 86, y: 78 },
   },
   {
     id: "netlify",
@@ -269,7 +269,7 @@ export const technologyNodes = [
     description:
       "Continuous deployment, DNS routing, custom domains, and edge-served static production builds.",
     related: ["GitHub", "Vite"],
-    coords: { x: 88, y: 80 },
+    coords: { x: 65, y: 62 },
   },
   {
     id: "vite",
@@ -279,6 +279,6 @@ export const technologyNodes = [
     description:
       "Modern front-end tooling, hot module replacement, and lightning-fast Rollup-based production builds.",
     related: ["React", "VS Code", "Netlify"],
-    coords: { x: 64, y: 90 },
+    coords: { x: 85, y: 62 },
   },
 ];

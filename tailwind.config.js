@@ -5,36 +5,47 @@ export default {
     extend: {
       colors: {
         bg: {
-          primary: "#0B0B0B",
-          secondary: "#111111",
-          surface: "#151515",
-          surfaceHover: "#1C1C1E",
+          DEFAULT: "#0B0B0C",      // Primary background: hero, About, Tech, Education
+          alt: "#121211",          // Alternating sections: Experience, Projects, Résumé
+          accent: "#15110B",       // Contact section only (amber-tinted dark)
+        },
+        surface: {
+          DEFAULT: "#181816",      // Panels, form container
+          hover: "#1F1F1C",        // Hover states, elevated cards
         },
         border: {
-          DEFAULT: "#2C2D31",
-          subtle: "#1F2124",
-          light: "#3E4249",
+          DEFAULT: "#2A2A27",      // Subtle hairlines
+          strong: "#3D3D38",       // Inputs, buttons
+          accent: "#5C4524",       // Subtle accent borders on contact section
         },
         text: {
-          primary: "#F8F9FA",
-          secondary: "#C2C6CC",
-          muted: "#808793",
-          accent: "#FFFFFF",
+          DEFAULT: "#F2F0EB",      // Primary text: warm off-white (14:1 contrast)
+          secondary: "#B8B5AD",    // Secondary body text (8:1 contrast)
+          muted: "#8A877F",        // Metadata, timestamps (5.5:1 contrast)
+          onAccent: "#0B0B0C",     // High-contrast text on amber buttons
+        },
+        accent: {
+          DEFAULT: "#D99A3D",      // Primary warm amber accent
+          hover: "#E8B068",        // Accent hover
+          border: "#5C4524",       // Subtle accent borders
+          focus: "#F0C27A",        // Focus ring color
+        },
+        status: {
+          success: "#5FB88C",      // Live status dot and form success only
+          error: "#E5786D",        // Form validation errors only
         },
       },
       fontFamily: {
-        heading: ['"Syne"', '"Space Grotesk"', "sans-serif"],
-        body: ['"Plus Jakarta Sans"', '"Inter"', "sans-serif"],
-        mono: ['"JetBrains Mono"', "monospace"],
+        display: ['"Syne"', 'sans-serif'],
+        heading: ['"Space Grotesk"', '"Syne"', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', '"Inter"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       letterSpacing: {
-        tighter: "-0.04em",
+        normal: "0em",
         tight: "-0.02em",
-        editorial: "0.15em",
-        spacious: "0.25em",
-      },
-      animation: {
-        "pulse-subtle": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        editorial: "0.08em",
+        spacious: "0.14em",
       },
     },
   },

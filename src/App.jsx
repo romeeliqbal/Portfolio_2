@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Summary from "./components/Summary";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import TechnologyNetwork from "./components/TechnologyNetwork";
@@ -60,7 +59,6 @@ export default function App() {
 
       <main>
         <Hero />
-        <Summary />
         <About />
         <Experience />
         <TechnologyNetwork />

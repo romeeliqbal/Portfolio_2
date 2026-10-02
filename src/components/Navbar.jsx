@@ -6,10 +6,9 @@ const NAV_LINKS = [
   { label: "ABOUT", href: "#about" },
   { label: "EXPERIENCE", href: "#experience" },
   { label: "TECHNOLOGIES", href: "#technologies" },
-  { label: "WORK", href: "#projects" },
+  { label: "PROJECTS", href: "#projects" },
   { label: "EDUCATION", href: "#education" },
-  { label: "RESUME", href: "#resume" },
-  { label: "CONTACT", href: "#contact" },
+  { label: "RÉSUMÉ", href: "#resume" },
 ];
 
 export default function Navbar() {
@@ -18,7 +17,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 30) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -44,8 +43,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#0B0B0B] py-3.5 border-b border-[#222222]"
-          : "bg-[#0B0B0B]/95 py-5 border-b border-[#1A1A1A]"
+          ? "bg-bg/95 backdrop-blur-md py-3.5 border-b border-border shadow-sm shadow-black/40"
+          : "bg-bg/90 backdrop-blur-sm py-4 border-b border-border/80"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -53,10 +52,10 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <a
             href="#"
-            className="group flex items-center gap-2 text-text-primary focus:outline-none"
+            className="group flex items-center gap-2 text-text focus:outline-none"
             aria-label="Romeel Iqbal - Home"
           >
-            <span className="font-heading font-bold text-xl tracking-tighter text-text-primary group-hover:text-white transition-colors">
+            <span className="font-heading font-bold text-xl tracking-tighter text-text group-hover:text-accent transition-colors">
               RI
             </span>
             <span className="text-[10px] uppercase font-mono tracking-editorial text-text-muted hidden sm:inline-block pl-2 border-l border-border">
@@ -64,9 +63,9 @@ export default function Navbar() {
             </span>
           </a>
 
-          <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 border border-border-subtle bg-[#121418] text-[9px] font-mono text-text-secondary uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>AVAILABLE</span>
+          <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 border border-border bg-surface text-[10px] font-mono text-text-secondary uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-status-success shrink-0" />
+            <span className="tracking-wider">AVAILABLE</span>
           </div>
         </div>
 
@@ -79,14 +78,14 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-xs uppercase font-mono tracking-editorial text-text-secondary hover:text-white transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-white hover:after:w-full after:transition-all after:duration-200"
+              className="text-xs uppercase font-mono tracking-editorial text-text-secondary hover:text-text transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-accent hover:after:w-full after:transition-all after:duration-200"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="text-xs uppercase font-mono tracking-editorial px-3.5 py-1.5 border border-border hover:border-white text-text-primary hover:text-white hover:bg-[#1A1A1A] transition-all"
+            className="text-xs uppercase font-mono tracking-editorial px-4 py-2 border border-accent text-accent hover:bg-accent hover:text-text-onAccent transition-all font-medium"
           >
             LET'S TALK
           </a>
@@ -95,7 +94,7 @@ export default function Navbar() {
         {/* Mobile / Tablet Menu Button (shown on < lg) */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden flex items-center gap-2 text-xs font-mono tracking-editorial text-text-primary px-3 py-1.5 focus:outline-none border border-border hover:border-border-light bg-[#121418]"
+          className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center gap-2 text-xs font-mono tracking-editorial text-text px-3 py-1.5 focus:outline-none border border-border hover:border-border-strong bg-surface"
           aria-label={
             mobileMenuOpen ? "Close Navigation Menu" : "Open Navigation Menu"
           }
@@ -104,12 +103,12 @@ export default function Navbar() {
           {mobileMenuOpen ? (
             <>
               <span>CLOSE</span>
-              <X className="w-4 h-4 text-text-primary" />
+              <X className="w-4 h-4 text-text" />
             </>
           ) : (
             <>
               <span>MENU</span>
-              <Menu className="w-4 h-4 text-text-primary" />
+              <Menu className="w-4 h-4 text-text" />
             </>
           )}
         </button>
@@ -123,9 +122,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 top-[57px] bg-[#0B0B0B] z-40 lg:hidden flex flex-col justify-between px-8 py-10 border-t border-border"
+            className="fixed inset-0 top-[61px] bg-bg z-40 lg:hidden flex flex-col justify-between px-8 py-8 border-t border-border"
           >
-            <div className="flex flex-col space-y-6 pt-4">
+            <div className="flex flex-col space-y-4 pt-2">
               <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase">
                 Navigation
               </span>
@@ -137,19 +136,26 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.04 }}
-                  className="font-heading font-medium text-2xl tracking-tight text-text-primary hover:text-white flex items-center justify-between border-b border-[#1A1A1A] pb-3"
+                  className="font-heading font-medium text-xl tracking-tight text-text hover:text-accent flex items-center justify-between border-b border-border/60 min-h-[48px] py-2"
                 >
                   <span>{link.label}</span>
                   <ArrowUpRight className="w-4 h-4 text-text-muted" />
                 </motion.a>
               ))}
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-4 flex items-center justify-center min-h-[48px] text-xs font-mono uppercase tracking-editorial bg-accent text-text-onAccent font-semibold px-4 py-3"
+              >
+                LET'S TALK
+              </a>
             </div>
 
-            <div className="pt-8 border-t border-[#2A2A2A] flex flex-col gap-2">
-              <div className="text-[11px] font-mono text-text-muted">
+            <div className="pt-6 border-t border-border flex flex-col gap-1.5">
+              <div className="text-xs font-mono text-text-secondary">
                 romeelshaikh3@gmail.com
               </div>
-              <div className="text-[11px] font-mono text-text-muted">
+              <div className="text-xs font-mono text-text-muted">
                 Hyderabad, Pakistan
               </div>
             </div>
