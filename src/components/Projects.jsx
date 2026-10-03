@@ -17,7 +17,8 @@ export default function Projects() {
             </h2>
           </div>
           <p className="text-xs font-mono tracking-editorial text-text-muted uppercase max-w-xs">
-            Working applications &bull; Defensive research &bull; Clean codebases
+            Working applications &bull; Defensive research &bull; Clean
+            codebases
           </p>
         </div>
 

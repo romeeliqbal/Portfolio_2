@@ -121,7 +121,10 @@ export default function TechnologyNetwork() {
         {/* Hint banner relocated above canvas */}
         <div className="flex items-center gap-2 text-xs font-mono text-text-muted mb-4">
           <Info className="w-3.5 h-3.5 text-accent shrink-0" />
-          <span>Click any technology node to inspect practical implementation context</span>
+          <span>
+            Click any technology node to inspect practical implementation
+            context
+          </span>
         </div>
 
         {/* NETWORK VIEW */}
@@ -149,7 +152,8 @@ export default function TechnologyNetwork() {
                 if (!hub) return null;
 
                 const isConnectedToActive =
-                  !currentCategoryFocus || currentCategoryFocus === node.category;
+                  !currentCategoryFocus ||
+                  currentCategoryFocus === node.category;
 
                 return (
                   <line
@@ -189,7 +193,9 @@ export default function TechnologyNetwork() {
                       : "border-border text-text-muted bg-surface opacity-40 hover:opacity-80"
                   }`}
                   onClick={() =>
-                    setActiveCategory(activeCategory === cat.id ? "ALL" : cat.id)
+                    setActiveCategory(
+                      activeCategory === cat.id ? "ALL" : cat.id,
+                    )
                   }
                   onMouseEnter={() => setHoveredCategory(cat.id)}
                   onMouseLeave={() => setHoveredCategory(null)}
@@ -236,9 +242,12 @@ export default function TechnologyNetwork() {
               </span>
 
               {categories
-                .filter((cat) => ["WEB", "DEVELOPMENT", "TOOLS"].includes(cat.id))
+                .filter((cat) =>
+                  ["WEB", "DEVELOPMENT", "TOOLS"].includes(cat.id),
+                )
                 .filter(
-                  (cat) => activeCategory === "ALL" || activeCategory === cat.id,
+                  (cat) =>
+                    activeCategory === "ALL" || activeCategory === cat.id,
                 )
                 .map((cat) => {
                   const nodesInCat = technologyNodes.filter(
@@ -296,7 +305,8 @@ export default function TechnologyNetwork() {
               {categories
                 .filter((cat) => ["AI", "QA"].includes(cat.id))
                 .filter(
-                  (cat) => activeCategory === "ALL" || activeCategory === cat.id,
+                  (cat) =>
+                    activeCategory === "ALL" || activeCategory === cat.id,
                 )
                 .map((cat) => {
                   const nodesInCat = technologyNodes.filter(

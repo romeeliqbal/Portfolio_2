@@ -21,8 +21,8 @@ export default function Resume() {
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
             <p className="text-base sm:text-lg text-text-secondary font-normal leading-relaxed">
               Detailed breakdown of engineering coursework, cross-functional
-              internship coordination, independent client deliverables, technical
-              project write-ups, and verified credentials.
+              internship coordination, independent client deliverables,
+              technical project write-ups, and verified credentials.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">

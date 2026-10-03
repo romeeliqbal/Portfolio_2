@@ -45,9 +45,7 @@ export default function Education() {
 
                 <div className="text-xs sm:text-sm font-mono text-text-secondary font-medium">
                   {edu.institution} &bull;{" "}
-                  <span className="text-text-muted">
-                    {edu.location}
-                  </span>
+                  <span className="text-text-muted">{edu.location}</span>
                 </div>
 
                 <p className="text-sm text-text-secondary font-normal leading-relaxed">

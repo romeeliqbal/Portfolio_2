@@ -80,14 +80,15 @@ export default function About() {
             <p className="text-text font-medium text-lg leading-relaxed">
               I am an undergraduate software engineer at Mehran University of
               Engineering and Technology (MUET), building practical web
-              software, resilient backend scripts, and applied intelligent tools.
+              software, resilient backend scripts, and applied intelligent
+              tools.
             </p>
             <p>
               I architect software from the data layer up—designing predictable
               state flows, structured test suites that catch edge cases before
               deployment, and responsive interfaces that load cleanly across all
-              devices. My technical focus bridges full-stack React workflows with
-              Python-based security research and AI agent integration.
+              devices. My technical focus bridges full-stack React workflows
+              with Python-based security research and AI agent integration.
             </p>
             <p>
               I combine academic foundations with hands-on coordination from an
@@ -105,7 +106,10 @@ export default function About() {
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
               {keyFacts.map((fact) => (
-                <div key={fact.label} className="border-b border-border/70 pb-4">
+                <div
+                  key={fact.label}
+                  className="border-b border-border/70 pb-4"
+                >
                   <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-1">
                     {fact.label}
                   </span>

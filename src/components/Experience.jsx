@@ -19,7 +19,8 @@ export default function Experience() {
           </h2>
         </div>
         <p className="text-xs font-mono tracking-editorial text-text-muted uppercase max-w-xs">
-          Structured problem-solving &bull; Technical execution &bull; Agile delivery
+          Structured problem-solving &bull; Technical execution &bull; Agile
+          delivery
         </p>
       </div>
 

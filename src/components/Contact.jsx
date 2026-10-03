@@ -52,7 +52,9 @@ export default function Contact() {
     // Prepare dispatch
     setTimeout(() => {
       const subjectPrefix =
-        contactMode === "feedback" ? "[Portfolio Feedback]" : "[Project Inquiry]";
+        contactMode === "feedback"
+          ? "[Portfolio Feedback]"
+          : "[Project Inquiry]";
       const mailtoLink = `mailto:${directEmail}?subject=${encodeURIComponent(
         `${subjectPrefix} ${formData.subject}`,
       )}&body=${encodeURIComponent(
@@ -66,14 +68,20 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full bg-bg-accent border-t border-border-accent">
+    <section
+      id="contact"
+      className="w-full bg-bg-accent border-t border-border-accent"
+    >
       <div className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column - Large Editorial Heading & Direct Links */}
           <div className="lg:col-span-6 space-y-8">
             <div>
               <span className="text-xs font-mono tracking-editorial text-accent uppercase block mb-3 font-medium">
-                08 &bull; {contactMode === "feedback" ? "FEEDBACK & REVIEWS" : "INITIATE CONTACT"}
+                08 &bull;{" "}
+                {contactMode === "feedback"
+                  ? "FEEDBACK & REVIEWS"
+                  : "INITIATE CONTACT"}
               </span>
               <h2 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.05] text-text uppercase mb-6 break-normal hyphens-none">
                 {contactMode === "feedback" ? (
@@ -198,8 +206,8 @@ export default function Contact() {
                 </h3>
                 <p className="text-sm text-text-secondary font-normal max-w-sm mx-auto leading-relaxed">
                   Your email client was prompted with the{" "}
-                  {contactMode === "feedback" ? "feedback" : "inquiry"} content. You can
-                  also reach out directly at{" "}
+                  {contactMode === "feedback" ? "feedback" : "inquiry"} content.
+                  You can also reach out directly at{" "}
                   <span className="text-accent font-mono">{directEmail}</span>.
                 </p>
                 <button
@@ -327,7 +335,11 @@ export default function Contact() {
                     </span>
                   ) : (
                     <>
-                      <span>{contactMode === "feedback" ? "Send Feedback" : "Send Message"}</span>
+                      <span>
+                        {contactMode === "feedback"
+                          ? "Send Feedback"
+                          : "Send Message"}
+                      </span>
                       <ArrowRight className="w-4 h-4" />
                     </>
                   )}
@@ -336,8 +348,8 @@ export default function Contact() {
                 {/* Minimal Privacy Note */}
                 <p className="text-[10px] font-mono text-text-muted leading-relaxed pt-2 border-t border-border">
                   Privacy note: Your contact details are used solely to reply
-                  directly to your inquiry or feedback. No information is stored in tracking
-                  databases or shared with third parties.
+                  directly to your inquiry or feedback. No information is stored
+                  in tracking databases or shared with third parties.
                 </p>
               </form>
             )}

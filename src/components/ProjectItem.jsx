@@ -99,7 +99,9 @@ function EduPulseDemo() {
           <span className="text-[9px] text-text-muted block uppercase">
             Schema Status
           </span>
-          <span className="text-base font-bold text-text-secondary">SYNCED</span>
+          <span className="text-base font-bold text-text-secondary">
+            SYNCED
+          </span>
         </div>
       </div>
 
@@ -186,7 +188,10 @@ function RansomwareDemo() {
       ) : (
         <div className="space-y-1.5 bg-surface-hover p-3 border border-border max-h-48 overflow-y-auto">
           {logs.map((log, i) => (
-            <div key={i} className="text-text-secondary text-[11px] leading-relaxed">
+            <div
+              key={i}
+              className="text-text-secondary text-[11px] leading-relaxed"
+            >
               <span className="text-accent select-none">{"> "}</span>
               {log}
             </div>
@@ -301,7 +306,9 @@ function StudyFlowDemo() {
         <span className="text-[9px] text-text-muted uppercase block mb-1">
           Generated Administrative Action
         </span>
-        <p className="text-text-secondary text-xs font-sans">{current.action}</p>
+        <p className="text-text-secondary text-xs font-sans">
+          {current.action}
+        </p>
       </div>
     </div>
   );
@@ -362,7 +369,9 @@ function MadamsBoutiqueDemo({ liveUrl }) {
           Page Architecture Manifest
         </span>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[10px] text-text-secondary">
-          <div className="border-l border-border-strong pl-2">01. Home & Hero</div>
+          <div className="border-l border-border-strong pl-2">
+            01. Home & Hero
+          </div>
           <div className="border-l border-border-strong pl-2">
             02. Curated Catalog
           </div>
@@ -412,20 +421,28 @@ function ProjectPreviewFrame({ project }) {
         <div className="space-y-2">
           <div className="grid grid-cols-3 gap-2 text-[10px]">
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">ENROLLED</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                ENROLLED
+              </span>
               <span className="text-text font-bold">1,420</span>
             </div>
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">ATTENDANCE</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                ATTENDANCE
+              </span>
               <span className="text-accent font-bold">94.2%</span>
             </div>
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">LOAD</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                LOAD
+              </span>
               <span className="text-text font-bold">97%</span>
             </div>
           </div>
           <div className="p-2 bg-surface-hover border border-border flex items-center justify-between text-[10px]">
-            <span className="text-text-secondary truncate">CS-301 DSA • Analytics Sync</span>
+            <span className="text-text-secondary truncate">
+              CS-301 DSA • Analytics Sync
+            </span>
             <span className="text-accent font-mono shrink-0">[LIVE SYNC]</span>
           </div>
         </div>
@@ -435,20 +452,28 @@ function ProjectPreviewFrame({ project }) {
         <div className="space-y-2">
           <div className="grid grid-cols-3 gap-2 text-[10px]">
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">CIPHER</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                CIPHER
+              </span>
               <span className="text-text font-bold">AES-256</span>
             </div>
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">ENTROPY</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                ENTROPY
+              </span>
               <span className="text-accent font-bold">7.99 BITS</span>
             </div>
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">ISOLATION</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                ISOLATION
+              </span>
               <span className="text-text font-bold">100%</span>
             </div>
           </div>
           <div className="p-2 bg-surface-hover border border-border flex items-center justify-between text-[10px]">
-            <span className="text-text-secondary truncate">Zero-Trust Sandbox Containment</span>
+            <span className="text-text-secondary truncate">
+              Zero-Trust Sandbox Containment
+            </span>
             <span className="text-accent font-mono shrink-0">[SECURED]</span>
           </div>
         </div>
@@ -458,20 +483,28 @@ function ProjectPreviewFrame({ project }) {
         <div className="space-y-2">
           <div className="grid grid-cols-3 gap-2 text-[10px]">
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">CADENCE</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                CADENCE
+              </span>
               <span className="text-text font-bold">25M / 5M</span>
             </div>
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">STATE</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                STATE
+              </span>
               <span className="text-accent font-bold">STORAGE</span>
             </div>
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">SYNTH</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                SYNTH
+              </span>
               <span className="text-text font-bold">BINAURAL</span>
             </div>
           </div>
           <div className="p-2 bg-surface-hover border border-border flex items-center justify-between text-[10px]">
-            <span className="text-text-secondary truncate">Adaptive Focus Protocol Engine</span>
+            <span className="text-text-secondary truncate">
+              Adaptive Focus Protocol Engine
+            </span>
             <span className="text-accent font-mono shrink-0">[ENGAGED]</span>
           </div>
         </div>
@@ -481,20 +514,28 @@ function ProjectPreviewFrame({ project }) {
         <div className="space-y-2">
           <div className="grid grid-cols-3 gap-2 text-[10px]">
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">PAGES</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                PAGES
+              </span>
               <span className="text-text font-bold">7 VIEWS</span>
             </div>
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">LIGHTHOUSE</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                LIGHTHOUSE
+              </span>
               <span className="text-accent font-bold">100/100</span>
             </div>
             <div className="p-2 bg-surface-hover border border-border">
-              <span className="text-text-muted block text-[9px] uppercase">CLS SCORE</span>
+              <span className="text-text-muted block text-[9px] uppercase">
+                CLS SCORE
+              </span>
               <span className="text-text font-bold">0.000</span>
             </div>
           </div>
           <div className="p-2 bg-surface-hover border border-border flex items-center justify-between text-[10px]">
-            <span className="text-text-secondary truncate">Slide Cart & Dynamic Product Catalog</span>
+            <span className="text-text-secondary truncate">
+              Slide Cart & Dynamic Product Catalog
+            </span>
             <span className="text-accent font-mono shrink-0">[DEPLOYED]</span>
           </div>
         </div>

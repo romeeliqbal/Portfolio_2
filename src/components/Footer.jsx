@@ -21,7 +21,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-xs font-mono text-text-secondary tracking-tight">
-              Software Engineer &bull; Mehran University of Engineering and Technology (MUET)
+              Software Engineer &bull; Mehran University of Engineering and
+              Technology (MUET)
             </p>
           </div>
 
@@ -92,7 +93,10 @@ export default function Footer() {
               PORTFOLIO SECTIONS
             </span>
             <div className="grid grid-cols-2 gap-2 text-xs font-mono text-text-secondary">
-              <a href="#about" className="hover:text-accent transition-colors py-1">
+              <a
+                href="#about"
+                className="hover:text-accent transition-colors py-1"
+              >
                 About
               </a>
               <a
@@ -131,7 +135,10 @@ export default function Footer() {
               >
                 Résumé
               </a>
-              <a href="#contact" className="hover:text-accent transition-colors py-1">
+              <a
+                href="#contact"
+                className="hover:text-accent transition-colors py-1"
+              >
                 Contact
               </a>
             </div>
@@ -142,7 +149,8 @@ export default function Footer() {
               SPECIFICATION
             </span>
             <p className="text-xs font-mono text-text-muted leading-relaxed">
-              BUILT WITH REACT &bull; TAILWIND CSS &bull; FRAMER MOTION &bull; VITE
+              BUILT WITH REACT &bull; TAILWIND CSS &bull; FRAMER MOTION &bull;
+              VITE
             </p>
             <div className="mt-3 text-[10px] font-mono text-text-muted">
               Design System: Warm Architectural Dark Specification
@@ -154,7 +162,8 @@ export default function Footer() {
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-text-muted">
           <span>&copy; 2026 Romeel Iqbal. All rights reserved.</span>
           <span>
-            Designed & engineered by Romeel Iqbal. Built with React, Tailwind CSS, & Vite.
+            Designed & engineered by Romeel Iqbal. Built with React, Tailwind
+            CSS, & Vite.
           </span>
         </div>
       </div>
