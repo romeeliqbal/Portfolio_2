@@ -1,17 +1,109 @@
-# Purpose of Portfolio_2
+# Portfolio_2 Project Information
 
-The purpose of **Portfolio_2** is to provide a modern, responsive personal portfolio website that showcases professional experience, technical skills, education, certifications, and completed projects.
+## Project Purpose
 
-The project is designed to help visitors quickly understand the developer's background and capabilities through an organized single-page interface. It also provides contact information and access to a downloadable resume, making it useful for professional networking, collaboration, and job opportunities.
+Portfolio_2 is a modern personal portfolio website built to present professional experience, projects, technologies, and contact information in a visually clean and engaging single-page experience. The project is designed to help recruiters, clients, and collaborators quickly understand the developer's background and technical capabilities.
 
-## Main Objectives
+## Used Technologies
 
-- Present a professional personal introduction.
-- Showcase work experience and education.
-- Highlight selected software projects.
-- Display technical skills and technologies.
-- Provide certification and achievement details.
-- Offer an easy way to view or download the resume.
-- Provide contact information for potential employers, clients, and collaborators.
+This project uses the following technologies:
 
-The application uses reusable React components and structured data files so that portfolio content can be updated easily without changing the overall layout or application architecture.
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+- PostCSS
+- CSS custom styling
+- @react-three/fiber
+- three.js
+
+### Core Stack
+
+- Frontend framework: React
+- Build tool: Vite
+- Styling: Tailwind CSS
+- Language: JavaScript
+- 3D/visual effect library: React Three Fiber + Three.js
+
+## Design and Visual System
+
+### Color Palette
+
+The project uses a dark, minimal, tech-oriented palette with subtle contrast for a premium portfolio feel.
+
+- Primary background: `#0B0B0B`
+- Secondary background: `#111111`
+- Surface: `#151515`
+- Surface hover: `#1C1C1E`
+- Border default: `#2C2D31`
+- Border subtle: `#1F2124`
+- Border light: `#3E4249`
+- Primary text: `#F8F9FA`
+- Secondary text: `#C2C6CC`
+- Muted text: `#808793`
+- White accent: `#FFFFFF`
+
+### Typography
+
+The site uses a modern editorial style with clean sans-serif and display fonts:
+
+- Heading font: `Syne`, `Space Grotesk`, sans-serif
+- Body font: `Plus Jakarta Sans`, `Inter`, sans-serif
+- Monospace: `JetBrains Mono`, monospace
+
+### Layout Style
+
+- Dark background aesthetic
+- Minimal and premium UI
+- Large editorial typography
+- Grid pattern and crosshair-style visual accents
+- Smooth page scroll behavior
+- Animated 3D hero object
+
+## Motion and Interaction
+
+The project includes subtle motion design to create a dynamic yet professional experience.
+
+- Gentle rotation of 3D hero object
+- Mouse-based parallax movement
+- Subtle pulse animation
+- Smooth scroll transitions
+- Reduced-motion support for accessibility
+
+## Accessibility Notes
+
+The project includes several accessibility considerations:
+
+- Visible focus states for keyboard navigation
+- Reduced-motion media query support
+- Clear contrast between text and background
+- Simple and readable layout structure
+
+## Content Structure Used in the Project
+
+The website is organized around reusable sections and data-driven content:
+
+- Hero section
+- About summary
+- Experience timeline
+- Project gallery
+- Technology/skills section
+- Education and certifications
+- Contact section
+- Resume display/download
+
+## Data Organization
+
+The project keeps content separated from UI logic by storing portfolio details in structured data files such as:
+
+- `src/data/projects.js`
+- `src/data/experience.js`
+- `src/data/education.js`
+- `src/data/certifications.js`
+- `src/data/technologies.js`
+
+This helps make updates easy without rewriting major UI components.
+
+## Summary
+
+Portfolio_2 is a polished React-based portfolio website that combines strong visual design, dark mode aesthetics, modern typography, motion effects, and structured content organization. It is built to present the developer's identity and work in a professional, appealing, and easy-to-maintain format.
