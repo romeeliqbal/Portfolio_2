@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, Plus, Minus } from "lucide-react";
+import { Github, ExternalLink, Plus, Minus, Check } from "lucide-react";
 
-/* --- Real Product Demo Panels --- */
+/* --- Real Product Demo Panels with Warm Theme Tokens --- */
 
 function EduPulseDemo() {
   const [filter, setFilter] = useState("ALL");
@@ -43,24 +43,32 @@ function EduPulseDemo() {
       : courses;
 
   return (
-    <div className="space-y-4 border border-[#222222] bg-[#0A0A0A] p-5 font-mono text-xs">
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#1E1E1E]">
+    <div className="space-y-4 border border-border bg-surface p-5 font-mono text-xs">
+      <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-border">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 bg-white" />
-          <span className="text-[11px] font-bold text-white uppercase tracking-editorial">
+          <span className="w-2 h-2 bg-accent" />
+          <span className="text-[11px] font-bold text-text uppercase tracking-editorial">
             EDUPULSE // LIVE METRICS SIMULATION
           </span>
         </div>
         <div className="flex items-center gap-1.5 text-[10px]">
           <button
             onClick={() => setFilter("ALL")}
-            className={`px-2 py-0.5 border ${filter === "ALL" ? "border-white text-white bg-[#1A1A1A]" : "border-[#262626] text-[#777777]"}`}
+            className={`px-2.5 py-1 border min-h-[36px] transition-colors ${
+              filter === "ALL"
+                ? "border-accent text-accent bg-surface-hover font-semibold"
+                : "border-border text-text-muted hover:text-text bg-surface"
+            }`}
           >
             ALL
           </button>
           <button
             onClick={() => setFilter("HIGH")}
-            className={`px-2 py-0.5 border ${filter === "HIGH" ? "border-white text-white bg-[#1A1A1A]" : "border-[#262626] text-[#777777]"}`}
+            className={`px-2.5 py-1 border min-h-[36px] transition-colors ${
+              filter === "HIGH"
+                ? "border-accent text-accent bg-surface-hover font-semibold"
+                : "border-border text-text-muted hover:text-text bg-surface"
+            }`}
           >
             &gt;90% LOAD
           </button>
@@ -69,35 +77,35 @@ function EduPulseDemo() {
 
       {/* Real KPI Block */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="p-3 bg-[#111111] border border-[#222222]">
-          <span className="text-[9px] text-[#666666] block uppercase">
+        <div className="p-3 bg-surface-hover border border-border">
+          <span className="text-[9px] text-text-muted block uppercase">
             Total Enrolled
           </span>
-          <span className="text-base font-bold text-white">1,420</span>
+          <span className="text-base font-bold text-text">1,420</span>
         </div>
-        <div className="p-3 bg-[#111111] border border-[#222222]">
-          <span className="text-[9px] text-[#666666] block uppercase">
+        <div className="p-3 bg-surface-hover border border-border">
+          <span className="text-[9px] text-text-muted block uppercase">
             Avg Attendance
           </span>
-          <span className="text-base font-bold text-white">94.2%</span>
+          <span className="text-base font-bold text-accent">94.2%</span>
         </div>
-        <div className="p-3 bg-[#111111] border border-[#222222]">
-          <span className="text-[9px] text-[#666666] block uppercase">
+        <div className="p-3 bg-surface-hover border border-border">
+          <span className="text-[9px] text-text-muted block uppercase">
             Courses Tracked
           </span>
-          <span className="text-base font-bold text-white">18</span>
+          <span className="text-base font-bold text-text">18</span>
         </div>
-        <div className="p-3 bg-[#111111] border border-[#222222]">
-          <span className="text-[9px] text-[#666666] block uppercase">
+        <div className="p-3 bg-surface-hover border border-border">
+          <span className="text-[9px] text-text-muted block uppercase">
             Schema Status
           </span>
-          <span className="text-base font-bold text-[#CCCCCC]">SYNCED</span>
+          <span className="text-base font-bold text-text-secondary">SYNCED</span>
         </div>
       </div>
 
       {/* Course capacity visualizer */}
       <div className="space-y-2 pt-2">
-        <span className="text-[10px] text-[#888888] uppercase block">
+        <span className="text-[10px] text-text-muted uppercase block">
           Course Enrollment Capacity
         </span>
         {filteredCourses.map((c) => {
@@ -105,19 +113,19 @@ function EduPulseDemo() {
           return (
             <div
               key={c.code}
-              className="p-2.5 bg-[#121212] border border-[#1E1E1E]"
+              className="p-2.5 bg-surface-hover border border-border"
             >
               <div className="flex items-center justify-between text-[11px] mb-1.5">
-                <span className="text-white font-medium">
+                <span className="text-text font-medium">
                   {c.code} &bull; {c.name}
                 </span>
-                <span className="text-[#AAAAAA]">
+                <span className="text-text-muted">
                   {c.enrolled}/{c.cap} ({pct}%)
                 </span>
               </div>
-              <div className="w-full h-1.5 bg-[#222222] overflow-hidden">
+              <div className="w-full h-1.5 bg-surface overflow-hidden border border-border">
                 <div
-                  className="h-full bg-white transition-all duration-500"
+                  className="h-full bg-accent transition-all duration-500"
                   style={{ width: `${pct}%` }}
                 />
               </div>
@@ -151,18 +159,18 @@ function RansomwareDemo() {
   };
 
   return (
-    <div className="border border-[#222222] bg-[#0A0A0A] p-5 font-mono text-xs space-y-4">
-      <div className="flex items-center justify-between pb-3 border-b border-[#1E1E1E]">
+    <div className="border border-border bg-surface p-5 font-mono text-xs space-y-4">
+      <div className="flex items-center justify-between pb-3 border-b border-border">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 bg-white" />
-          <span className="text-[11px] font-bold text-white uppercase tracking-editorial">
+          <span className="w-2 h-2 bg-accent" />
+          <span className="text-[11px] font-bold text-text uppercase tracking-editorial">
             CRYPTOGRAPHIC AUDIT & EXECUTION LOG
           </span>
         </div>
         <button
           onClick={handleSimulate}
           disabled={running}
-          className="px-3 py-1 border border-[#333333] hover:border-white text-text-secondary hover:text-white transition-colors text-[10px] uppercase"
+          className="px-3 py-1.5 border border-border hover:border-accent text-text-secondary hover:text-text transition-colors text-[10px] uppercase min-h-[36px]"
         >
           {running ? "VERIFYING..." : "RE-RUN TEST"}
         </button>
@@ -170,16 +178,16 @@ function RansomwareDemo() {
 
       {running ? (
         <div className="py-8 text-center space-y-2">
-          <div className="w-6 h-6 border border-white border-t-transparent animate-spin mx-auto" />
-          <span className="text-[10px] text-[#777777] block uppercase">
+          <div className="w-6 h-6 border-2 border-accent border-t-transparent rounded-full animate-spin mx-auto" />
+          <span className="text-[10px] text-text-muted block uppercase">
             Running sandbox verification...
           </span>
         </div>
       ) : (
-        <div className="space-y-1.5 bg-[#0F0F0F] p-3 border border-[#1A1A1A] max-h-48 overflow-y-auto">
+        <div className="space-y-1.5 bg-surface-hover p-3 border border-border max-h-48 overflow-y-auto">
           {logs.map((log, i) => (
-            <div key={i} className="text-[#AAAAAA] text-[11px] leading-relaxed">
-              <span className="text-[#555555] select-none">{"> "}</span>
+            <div key={i} className="text-text-secondary text-[11px] leading-relaxed">
+              <span className="text-accent select-none">{"> "}</span>
               {log}
             </div>
           ))}
@@ -187,17 +195,17 @@ function RansomwareDemo() {
       )}
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-[10px] pt-1">
-        <div className="p-2 border border-[#1E1E1E] bg-[#111111]">
-          <span className="text-[#666666] block">ALGORITHM</span>
-          <span className="text-white font-medium">AES-256-GCM / PBKDF2</span>
+        <div className="p-2 border border-border bg-surface-hover">
+          <span className="text-text-muted block">ALGORITHM</span>
+          <span className="text-text font-medium">AES-256-GCM / PBKDF2</span>
         </div>
-        <div className="p-2 border border-[#1E1E1E] bg-[#111111]">
-          <span className="text-[#666666] block">CONTAINMENT</span>
-          <span className="text-white font-medium">100% Sandbox Isolated</span>
+        <div className="p-2 border border-border bg-surface-hover">
+          <span className="text-text-muted block">CONTAINMENT</span>
+          <span className="text-text font-medium">100% Sandbox Isolated</span>
         </div>
-        <div className="p-2 border border-[#1E1E1E] bg-[#111111] col-span-2 sm:col-span-1">
-          <span className="text-[#666666] block">RECOVERY AUDIT</span>
-          <span className="text-white font-medium">
+        <div className="p-2 border border-border bg-surface-hover col-span-2 sm:col-span-1">
+          <span className="text-text-muted block">RECOVERY AUDIT</span>
+          <span className="text-accent font-medium">
             Verified Clean Rollback
           </span>
         </div>
@@ -226,15 +234,15 @@ function StudyFlowDemo() {
   const current = samples[selectedPrompt];
 
   return (
-    <div className="border border-[#222222] bg-[#0A0A0A] p-5 font-mono text-xs space-y-4">
-      <div className="flex items-center justify-between pb-3 border-b border-[#1E1E1E]">
+    <div className="border border-border bg-surface p-5 font-mono text-xs space-y-4">
+      <div className="flex items-center justify-between pb-3 border-b border-border">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 bg-white" />
-          <span className="text-[11px] font-bold text-white uppercase tracking-editorial">
+          <span className="w-2 h-2 bg-accent" />
+          <span className="text-[11px] font-bold text-text uppercase tracking-editorial">
             STUDYFLOW // NLP SENTIMENT CLASSIFICATION
           </span>
         </div>
-        <span className="text-[10px] text-[#666666] uppercase">
+        <span className="text-[10px] text-text-muted uppercase">
           SAMPLE INPUT SELECTOR
         </span>
       </div>
@@ -245,10 +253,10 @@ function StudyFlowDemo() {
           <button
             key={idx}
             onClick={() => setSelectedPrompt(idx)}
-            className={`px-3 py-1.5 border text-[10px] uppercase transition-colors ${
+            className={`px-3 py-1.5 border text-[10px] uppercase transition-colors min-h-[36px] ${
               selectedPrompt === idx
-                ? "border-white text-white bg-[#1A1A1A]"
-                : "border-[#262626] text-[#777777] hover:text-white"
+                ? "border-accent text-accent bg-surface-hover font-semibold"
+                : "border-border text-text-muted hover:text-text bg-surface"
             }`}
           >
             Sample {idx + 1}
@@ -256,31 +264,31 @@ function StudyFlowDemo() {
         ))}
       </div>
 
-      <div className="p-3 bg-[#111111] border border-[#1E1E1E]">
-        <span className="text-[9px] text-[#666666] uppercase block mb-1">
+      <div className="p-3 bg-surface-hover border border-border">
+        <span className="text-[9px] text-text-muted uppercase block mb-1">
           Student Feedback Text
         </span>
-        <p className="text-white text-xs leading-relaxed font-sans">
+        <p className="text-text text-xs leading-relaxed font-sans">
           {current.text}
         </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px]">
-        <div className="p-3 bg-[#111111] border border-[#1E1E1E]">
-          <span className="text-[9px] text-[#666666] uppercase block mb-1">
+        <div className="p-3 bg-surface-hover border border-border">
+          <span className="text-[9px] text-text-muted uppercase block mb-1">
             Polarity Score
           </span>
-          <span className="text-white font-medium">{current.polarity}</span>
+          <span className="text-accent font-medium">{current.polarity}</span>
         </div>
-        <div className="p-3 bg-[#111111] border border-[#1E1E1E]">
-          <span className="text-[9px] text-[#666666] uppercase block mb-1">
+        <div className="p-3 bg-surface-hover border border-border">
+          <span className="text-[9px] text-text-muted uppercase block mb-1">
             Extracted Keywords
           </span>
           <div className="flex flex-wrap gap-1.5 mt-1">
             {current.keywords.map((kw) => (
               <span
                 key={kw}
-                className="text-[9px] px-1.5 py-0.5 bg-[#1E1E1E] text-[#CCCCCC] border border-[#333333]"
+                className="text-[9px] px-1.5 py-0.5 bg-surface text-text-secondary border border-border"
               >
                 {kw}
               </span>
@@ -289,11 +297,11 @@ function StudyFlowDemo() {
         </div>
       </div>
 
-      <div className="p-3 bg-[#141414] border border-[#2A2A2A]">
-        <span className="text-[9px] text-[#888888] uppercase block mb-1">
+      <div className="p-3 bg-surface-hover border border-border">
+        <span className="text-[9px] text-text-muted uppercase block mb-1">
           Generated Administrative Action
         </span>
-        <p className="text-[#CCCCCC] text-xs font-sans">{current.action}</p>
+        <p className="text-text-secondary text-xs font-sans">{current.action}</p>
       </div>
     </div>
   );
@@ -301,11 +309,11 @@ function StudyFlowDemo() {
 
 function MadamsBoutiqueDemo({ liveUrl }) {
   return (
-    <div className="border border-[#222222] bg-[#0A0A0A] p-5 font-mono text-xs space-y-4">
-      <div className="flex items-center justify-between pb-3 border-b border-[#1E1E1E]">
+    <div className="border border-border bg-surface p-5 font-mono text-xs space-y-4">
+      <div className="flex items-center justify-between pb-3 border-b border-border">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 bg-white" />
-          <span className="text-[11px] font-bold text-white uppercase tracking-editorial">
+          <span className="w-2 h-2 bg-accent" />
+          <span className="text-[11px] font-bold text-text uppercase tracking-editorial">
             MADAMS BOUTIQUE // ARCHITECTURE SPEC
           </span>
         </div>
@@ -314,7 +322,7 @@ function MadamsBoutiqueDemo({ liveUrl }) {
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-[10px] text-white underline underline-offset-4 hover:text-[#CCCCCC]"
+            className="inline-flex items-center gap-1.5 text-[10px] text-accent underline underline-offset-4 hover:text-accent-hover min-h-[36px]"
           >
             <span>LIVE PRODUCTION SITE</span>
             <ExternalLink className="w-3 h-3" />
@@ -323,57 +331,181 @@ function MadamsBoutiqueDemo({ liveUrl }) {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="p-3 bg-[#111111] border border-[#1E1E1E]">
-          <span className="text-[9px] text-[#666666] block uppercase">
+        <div className="p-3 bg-surface-hover border border-border">
+          <span className="text-[9px] text-text-muted block uppercase">
             Pages Engineered
           </span>
-          <span className="text-base font-bold text-white">7 Pages</span>
+          <span className="text-base font-bold text-text">7 Pages</span>
         </div>
-        <div className="p-3 bg-[#111111] border border-[#1E1E1E]">
-          <span className="text-[9px] text-[#666666] block uppercase">
+        <div className="p-3 bg-surface-hover border border-border">
+          <span className="text-[9px] text-text-muted block uppercase">
             Runtime JS Bundle
           </span>
-          <span className="text-base font-bold text-white">14.2 KB</span>
+          <span className="text-base font-bold text-text">14.2 KB</span>
         </div>
-        <div className="p-3 bg-[#111111] border border-[#1E1E1E]">
-          <span className="text-[9px] text-[#666666] block uppercase">
+        <div className="p-3 bg-surface-hover border border-border">
+          <span className="text-[9px] text-text-muted block uppercase">
             Lighthouse Perf
           </span>
-          <span className="text-base font-bold text-white">100 / 100</span>
+          <span className="text-base font-bold text-accent">100 / 100</span>
         </div>
-        <div className="p-3 bg-[#111111] border border-[#1E1E1E]">
-          <span className="text-[9px] text-[#666666] block uppercase">
+        <div className="p-3 bg-surface-hover border border-border">
+          <span className="text-[9px] text-text-muted block uppercase">
             Layout Shift (CLS)
           </span>
-          <span className="text-base font-bold text-white">0.000</span>
+          <span className="text-base font-bold text-text">0.000</span>
         </div>
       </div>
 
-      <div className="p-3 bg-[#111111] border border-[#1E1E1E] text-xs">
-        <span className="text-[9px] text-[#666666] uppercase block mb-1.5">
+      <div className="p-3 bg-surface-hover border border-border text-xs">
+        <span className="text-[9px] text-text-muted uppercase block mb-1.5">
           Page Architecture Manifest
         </span>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[10px] text-[#AAAAAA]">
-          <div className="border-l border-[#333333] pl-2">01. Home & Hero</div>
-          <div className="border-l border-[#333333] pl-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[10px] text-text-secondary">
+          <div className="border-l border-border-strong pl-2">01. Home & Hero</div>
+          <div className="border-l border-border-strong pl-2">
             02. Curated Catalog
           </div>
-          <div className="border-l border-[#333333] pl-2">
+          <div className="border-l border-border-strong pl-2">
             03. Product Inspector
           </div>
-          <div className="border-l border-[#333333] pl-2">
+          <div className="border-l border-border-strong pl-2">
             04. Slide Cart Drawer
           </div>
-          <div className="border-l border-[#333333] pl-2">
+          <div className="border-l border-border-strong pl-2">
             05. Editorial Lookbook
           </div>
-          <div className="border-l border-[#333333] pl-2">
+          <div className="border-l border-border-strong pl-2">
             06. Brand Narrative
           </div>
-          <div className="border-l border-[#333333] pl-2">
+          <div className="border-l border-border-strong pl-2">
             07. Responsive Checkout
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/* --- Project Preview Telemetry Frame (Fills empty void & showcases architecture) --- */
+
+function ProjectPreviewFrame({ project }) {
+  return (
+    <div className="border border-border bg-surface/80 p-4 sm:p-5 font-mono text-xs space-y-3 select-none">
+      {/* Mini terminal bar */}
+      <div className="flex items-center justify-between pb-2 border-b border-border">
+        <div className="flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-status-success/80" />
+          <span className="w-2 h-2 rounded-full bg-border-strong" />
+          <span className="w-2 h-2 rounded-full bg-border-strong" />
+          <span className="text-[10px] text-text-muted uppercase ml-2 tracking-editorial">
+            SYS-{project.id} // PREVIEW
+          </span>
+        </div>
+        <span className="text-[10px] text-accent uppercase font-medium">
+          {project.category}
+        </span>
+      </div>
+
+      {/* Telemetry per project */}
+      {project.id === "01" && (
+        <div className="space-y-2">
+          <div className="grid grid-cols-3 gap-2 text-[10px]">
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">ENROLLED</span>
+              <span className="text-text font-bold">1,420</span>
+            </div>
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">ATTENDANCE</span>
+              <span className="text-accent font-bold">94.2%</span>
+            </div>
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">LOAD</span>
+              <span className="text-text font-bold">97%</span>
+            </div>
+          </div>
+          <div className="p-2 bg-surface-hover border border-border flex items-center justify-between text-[10px]">
+            <span className="text-text-secondary truncate">CS-301 DSA • Analytics Sync</span>
+            <span className="text-accent font-mono shrink-0">[LIVE SYNC]</span>
+          </div>
+        </div>
+      )}
+
+      {project.id === "02" && (
+        <div className="space-y-2">
+          <div className="grid grid-cols-3 gap-2 text-[10px]">
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">CIPHER</span>
+              <span className="text-text font-bold">AES-256</span>
+            </div>
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">ENTROPY</span>
+              <span className="text-accent font-bold">7.99 BITS</span>
+            </div>
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">ISOLATION</span>
+              <span className="text-text font-bold">100%</span>
+            </div>
+          </div>
+          <div className="p-2 bg-surface-hover border border-border flex items-center justify-between text-[10px]">
+            <span className="text-text-secondary truncate">Zero-Trust Sandbox Containment</span>
+            <span className="text-accent font-mono shrink-0">[SECURED]</span>
+          </div>
+        </div>
+      )}
+
+      {project.id === "03" && (
+        <div className="space-y-2">
+          <div className="grid grid-cols-3 gap-2 text-[10px]">
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">CADENCE</span>
+              <span className="text-text font-bold">25M / 5M</span>
+            </div>
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">STATE</span>
+              <span className="text-accent font-bold">STORAGE</span>
+            </div>
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">SYNTH</span>
+              <span className="text-text font-bold">BINAURAL</span>
+            </div>
+          </div>
+          <div className="p-2 bg-surface-hover border border-border flex items-center justify-between text-[10px]">
+            <span className="text-text-secondary truncate">Adaptive Focus Protocol Engine</span>
+            <span className="text-accent font-mono shrink-0">[ENGAGED]</span>
+          </div>
+        </div>
+      )}
+
+      {project.id === "04" && (
+        <div className="space-y-2">
+          <div className="grid grid-cols-3 gap-2 text-[10px]">
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">PAGES</span>
+              <span className="text-text font-bold">7 VIEWS</span>
+            </div>
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">LIGHTHOUSE</span>
+              <span className="text-accent font-bold">100/100</span>
+            </div>
+            <div className="p-2 bg-surface-hover border border-border">
+              <span className="text-text-muted block text-[9px] uppercase">CLS SCORE</span>
+              <span className="text-text font-bold">0.000</span>
+            </div>
+          </div>
+          <div className="p-2 bg-surface-hover border border-border flex items-center justify-between text-[10px]">
+            <span className="text-text-secondary truncate">Slide Cart & Dynamic Product Catalog</span>
+            <span className="text-accent font-mono shrink-0">[DEPLOYED]</span>
+          </div>
+        </div>
+      )}
+
+      {/* Action hint bar */}
+      <div className="pt-1 flex items-center justify-between text-[10px] text-text-muted">
+        <span>Verified codebase • Test suite ready</span>
+        <span className="text-accent flex items-center gap-1">
+          Interactive demo available &rarr;
+        </span>
       </div>
     </div>
   );
@@ -388,21 +520,22 @@ export default function ProjectItem({ project, isLast }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.5 }}
       className={`py-12 group transition-all duration-300 ${
         !isLast ? "border-b border-border" : ""
       }`}
     >
-      {/* Top Header Row */}
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-        <div className="flex items-start gap-5 sm:gap-8">
-          <span className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-text-muted group-hover:text-white transition-colors duration-300 w-12 shrink-0">
+      {/* Main Project Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left Column: Numeral, Content, and Tech Chips */}
+        <div className="lg:col-span-7 flex items-start gap-5 sm:gap-8">
+          <span className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-accent/50 group-hover:text-accent transition-colors duration-300 w-12 shrink-0 select-none">
             {project.id}
           </span>
 
-          <div className="max-w-2xl">
+          <div className="flex-1">
             <div className="flex flex-wrap items-center gap-2.5 mb-2.5">
-              <span className="text-[10px] font-mono tracking-editorial uppercase px-2.5 py-0.5 border border-border text-text-secondary bg-[#121418]">
+              <span className="text-[10px] font-mono tracking-editorial uppercase px-2.5 py-0.5 border border-border text-accent bg-surface">
                 {project.category}
               </span>
               <span className="text-xs font-mono text-text-muted">
@@ -410,7 +543,7 @@ export default function ProjectItem({ project, isLast }) {
               </span>
             </div>
 
-            <h3 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-text-primary group-hover:text-white transition-colors mb-3">
+            <h3 className="font-heading font-bold text-2xl sm:text-3xl text-text group-hover:text-accent transition-colors mb-3 break-normal hyphens-none">
               {project.title}
             </h3>
 
@@ -423,7 +556,7 @@ export default function ProjectItem({ project, isLast }) {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="text-xs font-mono px-2.5 py-1 bg-[#101216] border border-border text-text-secondary hover:text-white hover:border-border-light transition-colors"
+                  className="text-xs font-mono px-2.5 py-1 bg-surface border border-border text-text-secondary hover:text-text hover:border-border-strong transition-colors"
                 >
                   {tech}
                 </span>
@@ -432,49 +565,55 @@ export default function ProjectItem({ project, isLast }) {
           </div>
         </div>
 
-        {/* Action Controls */}
-        <div className="flex md:flex-col items-center md:items-end justify-between gap-3.5 pl-16 sm:pl-20 md:pl-0 shrink-0">
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="inline-flex items-center gap-2 px-4 py-2 border border-border text-xs font-mono tracking-editorial uppercase text-text-primary hover:border-white hover:text-white hover:bg-[#1A1A1A] transition-all bg-[#121418]"
-            aria-label={
-              isExpanded
-                ? `Hide details for ${project.title}`
-                : `View architecture details for ${project.title}`
-            }
-          >
-            <span>{isExpanded ? "Hide Details" : "View Details"}</span>
-            {isExpanded ? (
-              <Minus className="w-3.5 h-3.5" />
-            ) : (
-              <Plus className="w-3.5 h-3.5" />
-            )}
-          </button>
+        {/* Right Column: Visual Preview Frame & Action Controls */}
+        <div className="lg:col-span-5 space-y-4 pl-0 sm:pl-16 lg:pl-0">
+          {/* Architectural Telemetry Preview Frame */}
+          <ProjectPreviewFrame project={project} />
 
-          <div className="flex items-center gap-2.5">
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 border border-border text-text-secondary hover:text-white hover:border-white transition-colors bg-[#121418]"
-                aria-label={`View ${project.title} on GitHub`}
-              >
-                <Github className="w-4 h-4" />
-              </a>
-            )}
+          {/* Action buttons with minimum 44px touch targets */}
+          <div className="flex items-center justify-between gap-3 pt-1">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="min-h-[44px] inline-flex items-center gap-2 px-4 py-2 border border-border text-xs font-mono tracking-editorial uppercase text-text hover:border-accent hover:text-accent hover:bg-surface-hover transition-all bg-surface"
+              aria-label={
+                isExpanded
+                  ? `Hide details for ${project.title}`
+                  : `View architecture details for ${project.title}`
+              }
+            >
+              <span>{isExpanded ? "Hide Details" : "View Details"}</span>
+              {isExpanded ? (
+                <Minus className="w-3.5 h-3.5 text-accent" />
+              ) : (
+                <Plus className="w-3.5 h-3.5 text-accent" />
+              )}
+            </button>
 
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 border border-border text-text-secondary hover:text-white hover:border-white transition-colors bg-[#121418]"
-                aria-label={`View live demo for ${project.title}`}
-              >
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            )}
+            <div className="flex items-center gap-2">
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center border border-border text-text-secondary hover:text-accent hover:border-accent transition-colors bg-surface hover:bg-surface-hover"
+                  aria-label={`View ${project.title} on GitHub`}
+                >
+                  <Github className="w-4 h-4" />
+                </a>
+              )}
+
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center border border-border text-text-secondary hover:text-accent hover:border-accent transition-colors bg-surface hover:bg-surface-hover"
+                  aria-label={`View live demo for ${project.title}`}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -487,28 +626,28 @@ export default function ProjectItem({ project, isLast }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="overflow-hidden pl-0 sm:pl-16 md:pl-20 mt-8"
+            className="overflow-hidden pl-0 sm:pl-16 lg:pl-20 mt-8"
           >
-            <div className="p-6 sm:p-8 bg-[#101216] border border-border-light corner-crosshair space-y-6">
+            <div className="p-6 sm:p-8 bg-surface border border-border space-y-6">
               {/* Drawer View Selector */}
               <div className="flex items-center justify-between pb-4 border-b border-border">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setActiveTab("demo")}
-                    className={`px-3 py-1.5 text-xs font-mono uppercase tracking-editorial transition-all border ${
+                    className={`px-3.5 py-1.5 text-xs font-mono uppercase tracking-editorial transition-all border min-h-[40px] ${
                       activeTab === "demo"
-                        ? "border-white text-white bg-[#1E2127]"
-                        : "border-border text-text-secondary hover:text-white bg-[#14171C]"
+                        ? "border-accent text-accent bg-surface-hover font-medium"
+                        : "border-border text-text-secondary hover:text-text bg-surface"
                     }`}
                   >
                     Interactive Verification Demo
                   </button>
                   <button
                     onClick={() => setActiveTab("spec")}
-                    className={`px-3 py-1.5 text-xs font-mono uppercase tracking-editorial transition-all border ${
+                    className={`px-3.5 py-1.5 text-xs font-mono uppercase tracking-editorial transition-all border min-h-[40px] ${
                       activeTab === "spec"
-                        ? "border-white text-white bg-[#1E2127]"
-                        : "border-border text-text-secondary hover:text-white bg-[#14171C]"
+                        ? "border-accent text-accent bg-surface-hover font-medium"
+                        : "border-border text-text-secondary hover:text-text bg-surface"
                     }`}
                   >
                     Architecture Specification
@@ -535,8 +674,8 @@ export default function ProjectItem({ project, isLast }) {
                 <div className="space-y-6">
                   {/* Problem vs Solution */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="p-5 bg-[#14171C] border border-border">
-                      <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-2">
+                    <div className="p-5 bg-surface-hover border border-border">
+                      <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-2">
                         THE TECHNICAL CHALLENGE
                       </span>
                       <p className="text-xs sm:text-sm text-text-secondary font-normal leading-relaxed">
@@ -544,8 +683,8 @@ export default function ProjectItem({ project, isLast }) {
                       </p>
                     </div>
 
-                    <div className="p-5 bg-[#14171C] border border-border">
-                      <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-2">
+                    <div className="p-5 bg-surface-hover border border-border">
+                      <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-2">
                         ENGINEERING SOLUTION
                       </span>
                       <p className="text-xs sm:text-sm text-text-secondary font-normal leading-relaxed">
@@ -565,7 +704,7 @@ export default function ProjectItem({ project, isLast }) {
                           key={idx}
                           className="flex items-start gap-3 text-xs sm:text-sm text-text-secondary font-normal"
                         >
-                          <span className="font-mono text-xs text-text-primary/70 font-semibold shrink-0 mt-0.5">
+                          <span className="font-mono text-xs text-accent font-semibold shrink-0 mt-0.5">
                             [{String(idx + 1).padStart(2, "0")}]
                           </span>
                           <span>{highlight}</span>
@@ -588,7 +727,7 @@ export default function ProjectItem({ project, isLast }) {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-mono text-text-primary hover:text-white underline underline-offset-4"
+                      className="inline-flex items-center gap-2 text-xs font-mono text-text hover:text-accent underline underline-offset-4 min-h-[44px]"
                     >
                       <Github className="w-3.5 h-3.5" />
                       <span>GitHub Repository</span>
@@ -600,7 +739,7 @@ export default function ProjectItem({ project, isLast }) {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-mono text-text-primary hover:text-white underline underline-offset-4"
+                      className="inline-flex items-center gap-2 text-xs font-mono text-text hover:text-accent underline underline-offset-4 min-h-[44px]"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                       <span>Live Site</span>

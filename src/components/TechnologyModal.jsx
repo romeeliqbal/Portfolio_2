@@ -6,10 +6,10 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
   if (!node) return null;
 
   const statusColorMap = {
-    "CURRENT FOCUS": "border-[#D6D6D6] text-text-primary bg-[#1C1C1C]",
-    "USED IN PROJECTS": "border-[#444444] text-text-secondary bg-[#151515]",
-    "WORKING WITH": "border-[#333333] text-text-secondary bg-[#121212]",
-    EXPERIENCE: "border-[#2A2A2A] text-text-muted bg-[#0E0E0E]",
+    "CURRENT FOCUS": "border-accent text-accent bg-surface-hover",
+    "USED IN PROJECTS": "border-border-strong text-text bg-surface-hover",
+    "WORKING WITH": "border-border text-text-secondary bg-surface-hover",
+    EXPERIENCE: "border-border text-text-muted bg-surface-hover",
   };
 
   return (
@@ -20,7 +20,7 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 10 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-lg bg-[#121418] border border-border-light p-6 sm:p-8 corner-crosshair shadow-2xl"
+          className="relative w-full max-w-lg bg-surface border border-border-strong p-6 sm:p-8 shadow-2xl"
           role="dialog"
           aria-modal="true"
           aria-labelledby="tech-modal-title"
@@ -28,12 +28,12 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
           {/* Header */}
           <div className="flex items-start justify-between gap-4 pb-5 border-b border-border">
             <div>
-              <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-1">
+              <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-1">
                 DOMAIN: {node.category}
               </span>
               <h3
                 id="tech-modal-title"
-                className="font-heading font-bold text-2xl sm:text-3xl text-text-primary"
+                className="font-heading font-bold text-2xl sm:text-3xl text-text"
               >
                 {node.name}
               </h3>
@@ -41,7 +41,7 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
 
             <button
               onClick={onClose}
-              className="p-2 border border-border hover:border-white text-text-secondary hover:text-white transition-colors bg-[#181B20]"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center border border-border hover:border-accent text-text-secondary hover:text-text transition-colors bg-surface-hover"
               aria-label="Close details"
             >
               <X className="w-4 h-4" />
@@ -86,7 +86,7 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
                     <button
                       key={relName}
                       onClick={() => onSelectRelated(relName)}
-                      className="text-xs font-mono px-3 py-1.5 bg-[#181B20] border border-border text-text-secondary hover:border-white hover:text-white transition-all flex items-center gap-1.5"
+                      className="text-xs font-mono px-3 py-1.5 min-h-[38px] bg-surface-hover border border-border text-text-secondary hover:border-accent hover:text-text transition-all flex items-center gap-1.5"
                     >
                       <span>{relName}</span>
                       <ArrowRight className="w-3 h-3 text-text-muted" />
@@ -104,7 +104,7 @@ export default function TechnologyModal({ node, onClose, onSelectRelated }) {
             </span>
             <button
               onClick={onClose}
-              className="text-xs font-mono uppercase tracking-editorial text-text-primary hover:text-white underline underline-offset-4"
+              className="min-h-[44px] inline-flex items-center text-xs font-mono uppercase tracking-editorial text-accent hover:text-accent-hover transition-colors"
             >
               Dismiss
             </button>

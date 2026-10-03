@@ -25,7 +25,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="bg-[#0B0B0B] text-[#F2F2F2] min-h-screen relative font-body selection:bg-white selection:text-black">
+    <div className="bg-bg text-text min-h-screen relative font-body selection:bg-accent selection:text-onAccent">
       {/* Intro Curtain Splash */}
       <AnimatePresence>
         {loading && (
@@ -34,7 +34,7 @@ export default function App() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-50 bg-[#0B0B0B] flex flex-col items-center justify-center pointer-events-none"
+            className="fixed inset-0 z-50 bg-bg flex flex-col items-center justify-center pointer-events-none"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -42,10 +42,10 @@ export default function App() {
               transition={{ duration: 0.5 }}
               className="flex flex-col items-center gap-3"
             >
-              <span className="font-heading font-bold text-3xl tracking-tighter text-white">
+              <span className="font-heading font-bold text-3xl tracking-tighter text-accent">
                 RI
               </span>
-              <div className="w-8 h-[1px] bg-[#333333]" />
+              <div className="w-8 h-[1px] bg-border-strong" />
               <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase">
                 Romeel Iqbal &bull; Software Engineer
               </span>
