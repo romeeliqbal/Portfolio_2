@@ -40,7 +40,7 @@ Portfolio_2/
 │   │   ├── Certifications.jsx  # Certifications section
 │   │   ├── Contact.jsx         # Contact / inquiry section
 │   │   ├── Education.jsx       # Education timeline/cards
-│   │   ├── Experience.jsx       # Experience section wrapper
+│   │   ├── Experience.jsx      # Experience section wrapper
 │   │   ├── ExperienceItem.jsx  # Individual job experience item
 │   │   ├── Footer.jsx          # Footer content
 │   │   ├── Hero.jsx            # Main landing section
@@ -57,7 +57,7 @@ Portfolio_2/
 │   │   ├── education.js        # Education details
 │   │   ├── experience.js       # Work experience data
 │   │   ├── projects.js         # Project list and details
-│   │   └── technologies.js    # Skills/tech stack data
+│   │   └── technologies.js     # Skills/tech stack data
 │   ├── App.jsx                # Main portfolio page layout
 │   ├── index.css              # Global styles and Tailwind entry CSS
 │   ├── main.jsx               # React app entry point
@@ -71,6 +71,7 @@ Portfolio_2/
 ├── test-e2e.cjs                # End-to-end test setup/script
 ├── vite.config.js              # Vite configuration
 ├── README.md                   # Project documentation
+├── README_2.md                 # Purpose and goals of the portfolio project
 └── LICENSE                     # License file if present in the repo
 ```
 
@@ -121,6 +122,53 @@ npm run build
 npm run preview
 ```
 
+## Future Improvements / Planned Changes
+
+The project is already functional, but there are several improvements that can make it more professional, maintainable, and engaging over time.
+
+### 1. Add a blog or articles section
+- Share personal thoughts, technical tutorials, and project updates.
+- Improve SEO and position the portfolio as a stronger developer brand.
+
+### 2. Improve site performance
+- Optimize images and media assets.
+- Reduce unnecessary re-renders.
+- Use lazy loading for large sections and media.
+
+### 3. Add a dark mode and theme toggle
+- Improve the user experience for different environments.
+- Make the portfolio more modern and accessible.
+
+### 4. Add a contact form backend
+- Replace or enhance the static contact section with a real form.
+- Connect it to email services or an API for message delivery.
+
+### 5. Add multilingual support
+- Support English and other languages.
+- Make the site accessible to a broader audience.
+
+### 6. Make the content fully CMS-driven
+- Move content such as projects and experience into a more scalable data source.
+- Simplify updating the portfolio without modifying UI code.
+
+### 7. Add more project case studies
+- Include deeper project descriptions, outcomes, and technical architecture notes.
+- Better communicate the developer's problem-solving ability.
+
+### 8. Improve accessibility
+- Keyboard navigation improvements.
+- Better color contrast and screen-reader compatibility.
+- Better semantic HTML structure.
+
+### 9. Add automated testing
+- Unit tests for reusable components.
+- End-to-end checks for major user flows.
+- Better regression protection for future updates.
+
+### 10. Enhance animations and UI polish
+- Add smoother transitions and richer motion effects.
+- Improve section reveal animations and modern visual hierarchy.
+
 ## Summary
 
-This repository is a React-based portfolio website designed to showcase personal branding, technical skills, professional experience, and project work in a clean and modern presentation. The structure is organized to keep content, UI components, and static assets separated for easy maintenance.
+This repository is a React-based portfolio website designed to showcase personal branding, technical skills, professional experience, and project work in a clean and modern presentation. The structure is organized to keep content, UI components, and static assets separated for easy maintenance. As the project grows, the roadmap above can help transform it into a more advanced and polished portfolio site.
