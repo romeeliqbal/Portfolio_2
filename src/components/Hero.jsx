@@ -50,7 +50,8 @@ export default function Hero() {
               SOFTWARE ENGINEER &bull; FULL-STACK &bull; MUET
             </h2>
             <p className="text-xs font-mono tracking-editorial uppercase text-text-muted">
-              Web Architecture &bull; Intelligent Systems &bull; Software Quality
+              Web Architecture &bull; Intelligent Systems &bull; Software
+              Quality
             </p>
           </motion.div>
 
