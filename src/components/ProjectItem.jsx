@@ -570,7 +570,7 @@ export default function ProjectItem({ project, isLast }) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Numeral, Content, and Tech Chips */}
         <div className="lg:col-span-7 flex items-start gap-5 sm:gap-8">
-          <span className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-accent/50 group-hover:text-accent transition-colors duration-300 w-12 shrink-0 select-none">
+          <span className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-accent/50 group-hover:text-accent transition-colors duration-300 w-12 sm:w-14 shrink-0 select-none">
             {project.id}
           </span>
 
@@ -667,7 +667,7 @@ export default function ProjectItem({ project, isLast }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="overflow-hidden pl-0 sm:pl-16 lg:pl-20 mt-8"
+            className="overflow-hidden pl-0 sm:pl-16 lg:pl-0 mt-8"
           >
             <div className="p-6 sm:p-8 bg-surface border border-border space-y-6">
               {/* Drawer View Selector */}

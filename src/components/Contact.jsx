@@ -72,7 +72,7 @@ export default function Contact() {
       id="contact"
       className="w-full bg-bg-accent border-t border-border-accent"
     >
-      <div className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column - Large Editorial Heading & Direct Links */}
           <div className="lg:col-span-6 space-y-8">
@@ -138,7 +138,7 @@ export default function Contact() {
                 </button>
               </div>
 
-              <div className="p-4 bg-surface border border-border hover:border-border-strong transition-all flex items-center justify-between gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-surface border border-border hover:border-border-strong transition-all">
                 <div className="flex items-center gap-3 min-w-0">
                   <Linkedin className="w-4 h-4 text-accent shrink-0" />
                   <span className="text-xs sm:text-sm font-mono text-text truncate">
@@ -149,7 +149,7 @@ export default function Contact() {
                   href={linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-mono tracking-editorial uppercase border border-border hover:border-accent text-text-secondary hover:text-text transition-colors bg-surface-hover shrink-0 min-h-[44px]"
+                  className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-mono tracking-editorial uppercase border border-border hover:border-accent text-text-secondary hover:text-text transition-colors bg-surface-hover self-start sm:self-auto shrink-0 min-h-[44px]"
                 >
                   <span>Profile</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -327,7 +327,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full flex items-center justify-center gap-3 py-3.5 bg-accent text-onAccent font-mono font-semibold text-xs tracking-editorial uppercase hover:bg-accent-hover transition-all disabled:opacity-50 min-h-[48px]"
+                  className="w-full flex items-center justify-center gap-3 py-3.5 bg-accent text-text-onAccent font-mono font-semibold text-xs tracking-editorial uppercase hover:bg-accent-hover transition-all disabled:opacity-50 min-h-[48px]"
                 >
                   {submitting ? (
                     <span className="font-mono text-xs tracking-spacious uppercase">

@@ -7,7 +7,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-border bg-bg text-text-secondary py-16 px-6 md:px-12">
+    <footer className="w-full border-t border-border bg-bg text-text-secondary py-14 sm:py-16 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col justify-between space-y-12">
         {/* Top bar with Brand and Back to Top */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-12 border-b border-border">
@@ -16,7 +16,7 @@ export default function Footer() {
               <span className="font-heading font-bold text-2xl tracking-tighter text-text">
                 RI
               </span>
-              <span className="text-xs font-mono tracking-editorial uppercase text-accent pl-3 border-l border-border font-medium">
+              <span className="text-xs font-mono tracking-editorial uppercase text-accent pl-3 border-l border-border font-medium leading-none py-0.5">
                 Romeel Iqbal
               </span>
             </div>
@@ -95,49 +95,49 @@ export default function Footer() {
             <div className="grid grid-cols-2 gap-2 text-xs font-mono text-text-secondary">
               <a
                 href="#about"
-                className="hover:text-accent transition-colors py-1"
+                className="hover:text-accent transition-colors py-1.5"
               >
                 About
               </a>
               <a
                 href="#experience"
-                className="hover:text-accent transition-colors py-1"
+                className="hover:text-accent transition-colors py-1.5"
               >
                 Experience
               </a>
               <a
                 href="#technologies"
-                className="hover:text-accent transition-colors py-1"
+                className="hover:text-accent transition-colors py-1.5"
               >
                 Technologies
               </a>
               <a
                 href="#projects"
-                className="hover:text-accent transition-colors py-1"
+                className="hover:text-accent transition-colors py-1.5"
               >
                 Projects
               </a>
               <a
                 href="#education"
-                className="hover:text-accent transition-colors py-1"
+                className="hover:text-accent transition-colors py-1.5"
               >
                 Education
               </a>
               <a
                 href="#credentials"
-                className="hover:text-accent transition-colors py-1"
+                className="hover:text-accent transition-colors py-1.5"
               >
                 Credentials
               </a>
               <a
                 href="#resume"
-                className="hover:text-accent transition-colors py-1"
+                className="hover:text-accent transition-colors py-1.5"
               >
                 Résumé
               </a>
               <a
                 href="#contact"
-                className="hover:text-accent transition-colors py-1"
+                className="hover:text-accent transition-colors py-1.5"
               >
                 Contact
               </a>

@@ -5,7 +5,7 @@ import { educationList } from "../data/education";
 export default function Education() {
   return (
     <section id="education" className="w-full bg-bg border-t border-border">
-      <div className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column */}
           <div className="lg:col-span-5">
@@ -32,7 +32,7 @@ export default function Education() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="p-7 sm:p-8 bg-surface border border-border hover:border-border-strong transition-all space-y-4"
+                className="p-6 sm:p-8 bg-surface border border-border hover:border-border-strong transition-all space-y-4"
               >
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-border pb-4">
                   <h3 className="font-heading font-bold text-xl sm:text-2xl text-text">
@@ -53,7 +53,7 @@ export default function Education() {
                 </p>
 
                 <div>
-                  <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-2.5">
+                  <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-2">
                     KEY COURSEWORK & FOCUS AREAS
                   </span>
                   <div className="flex flex-wrap gap-2">

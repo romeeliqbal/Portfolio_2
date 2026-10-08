@@ -5,7 +5,7 @@ import { FileText, Download, ExternalLink } from "lucide-react";
 export default function Resume() {
   return (
     <section id="resume" className="w-full bg-bg-alt border-t border-border">
-      <div className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Large Heading */}
           <div className="lg:col-span-7">
@@ -25,12 +25,12 @@ export default function Resume() {
               technical project write-ups, and verified credentials.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1">
               <a
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-accent text-onAccent font-mono font-semibold text-xs tracking-editorial uppercase hover:bg-accent-hover transition-all min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-accent text-text-onAccent font-mono font-semibold text-xs tracking-editorial uppercase hover:bg-accent-hover transition-all min-h-[44px] shadow-sm"
               >
                 <FileText className="w-4 h-4" />
                 <span>View Résumé</span>

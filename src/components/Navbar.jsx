@@ -58,7 +58,7 @@ export default function Navbar() {
             <span className="font-heading font-bold text-xl tracking-tighter text-text group-hover:text-accent transition-colors">
               RI
             </span>
-            <span className="text-[10px] uppercase font-mono tracking-editorial text-text-muted hidden sm:inline-block pl-2 border-l border-border">
+            <span className="text-[10px] uppercase font-mono tracking-editorial text-text-muted hidden sm:inline-block pl-2 border-l border-border leading-none py-0.5">
               Software Engineer
             </span>
           </a>

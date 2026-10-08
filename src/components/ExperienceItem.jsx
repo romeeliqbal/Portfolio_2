@@ -17,7 +17,7 @@ export default function ExperienceItem({ experience, isLast }) {
     >
       {/* Square Timeline Pip on the Vertical Spine */}
       <span
-        className={`absolute -left-[31px] sm:-left-[47px] top-9 w-2.5 h-2.5 border border-accent transition-colors ${
+        className={`absolute -left-[29px] sm:-left-[45px] top-[38px] sm:top-[40px] w-2.5 h-2.5 border border-accent transition-colors ${
           isExpanded ? "bg-accent" : "bg-bg-alt"
         }`}
         aria-hidden="true"
@@ -34,16 +34,16 @@ export default function ExperienceItem({ experience, isLast }) {
           </span>
 
           <div>
-            <div className="flex flex-wrap items-center gap-3 mb-1.5">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-1.5">
               <h3 className="font-heading font-semibold text-lg sm:text-xl text-text group-hover:text-accent transition-colors">
                 {experience.role}
               </h3>
-              <span className="text-[10px] font-mono tracking-editorial uppercase px-2 py-0.5 border border-accent/40 bg-accent/10 text-accent">
+              <span className="text-[10px] font-mono tracking-editorial uppercase px-2 py-0.5 border border-accent/40 bg-accent/10 text-accent leading-none">
                 {experience.type}
               </span>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono text-text-secondary">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono text-text-secondary">
               <span className="text-text font-medium">
                 {experience.company}
               </span>
@@ -52,13 +52,13 @@ export default function ExperienceItem({ experience, isLast }) {
           </div>
         </div>
 
-        <div className="flex items-center justify-between md:justify-end gap-6 pl-8 md:pl-0">
+        <div className="flex items-center justify-between md:justify-end gap-4 sm:gap-6 pl-9 md:pl-0">
           <span className="text-xs font-mono tracking-editorial text-text-muted shrink-0">
             {experience.period}
           </span>
           <button
             type="button"
-            className="min-w-[44px] min-h-[44px] border border-border-strong flex items-center justify-center text-text-secondary group-hover:border-accent group-hover:text-accent transition-colors bg-surface"
+            className="min-w-[44px] min-h-[44px] border border-border-strong flex items-center justify-center text-text-secondary group-hover:border-accent group-hover:text-accent transition-colors bg-surface shrink-0"
             aria-label={
               isExpanded
                 ? `Collapse ${experience.role} details`
@@ -82,14 +82,14 @@ export default function ExperienceItem({ experience, isLast }) {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden pl-0 sm:pl-10 mt-6"
+            className="overflow-hidden pl-0 sm:pl-10 mt-6 space-y-6"
           >
-            <p className="text-sm sm:text-base text-text-secondary font-normal leading-relaxed mb-6 max-w-3xl">
+            <p className="text-sm sm:text-base text-text-secondary font-normal leading-relaxed max-w-3xl">
               {experience.description}
             </p>
 
             {/* Responsibilities */}
-            <div className="mb-6">
+            <div>
               <span className="text-[10px] font-mono tracking-editorial text-text-muted uppercase block mb-3">
                 KEY RESPONSIBILITIES & CONTRIBUTIONS
               </span>

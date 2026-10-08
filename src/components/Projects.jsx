@@ -5,9 +5,9 @@ import ProjectItem from "./ProjectItem";
 export default function Projects() {
   return (
     <section id="projects" className="w-full bg-bg-alt border-t border-border">
-      <div className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-6">
           <div>
             <span className="text-xs font-mono tracking-editorial text-accent uppercase block mb-3 font-medium">
               04 &bull; SELECTED WORK

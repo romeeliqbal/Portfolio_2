@@ -40,7 +40,7 @@ export default function TechnologyNetwork() {
 
   return (
     <section id="technologies" className="w-full bg-bg border-t border-border">
-      <div className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
           <div>
@@ -119,7 +119,7 @@ export default function TechnologyNetwork() {
         </div>
 
         {/* Hint banner relocated above canvas */}
-        <div className="flex items-center gap-2 text-xs font-mono text-text-muted mb-4">
+        <div className="flex items-center gap-2 text-xs font-mono text-text-muted mb-6">
           <Info className="w-3.5 h-3.5 text-accent shrink-0" />
           <span>
             Click any technology node to inspect practical implementation

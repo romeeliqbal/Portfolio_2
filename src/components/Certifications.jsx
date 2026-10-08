@@ -8,9 +8,10 @@ export default function Certifications() {
   const otherCerts = certifications.filter((c) => !c.issuer.includes("Google"));
 
   return (
-    <section id="credentials" className="w-full bg-bg border-t border-border">
-      <div className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+    <section id="certifications" className="w-full bg-bg border-t border-border relative">
+      <span id="credentials" className="sr-only" />
+      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-6">
           <div>
             <span className="text-xs font-mono tracking-editorial text-accent uppercase block mb-3 font-medium">
               06 &bull; PROFESSIONAL CREDENTIALS
@@ -45,7 +46,7 @@ export default function Certifications() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-4 p-6 bg-surface border border-border hover:border-border-strong transition-all"
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 p-6 bg-surface border border-border hover:border-border-strong transition-all items-start"
                 >
                   <div className="lg:col-span-4 flex flex-col justify-between">
                     <div>
@@ -56,20 +57,20 @@ export default function Certifications() {
                         {cert.title}
                       </h3>
                     </div>
-                    <span className="text-xs font-mono text-text-muted mt-3">
+                    <span className="text-xs font-mono text-text-muted mt-2.5">
                       ISSUED // {cert.year}
                     </span>
                   </div>
 
-                  <div className="lg:col-span-6 flex items-center">
+                  <div className="lg:col-span-6 flex items-start pt-0.5">
                     <p className="text-xs sm:text-sm text-text-secondary font-normal leading-relaxed">
                       {cert.description}
                     </p>
                   </div>
 
-                  <div className="lg:col-span-2 flex items-center lg:justify-end">
-                    <span className="text-[10px] font-mono tracking-editorial uppercase px-2.5 py-1 border border-accent/40 text-accent bg-surface-hover inline-flex items-center gap-1.5 font-medium">
-                      <Check className="w-3 h-3 text-accent" />
+                  <div className="lg:col-span-2 flex items-start lg:justify-end pt-0.5">
+                    <span className="text-[10px] font-mono tracking-editorial uppercase px-2.5 py-1 border border-accent/40 text-accent bg-surface-hover inline-flex items-center gap-1.5 font-medium leading-none">
+                      <Check className="w-3 h-3 text-accent shrink-0" />
                       <span>Verified</span>
                     </span>
                   </div>
@@ -93,7 +94,7 @@ export default function Certifications() {
               {otherCerts.map((cert) => (
                 <div
                   key={cert.title}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-4 p-6 bg-surface border border-border hover:border-border-strong transition-all"
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 p-6 bg-surface border border-border hover:border-border-strong transition-all items-start"
                 >
                   <div className="lg:col-span-4 flex flex-col justify-between">
                     <div>
@@ -104,20 +105,20 @@ export default function Certifications() {
                         {cert.title}
                       </h3>
                     </div>
-                    <span className="text-xs font-mono text-text-muted mt-3">
+                    <span className="text-xs font-mono text-text-muted mt-2.5">
                       ISSUED // {cert.year}
                     </span>
                   </div>
 
-                  <div className="lg:col-span-6 flex items-center">
+                  <div className="lg:col-span-6 flex items-start pt-0.5">
                     <p className="text-xs sm:text-sm text-text-secondary font-normal leading-relaxed">
                       {cert.description}
                     </p>
                   </div>
 
-                  <div className="lg:col-span-2 flex items-center lg:justify-end">
-                    <span className="text-[10px] font-mono tracking-editorial uppercase px-2.5 py-1 border border-border-strong text-text-secondary bg-surface-hover inline-flex items-center gap-1.5">
-                      <Check className="w-3 h-3 text-text-muted" />
+                  <div className="lg:col-span-2 flex items-start lg:justify-end pt-0.5">
+                    <span className="text-[10px] font-mono tracking-editorial uppercase px-2.5 py-1 border border-border-strong text-text-secondary bg-surface-hover inline-flex items-center gap-1.5 leading-none">
+                      <Check className="w-3 h-3 text-text-muted shrink-0" />
                       <span>Accredited</span>
                     </span>
                   </div>
