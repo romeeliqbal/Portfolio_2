@@ -10,6 +10,7 @@ export default function TechnologyNetwork() {
   const [viewMode, setViewMode] = useState("matrix");
   const containerRef = useRef(null);
 
+  // Set default view mode based on viewport: interactive graph on desktop (>=1024px), structured matrix on mobile/tablet
   useEffect(() => {
     if (typeof window !== "undefined" && window.innerWidth >= 1024) {
       setViewMode("network");
