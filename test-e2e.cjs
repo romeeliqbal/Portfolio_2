@@ -6,8 +6,9 @@ async function run() {
   console.log("Starting E2E verification...");
   const browser = await puppeteer.launch({
     headless: "new",
-    executablePath:
-      "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    ...(process.env.CHROME_EXECUTABLE_PATH && {
+      executablePath: process.env.CHROME_EXECUTABLE_PATH,
+    }),
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 

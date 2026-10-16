@@ -8,7 +8,10 @@ export default function Certifications() {
   const otherCerts = certifications.filter((c) => !c.issuer.includes("Google"));
 
   return (
-    <section id="certifications" className="w-full bg-bg border-t border-border relative">
+    <section
+      id="certifications"
+      className="w-full bg-bg border-t border-border relative"
+    >
       <span id="credentials" className="sr-only" />
       <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-6">
