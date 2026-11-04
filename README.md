@@ -1,6 +1,34 @@
 # Portfolio_2
 
+> A modern React portfolio for presenting professional experience, selected projects, technical skills, and a clear development journey.
+
+[![Live portfolio](https://img.shields.io/badge/Portfolio-Visit-2563eb?style=flat-square&logo=google-chrome&logoColor=white)](https://github.com/romeeliqbal/Portfolio_2)
+[![GitHub profile](https://img.shields.io/badge/GitHub-romeeliqbal-0f172a?style=flat-square&logo=github&logoColor=white)](https://github.com/romeeliqbal)
+
 A personal portfolio website built with React, Vite, and Tailwind CSS. It presents a modern single-page portfolio with sections for introduction, experience, projects, education, certifications, technologies, and contact details.
+
+## GitHub Activity
+
+The following metrics are generated from the public GitHub activity of [@romeeliqbal](https://github.com/romeeliqbal). They are intentionally linked to live services rather than hard-coded values.
+
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=romeeliqbal&bg_color=ffffff&color=2563eb&line=2563eb&point=1d4ed8&area=true&hide_border=true" alt="GitHub contribution activity graph for romeeliqbal" width="100%" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=romeeliqbal&show_icons=true&include_all_commits=true&hide_border=true&title_color=2563eb&icon_color=2563eb&text_color=334155&bg_color=ffffff" alt="GitHub statistics for romeeliqbal" width="49%" />
+  <img src="https://streak-stats.demolab.com?user=romeeliqbal&hide_border=true&background=ffffff&ring=2563eb&fire=2563eb&currStreakLabel=2563eb&sideLabels=334155&dates=64748b" alt="GitHub streak statistics for romeeliqbal" width="49%" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=romeeliqbal&layout=compact&hide_border=true&title_color=2563eb&text_color=334155&bg_color=ffffff" alt="Most-used programming languages for romeeliqbal" width="49%" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/romeeliqbal?tab=overview#js-contribution-activity">View recent development activity on GitHub</a>
+  &nbsp;&middot;&nbsp;
+  <img src="https://komarev.com/ghpvc/?username=romeeliqbal&color=2563eb&style=flat" alt="Profile views" />
+</p>
 
 ## Overview
 
