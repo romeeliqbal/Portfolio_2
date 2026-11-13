@@ -2,6 +2,7 @@ import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import ArchitecturalMark from "./ArchitecturalMark";
+import portraitImg from "../assets/portrait.jpg";
 
 const fade = (delay) => ({
   initial: { opacity: 0, y: 16 },
@@ -16,28 +17,30 @@ export default function Hero() {
     <section
       id="hero"
       data-theme="dark"
-      className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-bg pt-24 text-text sm:pt-28"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-bg pt-24 text-text sm:pt-28"
     >
-      <div className="site-wrap relative z-10 my-auto grid items-center gap-12 py-10 lg:grid-cols-12 lg:gap-8">
+      <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+
+      <div className="site-wrap relative z-10 my-auto grid items-end gap-12 py-10 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
           <motion.p
-            {...(reduce ? {} : fade(0.05))}
-            className="mb-6 inline-flex items-center gap-2 border border-border bg-surface px-3 py-1.5 font-mono text-[11px] uppercase tracking-editorial text-text-secondary"
+            {...(reduce ? {} : fade(0.04))}
+            className="mb-6 font-mono text-[11px] uppercase tracking-editorial text-text-muted"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-status-success" />
-            Available for software engineering roles
+            01 / Studio
           </motion.p>
 
           <motion.p
-            {...(reduce ? {} : fade(0.1))}
-            className="mb-4 font-mono text-xs uppercase tracking-editorial text-accent"
+            {...(reduce ? {} : fade(0.08))}
+            className="font-heading text-[clamp(3.4rem,9vw,7.5rem)] font-semibold leading-[0.86] tracking-tight text-text"
           >
-            Romeel Iqbal · Software Engineer · MUET
+            Romeel
+            <span className="block text-text-muted">Iqbal</span>
           </motion.p>
 
           <motion.h1
-            {...(reduce ? {} : fade(0.15))}
-            className="max-w-3xl font-heading text-[2.15rem] font-semibold leading-[1.05] tracking-tight text-text sm:text-5xl lg:text-6xl xl:text-[4.25rem]"
+            {...(reduce ? {} : fade(0.16))}
+            className="mt-8 max-w-xl font-heading text-2xl font-medium leading-tight tracking-tight text-text sm:text-3xl lg:text-[2.15rem]"
           >
             I build digital experiences where{" "}
             <span className="text-accent">engineering</span> meets imagination.
@@ -45,7 +48,7 @@ export default function Hero() {
 
           <motion.p
             {...(reduce ? {} : fade(0.22))}
-            className="mt-6 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg"
+            className="mt-5 max-w-lg text-base leading-relaxed text-text-secondary sm:text-lg"
           >
             Undergraduate software engineer in Hyderabad, Pakistan. I design
             and ship practical web applications, applied AI tools, and
@@ -56,9 +59,9 @@ export default function Hero() {
             {...(reduce ? {} : fade(0.28))}
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
-            <a href="#projects" className="btn-primary">
+            <a href="#projects" className="btn-primary group">
               Explore my work
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a href="#contact" className="btn-secondary">
               Get in touch
@@ -98,19 +101,34 @@ export default function Hero() {
         </div>
 
         <motion.div
-          {...(reduce ? {} : fade(0.2))}
-          className="relative flex justify-center lg:col-span-5 lg:justify-end"
+          {...(reduce ? {} : fade(0.18))}
+          className="relative lg:col-span-5"
         >
-          <div className="relative">
-            <ArchitecturalMark />
-            <p className="mt-4 max-w-xs text-right font-mono text-[10px] uppercase tracking-editorial text-text-muted">
-              Studio mark · pointer-responsive architecture
-            </p>
+          <div className="relative mx-auto max-w-md lg:ml-auto lg:max-w-none">
+            <div className="portrait-frame">
+              <img
+                src={portraitImg}
+                alt="Portrait of Romeel Iqbal"
+                className="aspect-[4/5] w-full object-cover object-top"
+                width={720}
+                height={900}
+              />
+              <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between bg-charcoal/80 px-4 py-3 font-mono text-[10px] uppercase tracking-editorial text-[#F4F1EA]">
+                <span>Romeel Iqbal</span>
+                <span>Hyderabad, PK</span>
+              </div>
+            </div>
+            <div className="pointer-events-none absolute -bottom-10 -left-6 hidden w-[210px] sm:block lg:-left-16">
+              <ArchitecturalMark compact />
+            </div>
           </div>
+          <p className="mt-12 hidden font-mono text-[10px] uppercase tracking-editorial text-text-muted sm:block lg:mt-16">
+            Studio mark · pointer-responsive architecture
+          </p>
         </motion.div>
       </div>
 
-      <div className="site-wrap z-10 flex items-center justify-between pb-8 pt-4">
+      <div className="site-wrap relative z-10 flex items-center justify-between pb-8 pt-2">
         <p className="hidden font-mono text-[10px] uppercase tracking-editorial text-text-muted sm:block">
           Web architecture · Intelligent systems · Software quality
         </p>

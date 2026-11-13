@@ -9,12 +9,6 @@ export default function TechnologyNetwork() {
   const [selectedNode, setSelectedNode] = useState(null);
   const [viewMode, setViewMode] = useState("matrix");
 
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
-      setViewMode("network");
-    }
-  }, []);
-
   const categoryHubCoords = {
     WEB: { x: 20, y: 16 },
     DEVELOPMENT: { x: 50, y: 16 },

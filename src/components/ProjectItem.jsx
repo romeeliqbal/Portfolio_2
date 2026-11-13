@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, ExternalLink, Github, Minus, Plus } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Github, Minus } from "lucide-react";
 import {
   EduPulseDemo,
   MadamsBoutiqueDemo,
@@ -16,21 +16,37 @@ export default function ProjectItem({ project, index }) {
   const reduce = useReducedMotion();
   const theme = index % 2 === 0 ? "dark" : "light";
   const featured = index === 0;
+  const imageLed = index === 1;
   const reverse = index === 2;
+  const supporting = index === 3;
 
   return (
     <article
       data-theme={theme}
       className="border-t border-border bg-bg text-text"
     >
-      <div className="site-wrap py-16 lg:py-24">
+      <div className={cn("site-wrap", featured ? "py-16 lg:py-28" : "py-14 lg:py-24")}>
         <div
           className={cn(
-            "grid items-center gap-10 lg:grid-cols-12",
+            "grid items-center gap-10",
+            featured
+              ? "lg:grid-cols-12 lg:items-stretch"
+              : supporting
+                ? "lg:grid-cols-12"
+                : "lg:grid-cols-12",
             reverse && "lg:[&>*:first-child]:order-2",
+            imageLed && "lg:[&>*:first-child]:order-2",
           )}
         >
-          <div className={featured ? "lg:col-span-7" : "lg:col-span-6"}>
+          <div
+            className={cn(
+              featured
+                ? "flex flex-col justify-center lg:col-span-5"
+                : supporting
+                  ? "lg:col-span-5"
+                  : "lg:col-span-5",
+            )}
+          >
             <div className="mb-4 flex flex-wrap items-center gap-3">
               <span className="font-mono text-xs text-accent">{project.id}</span>
               <span className="chip">{project.category}</span>
@@ -38,7 +54,14 @@ export default function ProjectItem({ project, index }) {
                 {project.year}
               </span>
             </div>
-            <h3 className="font-heading text-3xl font-semibold tracking-tight text-text sm:text-4xl lg:text-5xl">
+            <h3
+              className={cn(
+                "font-heading font-semibold tracking-tight text-text",
+                featured
+                  ? "text-4xl sm:text-5xl lg:text-6xl"
+                  : "text-3xl sm:text-4xl lg:text-5xl",
+              )}
+            >
               {project.title}
             </h3>
             <p className="mt-2 font-heading text-lg text-text-secondary">
@@ -46,6 +69,10 @@ export default function ProjectItem({ project, index }) {
             </p>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-text-secondary">
               {project.summary}
+            </p>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-text-muted">
+              <span className="text-accent">Problem. </span>
+              {project.problem}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
@@ -57,7 +84,8 @@ export default function ProjectItem({ project, index }) {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <button
                 onClick={() => setIsExpanded((open) => !open)}
-                className="btn-primary"
+                className="btn-primary group"
+                aria-expanded={isExpanded}
                 aria-label={
                   isExpanded
                     ? `Hide details for ${project.title}`
@@ -68,7 +96,7 @@ export default function ProjectItem({ project, index }) {
                 {isExpanded ? (
                   <Minus className="h-3.5 w-3.5" />
                 ) : (
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 )}
               </button>
               {project.githubUrl && (
@@ -96,8 +124,16 @@ export default function ProjectItem({ project, index }) {
             </div>
           </div>
 
-          <div className={featured ? "lg:col-span-5" : "lg:col-span-6"}>
-            <ProjectVisual project={project} />
+          <div
+            className={cn(
+              featured
+                ? "lg:col-span-7"
+                : supporting
+                  ? "lg:col-span-7"
+                  : "lg:col-span-7",
+            )}
+          >
+            <ProjectVisual project={project} featured={featured} />
           </div>
         </div>
 
@@ -144,8 +180,14 @@ export default function ProjectItem({ project, index }) {
                     )}
                   </>
                 ) : (
-                  <div className="space-y-8">
-                    <div className="grid gap-6 md:grid-cols-2">
+                  <div className="space-y-10">
+                    <div>
+                      <span className="meta mb-2 block">Overview</span>
+                      <p className="max-w-3xl text-sm leading-relaxed text-text-secondary sm:text-base">
+                        {project.summary}
+                      </p>
+                    </div>
+                    <div className="grid gap-8 md:grid-cols-2">
                       <div>
                         <span className="meta mb-2 block">Problem</span>
                         <p className="text-sm leading-relaxed text-text-secondary">
@@ -159,6 +201,14 @@ export default function ProjectItem({ project, index }) {
                         </p>
                       </div>
                     </div>
+                    {project.architecture && (
+                      <div>
+                        <span className="meta mb-2 block">Architecture</span>
+                        <p className="max-w-3xl text-sm leading-relaxed text-text-secondary">
+                          {project.architecture}
+                        </p>
+                      </div>
+                    )}
                     <div>
                       <span className="meta mb-3 block">What was built</span>
                       <ul className="space-y-2.5">
@@ -174,6 +224,32 @@ export default function ProjectItem({ project, index }) {
                           </li>
                         ))}
                       </ul>
+                    </div>
+                    {project.testing && (
+                      <div>
+                        <span className="meta mb-2 block">Testing and quality</span>
+                        <p className="max-w-3xl text-sm leading-relaxed text-text-secondary">
+                          {project.testing}
+                        </p>
+                      </div>
+                    )}
+                    {project.lessons && (
+                      <div>
+                        <span className="meta mb-2 block">Lessons</span>
+                        <p className="max-w-3xl text-sm leading-relaxed text-text-secondary">
+                          {project.lessons}
+                        </p>
+                      </div>
+                    )}
+                    <div>
+                      <span className="meta mb-3 block">Technologies</span>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <span key={tech} className="chip">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                     <div className="flex flex-wrap gap-4 border-t border-border pt-4">
                       {project.githubUrl && (

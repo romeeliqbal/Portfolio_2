@@ -23,6 +23,12 @@ export const projects = [
       "Dynamic course capacity management with visual percentage indicators",
       "Persistent state management with resilient client-side schema migrations",
     ],
+    architecture:
+      "React SPA with Vite, Recharts dashboards, and LocalStorage persistence plus client-side schema migrations.",
+    testing:
+      "Manual CRUD, search/filter, and persistence checks across reloads before treating a flow as complete.",
+    lessons:
+      "Keep academic records in one place with explicit state shape — spreadsheets hide drift until reporting time.",
     githubUrl: "https://github.com/romeeliqbal/edupulse",
     liveUrl: null,
     featured: true,
@@ -50,6 +56,12 @@ export const projects = [
       "Systematically mapped attack patterns and evaluated endpoint response timings",
       "Authored detailed mitigation documentation emphasizing zero-trust defensive policies",
     ],
+    architecture:
+      "Modular Python lab that isolates encryption, key generation, and recovery inside a controlled sandbox.",
+    testing:
+      "Sandbox-only runs with rollback-token verification so no live files are ever involved.",
+    lessons:
+      "Defensive work is clearer when the encryption path, containment boundary, and recovery step are named separately.",
     githubUrl: "https://github.com/romeeliqbal/ransomware-simulation",
     liveUrl: null,
     featured: true,
@@ -78,6 +90,12 @@ export const projects = [
       "Formatted data export pipelines for administrative review cycles",
       "Integrated prompt templates for extracting constructive recommendations",
     ],
+    architecture:
+      "NLP pipeline that ingests unstructured evaluations, scores polarity, extracts keywords, and exports structured JSON.",
+    testing:
+      "Checked representative feedback samples against polarity, keyword, and action-item outputs.",
+    lessons:
+      "Free-text review is useful once it becomes a repeatable export, not a pile of comments.",
     githubUrl: "https://github.com/romeeliqbal/studyflow-ai",
     liveUrl: null,
     featured: true,
@@ -105,6 +123,12 @@ export const projects = [
       "Fluid responsive breakpoints tested across mobile, tablet, and ultra-wide viewports",
       "Accessible navigation with custom modal drawers and structured product schemas",
     ],
+    architecture:
+      "Seven-page static storefront in vanilla JavaScript and CSS Grid/Flexbox, with a custom gallery, cart drawer, and Netlify deploy.",
+    testing:
+      "Responsive checks across mobile, tablet, and wide viewports, with attention to layout shift and keyboard access.",
+    lessons:
+      "A boutique catalog does not need a heavy framework if the page map and interactions stay small and explicit.",
     githubUrl: "https://github.com/romeeliqbal/madams-boutique",
     liveUrl: "https://romeelportfolio2.netlify.app",
     featured: false,

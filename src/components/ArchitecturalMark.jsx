@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 
-export default function ArchitecturalMark() {
+export default function ArchitecturalMark({ compact = false }) {
   const wrapRef = useRef(null);
   const reduce = useReducedMotion();
   const [tilt, setTilt] = useState({ x: -16, y: 22 });
@@ -19,7 +19,7 @@ export default function ArchitecturalMark() {
   if (reduce) {
     return (
       <div
-        className="arch-fallback border border-border"
+        className={`arch-fallback border border-border ${compact ? "arch-fallback-compact" : ""}`}
         aria-hidden="true"
       />
     );
@@ -30,7 +30,7 @@ export default function ArchitecturalMark() {
       ref={wrapRef}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="arch-stage"
+      className={`arch-stage ${compact ? "arch-stage-compact" : ""}`}
       aria-hidden="true"
     >
       <div

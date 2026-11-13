@@ -1,8 +1,8 @@
 import React from "react";
 
-function Chrome({ title, children }) {
+function Chrome({ title, children, featured = false }) {
   return (
-    <div className="project-frame h-full">
+    <div className={`project-frame h-full ${featured ? "min-h-[22rem] lg:min-h-[28rem]" : "min-h-[18rem]"}`}>
       <div className="flex items-center gap-2 border-b border-border px-3 py-2">
         <span className="h-2 w-2 rounded-full bg-accent" />
         <span className="h-2 w-2 rounded-full bg-border-strong" />
@@ -11,14 +11,14 @@ function Chrome({ title, children }) {
           {title}
         </span>
       </div>
-      <div className="project-frame-media p-4">{children}</div>
+      <div className="project-frame-media h-[calc(100%-2.5rem)] p-4 sm:p-6">{children}</div>
     </div>
   );
 }
 
-function EduPulseVisual() {
+function EduPulseVisual({ featured }) {
   return (
-    <Chrome title="EduPulse / dashboard">
+    <Chrome title="EduPulse / dashboard" featured={featured}>
       <div className="grid grid-cols-3 gap-2">
         {["1,420 enrolled", "94% attendance", "18 courses"].map((item) => (
           <div key={item} className="border border-border bg-bg p-3">
@@ -126,8 +126,8 @@ function BoutiqueVisual() {
   );
 }
 
-export default function ProjectVisual({ project }) {
-  if (project.id === "01") return <EduPulseVisual />;
+export default function ProjectVisual({ project, featured = false }) {
+  if (project.id === "01") return <EduPulseVisual featured={featured} />;
   if (project.id === "02") return <RansomwareVisual />;
   if (project.id === "03") return <StudyFlowVisual />;
   return <BoutiqueVisual />;
