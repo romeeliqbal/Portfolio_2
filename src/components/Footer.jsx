@@ -7,71 +7,66 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-border bg-bg text-text-secondary py-14 sm:py-16 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto flex flex-col justify-between space-y-12">
-        {/* Top bar with Brand and Back to Top */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-12 border-b border-border">
+    <footer
+      data-theme="dark"
+      className="w-full border-t border-border bg-graphite py-14 text-text-secondary sm:py-16"
+    >
+      <div className="site-wrap space-y-12">
+        <div className="flex flex-col justify-between gap-6 border-b border-border pb-12 sm:flex-row sm:items-center">
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="font-heading font-bold text-2xl tracking-tighter text-text">
+            <div className="mb-2 flex items-center gap-3">
+              <span className="font-heading text-2xl font-semibold tracking-tight text-text">
                 RI
               </span>
-              <span className="text-xs font-mono tracking-editorial uppercase text-accent pl-3 border-l border-border font-medium leading-none py-0.5">
+              <span className="border-l border-border pl-3 font-mono text-xs uppercase tracking-editorial text-accent">
                 Romeel Iqbal
               </span>
             </div>
-            <p className="text-xs font-mono text-text-secondary tracking-tight">
-              Software Engineer &bull; Mehran University of Engineering and
-              Technology (MUET)
+            <p className="font-mono text-xs text-text-secondary">
+              Software Engineer · Mehran University of Engineering and
+              Technology
             </p>
           </div>
-
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-xs font-mono tracking-editorial uppercase text-text-secondary hover:text-text hover:border-accent transition-colors self-start sm:self-auto px-3.5 py-2 border border-border bg-surface hover:bg-surface-hover min-h-[44px]"
+            className="btn-secondary self-start sm:self-auto"
             aria-label="Scroll to top of page"
           >
-            <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-accent" />
+            Back to top
+            <ArrowUp className="h-3.5 w-3.5 text-accent" />
           </button>
         </div>
 
-        {/* Links & Channels */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-3 font-medium">
-              DIRECT REACH
+            <span className="mb-3 block font-mono text-[10px] uppercase tracking-editorial text-accent">
+              Direct
             </span>
-            <ul className="space-y-2 text-xs font-mono">
-              <li>
-                <a
-                  href="mailto:romeelshaikh3@gmail.com"
-                  className="hover:text-accent transition-colors flex items-center gap-2 text-text-secondary min-h-[36px]"
-                >
-                  <Mail className="w-3.5 h-3.5 text-accent" />
-                  <span>romeelshaikh3@gmail.com</span>
-                </a>
-              </li>
-              <li className="text-text-muted pt-1">
-                Latifabad, Sindh, Pakistan
-              </li>
-            </ul>
+            <a
+              href="mailto:romeelshaikh3@gmail.com"
+              className="flex min-h-[36px] items-center gap-2 font-mono text-xs hover:text-accent"
+            >
+              <Mail className="h-3.5 w-3.5 text-accent" />
+              romeelshaikh3@gmail.com
+            </a>
+            <p className="pt-2 font-mono text-xs text-text-muted">
+              Latifabad, Sindh, Pakistan
+            </p>
           </div>
-
           <div>
-            <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-3 font-medium">
-              NETWORKS
+            <span className="mb-3 block font-mono text-[10px] uppercase tracking-editorial text-accent">
+              Networks
             </span>
-            <ul className="space-y-2 text-xs font-mono">
+            <ul className="space-y-2 font-mono text-xs">
               <li>
                 <a
                   href="https://www.linkedin.com/in/romeel-iqbal-6277493a0/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-accent transition-colors flex items-center gap-2 text-text-secondary min-h-[36px]"
+                  className="flex min-h-[36px] items-center gap-2 hover:text-accent"
                 >
-                  <Linkedin className="w-3.5 h-3.5 text-accent" />
-                  <span>LinkedIn Profile</span>
+                  <Linkedin className="h-3.5 w-3.5 text-accent" />
+                  LinkedIn
                 </a>
               </li>
               <li>
@@ -79,92 +74,49 @@ export default function Footer() {
                   href="https://github.com/romeeliqbal"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-accent transition-colors flex items-center gap-2 text-text-secondary min-h-[36px]"
+                  className="flex min-h-[36px] items-center gap-2 hover:text-accent"
                 >
-                  <Github className="w-3.5 h-3.5 text-accent" />
-                  <span>GitHub Repository</span>
+                  <Github className="h-3.5 w-3.5 text-accent" />
+                  GitHub
                 </a>
               </li>
             </ul>
           </div>
-
           <div>
-            <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-3 font-medium">
-              PORTFOLIO SECTIONS
+            <span className="mb-3 block font-mono text-[10px] uppercase tracking-editorial text-accent">
+              Index
             </span>
-            <div className="grid grid-cols-2 gap-2 text-xs font-mono text-text-secondary">
-              <a
-                href="#about"
-                className="hover:text-accent transition-colors py-1.5"
-              >
-                About
-              </a>
-              <a
-                href="#experience"
-                className="hover:text-accent transition-colors py-1.5"
-              >
-                Experience
-              </a>
-              <a
-                href="#technologies"
-                className="hover:text-accent transition-colors py-1.5"
-              >
-                Technologies
-              </a>
-              <a
-                href="#projects"
-                className="hover:text-accent transition-colors py-1.5"
-              >
-                Projects
-              </a>
-              <a
-                href="#education"
-                className="hover:text-accent transition-colors py-1.5"
-              >
-                Education
-              </a>
-              <a
-                href="#credentials"
-                className="hover:text-accent transition-colors py-1.5"
-              >
-                Credentials
-              </a>
-              <a
-                href="#resume"
-                className="hover:text-accent transition-colors py-1.5"
-              >
-                Résumé
-              </a>
-              <a
-                href="#contact"
-                className="hover:text-accent transition-colors py-1.5"
-              >
-                Contact
-              </a>
+            <div className="grid grid-cols-2 gap-1 font-mono text-xs">
+              {[
+                ["#about", "About"],
+                ["#experience", "Experience"],
+                ["#technologies", "Skills"],
+                ["#projects", "Work"],
+                ["#education", "Education"],
+                ["#credentials", "Credentials"],
+                ["#resume", "Résumé"],
+                ["#contact", "Contact"],
+              ].map(([href, label]) => (
+                <a key={href} href={href} className="py-1.5 hover:text-accent">
+                  {label}
+                </a>
+              ))}
             </div>
           </div>
-
           <div>
-            <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-3 font-medium">
-              SPECIFICATION
+            <span className="mb-3 block font-mono text-[10px] uppercase tracking-editorial text-accent">
+              Colophon
             </span>
-            <p className="text-xs font-mono text-text-muted leading-relaxed">
-              BUILT WITH REACT &bull; TAILWIND CSS &bull; FRAMER MOTION &bull;
-              VITE
+            <p className="font-mono text-xs leading-relaxed text-text-muted">
+              React · Tailwind CSS · Framer Motion · Vite. No Three.js — the
+              studio mark is CSS 3D so the page stays light.
             </p>
-            <div className="mt-3 text-[10px] font-mono text-text-muted">
-              Design System: Warm Architectural Dark Specification
-            </div>
           </div>
         </div>
 
-        {/* Bottom copyright & Colophon */}
-        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-text-muted">
-          <span>&copy; 2026 Romeel Iqbal. All rights reserved.</span>
-          <span>
-            Designed & engineered by Romeel Iqbal. Built with React, Tailwind
-            CSS, & Vite.
-          </span>
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 font-mono text-[11px] text-text-muted sm:flex-row">
+          <span>© 2026 Romeel Iqbal. All rights reserved.</span>
+          <span>Designed and engineered by Romeel Iqbal.</span>
         </div>
       </div>
     </footer>

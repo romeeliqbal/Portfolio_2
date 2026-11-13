@@ -4,48 +4,54 @@ export default {
   theme: {
     extend: {
       colors: {
+        charcoal: "#252729",
+        graphite: "#303337",
+        elevated: "#393D41",
+        ivory: "#F3F0E8",
+        stone: "#E7E3DA",
         bg: {
-          DEFAULT: "#0B0B0C", // Primary background: hero, About, Tech, Education
-          alt: "#121211", // Alternating sections: Experience, Projects, Résumé
-          accent: "#15110B", // Contact section only (amber-tinted dark)
+          DEFAULT: "var(--bg)",
+          alt: "var(--bg-alt)",
         },
         surface: {
-          DEFAULT: "#181816", // Panels, form container
-          hover: "#1F1F1C", // Hover states, elevated cards
+          DEFAULT: "var(--surface)",
+          hover: "var(--surface-hover)",
         },
         border: {
-          DEFAULT: "#2A2A27", // Subtle hairlines
-          strong: "#3D3D38", // Inputs, buttons
-          accent: "#5C4524", // Subtle accent borders on contact section
+          DEFAULT: "var(--border)",
+          strong: "var(--border-strong)",
         },
         text: {
-          DEFAULT: "#F2F0EB", // Primary text: warm off-white (14:1 contrast)
-          secondary: "#B8B5AD", // Secondary body text (8:1 contrast)
-          muted: "#8A877F", // Metadata, timestamps (5.5:1 contrast)
-          onAccent: "#0B0B0C", // High-contrast text on amber buttons
+          DEFAULT: "var(--text)",
+          secondary: "var(--text-secondary)",
+          muted: "var(--text-muted)",
+          onAccent: "var(--on-accent)",
         },
         accent: {
-          DEFAULT: "#D99A3D", // Primary warm amber accent
-          hover: "#E8B068", // Accent hover
-          border: "#5C4524", // Subtle accent borders
-          focus: "#F0C27A", // Focus ring color
+          DEFAULT: "#D97745",
+          hover: "#A84E25",
+          tint: "#F0DFD3",
         },
         status: {
-          success: "#5FB88C", // Live status dot and form success only
-          error: "#E5786D", // Form validation errors only
+          success: "#4F8F6A",
+          error: "#C45C4A",
         },
       },
       fontFamily: {
-        display: ['"Syne"', "sans-serif"],
-        heading: ['"Space Grotesk"', '"Syne"', "sans-serif"],
-        body: ['"Plus Jakarta Sans"', '"Inter"', "sans-serif"],
-        mono: ['"JetBrains Mono"', "monospace"],
+        display: ['"Space Grotesk"', "Inter", "sans-serif"],
+        heading: ['"Space Grotesk"', "Inter", "sans-serif"],
+        body: ['"Inter"', "system-ui", "sans-serif"],
+        mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
       },
       letterSpacing: {
-        normal: "0em",
-        tight: "-0.02em",
-        editorial: "0.08em",
-        spacious: "0.14em",
+        tight: "-0.03em",
+        editorial: "0.04em",
+      },
+      maxWidth: {
+        site: "72rem",
+      },
+      boxShadow: {
+        lift: "0 18px 40px -24px rgba(37, 39, 41, 0.45)",
       },
     },
   },

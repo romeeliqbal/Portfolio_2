@@ -1,73 +1,56 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { educationList } from "../data/education";
+import SectionReveal from "./SectionReveal";
 
 export default function Education() {
   return (
-    <section id="education" className="w-full bg-bg border-t border-border">
-      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column */}
+    <section
+      id="education"
+      data-theme="light"
+      className="w-full border-t border-border bg-bg text-text"
+    >
+      <div className="site-wrap section-pad">
+        <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <div className="sticky top-28">
-              <span className="text-xs font-mono tracking-editorial text-accent uppercase block mb-3 font-medium">
-                05 &bull; ACADEMIC FOUNDATIONS
-              </span>
-              <h2 className="font-heading font-bold text-3xl sm:text-5xl tracking-tight text-text uppercase break-normal hyphens-none mb-4">
-                Education
+            <div className="lg:sticky lg:top-28">
+              <span className="meta mb-3 block">05 · Education</span>
+              <h2 className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+                Academic
+                <br />
+                foundations.
               </h2>
-              <div className="w-12 h-[1px] bg-border mb-6" />
-              <p className="text-xs font-mono tracking-editorial text-text-muted uppercase">
-                Computer Science &bull; Software Engineering
+              <p className="mt-6 max-w-xs font-mono text-[11px] uppercase tracking-editorial text-text-muted">
+                Software engineering · Pre-engineering
               </p>
             </div>
           </div>
 
-          {/* Right Column - Ruled Education Items */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="relative space-y-0 lg:col-span-7">
+            <div className="absolute bottom-4 top-4 left-[7px] w-px bg-border" aria-hidden="true" />
             {educationList.map((edu, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="p-6 sm:p-8 bg-surface border border-border hover:border-border-strong transition-all space-y-4"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-border pb-4">
-                  <h3 className="font-heading font-bold text-xl sm:text-2xl text-text">
+              <SectionReveal key={edu.degree} delay={idx * 0.06} className="relative pl-8 pb-10 last:pb-0">
+                <span className="absolute left-0 top-1.5 h-4 w-4 border border-accent bg-bg" />
+                <div className="flex flex-col justify-between gap-2 border-b border-border pb-4 sm:flex-row sm:items-baseline">
+                  <h3 className="font-heading text-2xl font-semibold text-text">
                     {edu.degree}
                   </h3>
-                  <span className="text-xs font-mono tracking-editorial text-accent">
-                    {edu.period}
-                  </span>
+                  <span className="font-mono text-xs text-accent">{edu.period}</span>
                 </div>
-
-                <div className="text-xs sm:text-sm font-mono text-text-secondary font-medium">
-                  {edu.institution} &bull;{" "}
-                  <span className="text-text-muted">{edu.location}</span>
-                </div>
-
-                <p className="text-sm text-text-secondary font-normal leading-relaxed">
+                <p className="mt-4 font-mono text-sm text-text-secondary">
+                  {edu.institution}
+                  <span className="text-text-muted"> · {edu.location}</span>
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-text-secondary">
                   {edu.description}
                 </p>
-
-                <div>
-                  <span className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-2">
-                    KEY COURSEWORK & FOCUS AREAS
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {edu.coursework.map((course) => (
-                      <span
-                        key={course}
-                        className="text-xs font-mono px-3 py-1 bg-surface-hover border border-border text-text-secondary hover:text-text hover:border-border-strong transition-colors"
-                      >
-                        {course}
-                      </span>
-                    ))}
-                  </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {edu.coursework.map((course) => (
+                    <span key={course} className="chip">
+                      {course}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
+              </SectionReveal>
             ))}
           </div>
         </div>

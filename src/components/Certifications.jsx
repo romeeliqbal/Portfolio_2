@@ -1,134 +1,86 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { certifications } from "../data/certifications";
+import SectionReveal from "./SectionReveal";
 
 export default function Certifications() {
   const googleCerts = certifications.filter((c) => c.issuer.includes("Google"));
   const otherCerts = certifications.filter((c) => !c.issuer.includes("Google"));
 
+  const Group = ({ title, items, verifiedLabel }) => (
+    <div>
+      <div className="mb-6 flex items-center justify-between border-b border-border pb-3">
+        <span className="font-mono text-xs uppercase tracking-editorial text-text">
+          {title}
+        </span>
+        <span className="font-mono text-[10px] text-accent">
+          {items.length} {items.length === 1 ? "credential" : "credentials"}
+        </span>
+      </div>
+      <div className="space-y-3">
+        {items.map((cert, index) => (
+          <SectionReveal
+            key={cert.title}
+            delay={index * 0.04}
+            className="grid items-start gap-4 border border-border bg-surface p-6 transition-colors hover:border-border-strong lg:grid-cols-12"
+          >
+            <div className="lg:col-span-4">
+              <span className="mb-1 block font-mono text-[10px] uppercase tracking-editorial text-accent">
+                {cert.issuer}
+              </span>
+              <h3 className="font-heading text-base font-semibold leading-snug text-text">
+                {cert.title}
+              </h3>
+              <span className="mt-2 block font-mono text-xs text-text-muted">
+                {cert.year}
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed text-text-secondary lg:col-span-6">
+              {cert.description}
+            </p>
+            <div className="lg:col-span-2 lg:flex lg:justify-end">
+              <span className="inline-flex items-center gap-1.5 border border-accent/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-editorial text-accent">
+                <Check className="h-3 w-3" />
+                {verifiedLabel}
+              </span>
+            </div>
+          </SectionReveal>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <section
       id="certifications"
-      className="w-full bg-bg border-t border-border relative"
+      data-theme="dark"
+      className="relative w-full border-t border-border bg-bg text-text"
     >
       <span id="credentials" className="sr-only" />
-      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-6">
+      <div className="site-wrap section-pad">
+        <div className="mb-12 flex flex-col justify-between gap-6 lg:mb-16 lg:flex-row lg:items-end">
           <div>
-            <span className="text-xs font-mono tracking-editorial text-accent uppercase block mb-3 font-medium">
-              06 &bull; PROFESSIONAL CREDENTIALS
-            </span>
-            <h2 className="font-heading font-bold text-3xl sm:text-5xl tracking-tight text-text uppercase break-normal hyphens-none">
-              Credentials
+            <span className="meta mb-3 block">06 · Credentials</span>
+            <h2 className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+              Verified study.
             </h2>
           </div>
-          <p className="text-xs font-mono tracking-editorial text-text-muted uppercase max-w-xs">
-            Industry verified &bull; Google & Coursera accredited
+          <p className="max-w-xs font-mono text-[11px] uppercase tracking-editorial text-text-muted">
+            Google, Coursera, and programming foundations
           </p>
         </div>
 
-        {/* Credential Verification Ledger */}
         <div className="space-y-12">
-          {/* Group 1: Google Professional Suite */}
-          <div>
-            <div className="flex items-center justify-between pb-3 mb-6 border-b border-border">
-              <span className="text-xs font-mono tracking-spacious text-text uppercase font-semibold">
-                GOOGLE PROFESSIONAL ACCREDITATIONS
-              </span>
-              <span className="text-[10px] font-mono text-accent">
-                {googleCerts.length} VERIFIED CREDENTIALS
-              </span>
-            </div>
-
-            <div className="space-y-3.5">
-              {googleCerts.map((cert, index) => (
-                <motion.div
-                  key={cert.title}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 p-6 bg-surface border border-border hover:border-border-strong transition-all items-start"
-                >
-                  <div className="lg:col-span-4 flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-1">
-                        {cert.issuer}
-                      </span>
-                      <h3 className="font-heading font-bold text-base text-text leading-snug">
-                        {cert.title}
-                      </h3>
-                    </div>
-                    <span className="text-xs font-mono text-text-muted mt-2.5">
-                      ISSUED // {cert.year}
-                    </span>
-                  </div>
-
-                  <div className="lg:col-span-6 flex items-start pt-0.5">
-                    <p className="text-xs sm:text-sm text-text-secondary font-normal leading-relaxed">
-                      {cert.description}
-                    </p>
-                  </div>
-
-                  <div className="lg:col-span-2 flex items-start lg:justify-end pt-0.5">
-                    <span className="text-[10px] font-mono tracking-editorial uppercase px-2.5 py-1 border border-accent/40 text-accent bg-surface-hover inline-flex items-center gap-1.5 font-medium leading-none">
-                      <Check className="w-3 h-3 text-accent shrink-0" />
-                      <span>Verified</span>
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Group 2: Core Engineering Foundations */}
-          <div>
-            <div className="flex items-center justify-between pb-3 mb-6 border-b border-border">
-              <span className="text-xs font-mono tracking-spacious text-text uppercase font-semibold">
-                PROGRAMMING & SYSTEMS ACCREDITATIONS
-              </span>
-              <span className="text-[10px] font-mono text-accent">
-                {otherCerts.length} CREDENTIAL
-              </span>
-            </div>
-
-            <div className="space-y-3.5">
-              {otherCerts.map((cert) => (
-                <div
-                  key={cert.title}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 p-6 bg-surface border border-border hover:border-border-strong transition-all items-start"
-                >
-                  <div className="lg:col-span-4 flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-1">
-                        {cert.issuer}
-                      </span>
-                      <h3 className="font-heading font-bold text-base text-text leading-snug">
-                        {cert.title}
-                      </h3>
-                    </div>
-                    <span className="text-xs font-mono text-text-muted mt-2.5">
-                      ISSUED // {cert.year}
-                    </span>
-                  </div>
-
-                  <div className="lg:col-span-6 flex items-start pt-0.5">
-                    <p className="text-xs sm:text-sm text-text-secondary font-normal leading-relaxed">
-                      {cert.description}
-                    </p>
-                  </div>
-
-                  <div className="lg:col-span-2 flex items-start lg:justify-end pt-0.5">
-                    <span className="text-[10px] font-mono tracking-editorial uppercase px-2.5 py-1 border border-border-strong text-text-secondary bg-surface-hover inline-flex items-center gap-1.5 leading-none">
-                      <Check className="w-3 h-3 text-text-muted shrink-0" />
-                      <span>Accredited</span>
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Group
+            title="Google professional credentials"
+            items={googleCerts}
+            verifiedLabel="Verified"
+          />
+          <Group
+            title="Programming foundations"
+            items={otherCerts}
+            verifiedLabel="Accredited"
+          />
         </div>
       </div>
     </section>

@@ -1,151 +1,128 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import portraitImg from "../assets/portrait.jpg";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import ArchitecturalMark from "./ArchitecturalMark";
+
+const fade = (delay) => ({
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
+});
 
 export default function Hero() {
+  const reduce = useReducedMotion();
+
   return (
     <section
       id="hero"
-      className="w-full bg-bg relative min-h-screen flex flex-col justify-between pt-24 sm:pt-28 pb-8 sm:pb-10 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden"
+      data-theme="dark"
+      className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-bg pt-24 text-text sm:pt-28"
     >
-      {/* Main Hero Content Area */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center my-auto relative z-10">
-        {/* Left / Editorial Typography */}
-        <div className="lg:col-span-7 flex flex-col justify-center">
-          {/* Metadata pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="flex items-center gap-3 mb-6"
-          >
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-surface border border-border text-[11px] font-mono tracking-editorial uppercase text-text-secondary leading-none">
-              <span className="w-1.5 h-1.5 rounded-full bg-status-success shrink-0" />
-              <span>Available for Software Engineering Roles</span>
-            </div>
-          </motion.div>
-
-          {/* Large Editorial Headline */}
-          <div className="relative inline-block mb-6">
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.05 }}
-              className="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl xl:text-8xl tracking-tight leading-[0.92] uppercase select-none"
-            >
-              <span className="editorial-display-text block">Romeel</span>
-              <span className="editorial-display-subtext block">Iqbal</span>
-            </motion.h1>
-          </div>
-
-          {/* Subtitle & Role */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.1 }}
-            className="mb-6"
-          >
-            <h2 className="text-lg sm:text-xl font-heading font-semibold tracking-tight text-text mb-2">
-              SOFTWARE ENGINEER &bull; FULL-STACK &bull; MUET
-            </h2>
-            <p className="text-xs font-mono tracking-editorial uppercase text-text-muted">
-              Web Architecture &bull; Intelligent Systems &bull; Software
-              Quality
-            </p>
-          </motion.div>
-
-          {/* Core statement */}
+      <div className="site-wrap relative z-10 my-auto grid items-center gap-12 py-10 lg:grid-cols-12 lg:gap-8">
+        <div className="lg:col-span-7">
           <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.15 }}
-            className="text-sm sm:text-base md:text-lg text-text-secondary max-w-xl font-normal leading-relaxed mb-8 border-l border-border pl-5 py-0.5"
+            {...(reduce ? {} : fade(0.05))}
+            className="mb-6 inline-flex items-center gap-2 border border-border bg-surface px-3 py-1.5 font-mono text-[11px] uppercase tracking-editorial text-text-secondary"
           >
-            Building practical, resilient digital experiences through full-stack
-            engineering, modular architectures, and applied intelligent systems.
+            <span className="h-1.5 w-1.5 rounded-full bg-status-success" />
+            Available for software engineering roles
           </motion.p>
 
-          {/* Editorial CTAs */}
+          <motion.p
+            {...(reduce ? {} : fade(0.1))}
+            className="mb-4 font-mono text-xs uppercase tracking-editorial text-accent"
+          >
+            Romeel Iqbal · Software Engineer · MUET
+          </motion.p>
+
+          <motion.h1
+            {...(reduce ? {} : fade(0.15))}
+            className="max-w-3xl font-heading text-[2.15rem] font-semibold leading-[1.05] tracking-tight text-text sm:text-5xl lg:text-6xl xl:text-[4.25rem]"
+          >
+            I build digital experiences where{" "}
+            <span className="text-accent">engineering</span> meets imagination.
+          </motion.h1>
+
+          <motion.p
+            {...(reduce ? {} : fade(0.22))}
+            className="mt-6 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg"
+          >
+            Undergraduate software engineer in Hyderabad, Pakistan. I design
+            and ship practical web applications, applied AI tools, and
+            interfaces that stay clear under real use.
+          </motion.p>
+
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
+            {...(reduce ? {} : fade(0.28))}
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+          >
+            <a href="#projects" className="btn-primary">
+              Explore my work
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+            <a href="#contact" className="btn-secondary">
+              Get in touch
+            </a>
+          </motion.div>
+
+          <motion.div
+            {...(reduce ? {} : fade(0.34))}
+            className="mt-8 flex flex-wrap items-center gap-5 font-mono text-xs text-text-muted"
           >
             <a
-              href="#projects"
-              className="inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-accent text-text-onAccent font-mono font-semibold text-xs tracking-editorial uppercase hover:bg-accent-hover transition-all border border-accent shadow-sm min-h-[44px]"
+              href="https://github.com/romeeliqbal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center gap-2 hover:text-accent"
             >
-              <span>Selected Work</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <Github className="h-4 w-4" />
+              GitHub
             </a>
-
             <a
-              href="#contact"
-              className="inline-flex items-center justify-center gap-3 px-6 py-3.5 border border-border-strong text-text hover:border-text font-mono text-xs tracking-editorial uppercase transition-all bg-surface hover:bg-surface-hover min-h-[44px]"
+              href="https://www.linkedin.com/in/romeel-iqbal-6277493a0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center gap-2 hover:text-accent"
             >
-              <span>Get In Touch</span>
+              <Linkedin className="h-4 w-4" />
+              LinkedIn
+            </a>
+            <a
+              href="mailto:romeelshaikh3@gmail.com"
+              className="inline-flex min-h-[44px] items-center gap-2 hover:text-accent"
+            >
+              <Mail className="h-4 w-4" />
+              Email
             </a>
           </motion.div>
         </div>
 
-        {/* Right / Editorial Portrait with Architectural Amber Corner Marks */}
-        <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-center mt-6 lg:mt-0">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] corner-crosshair"
-          >
-            {/* Main Portrait Frame - Clean architectural container */}
-            <div className="relative overflow-hidden grayscale contrast-110 border border-border bg-[#0E0E0E]">
-              <img
-                src={portraitImg}
-                alt="Romeel Iqbal - Software Engineer"
-                className="w-full h-auto object-cover object-top filter contrast-[1.08] brightness-[0.96]"
-                loading="eager"
-              />
-
-              {/* Bottom and edge gradient fades to merge smoothly into background */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(to bottom, transparent 65%, rgba(11,11,12,0.6) 85%, #0B0B0C 100%), linear-gradient(to left, transparent 85%, rgba(11,11,12,0.4) 100%), linear-gradient(to right, transparent 85%, rgba(11,11,12,0.4) 100%)",
-                }}
-              />
-            </div>
-
-            {/* Solid editorial photo tag */}
-            <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 bg-[#0E0E0E]/90 backdrop-blur-sm border border-border">
-              <span className="w-1.5 h-1.5 bg-status-success rounded-full" />
-              <span className="text-[9px] font-mono tracking-spacious text-text-secondary uppercase">
-                LATIFABAD / HYD, PK
-              </span>
-            </div>
-          </motion.div>
-        </div>
+        <motion.div
+          {...(reduce ? {} : fade(0.2))}
+          className="relative flex justify-center lg:col-span-5 lg:justify-end"
+        >
+          <div className="relative">
+            <ArchitecturalMark />
+            <p className="mt-4 max-w-xs text-right font-mono text-[10px] uppercase tracking-editorial text-text-muted">
+              Studio mark · pointer-responsive architecture
+            </p>
+          </div>
+        </motion.div>
       </div>
 
-      {/* Bottom Scroll Prompt */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="pt-8 sm:pt-10 flex flex-col items-center justify-center relative z-10"
-      >
+      <div className="site-wrap z-10 flex items-center justify-between pb-8 pt-4">
+        <p className="hidden font-mono text-[10px] uppercase tracking-editorial text-text-muted sm:block">
+          Web architecture · Intelligent systems · Software quality
+        </p>
         <a
           href="#about"
-          className="group flex items-center gap-2.5 text-xs font-mono tracking-editorial text-text-muted hover:text-accent transition-colors border-b border-transparent hover:border-accent pb-0.5"
-          aria-label="Scroll to engineering profile"
+          className="group ml-auto inline-flex min-h-[44px] items-center gap-2 font-mono text-xs uppercase tracking-editorial text-text-muted hover:text-accent"
+          aria-label="Scroll to about"
         >
-          <span>INDEX &bull; 01 ABOUT</span>
-          <span className="text-text-secondary group-hover:translate-y-0.5 transition-transform text-accent">
-            ↓
-          </span>
+          Scroll
+          <ArrowDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" />
         </a>
-      </motion.div>
+      </div>
     </section>
   );
 }

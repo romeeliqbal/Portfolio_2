@@ -6,14 +6,14 @@
 export const categories = [
   {
     id: "WEB",
-    label: "WEB",
+    label: "Frontend",
     count: 5,
     description:
       "Client-side architecture, component-based interfaces, and modern styling.",
   },
   {
     id: "DEVELOPMENT",
-    label: "DEVELOPMENT",
+    label: "Languages & systems",
     count: 4,
     description:
       "Core programming languages, algorithms, and object-oriented systems.",
@@ -27,14 +27,14 @@ export const categories = [
   },
   {
     id: "QA",
-    label: "QA & TESTING",
+    label: "Testing",
     count: 5,
     description:
       "Software quality assurance, performance testing, and accessibility.",
   },
   {
     id: "TOOLS",
-    label: "TOOLS",
+    label: "Tools",
     count: 5,
     description:
       "Version control, development environments, and cloud deployment pipelines.",

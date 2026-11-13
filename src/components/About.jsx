@@ -1,161 +1,150 @@
 import React from "react";
-import { motion } from "framer-motion";
+import portraitImg from "../assets/portrait.jpg";
+import SectionReveal from "./SectionReveal";
 
 export default function About() {
   const keyFacts = [
     {
       label: "Education",
       value: "B.E. Software Engineering",
-      detail: "Mehran University (MUET) • Expected 2027",
+      detail: "Mehran University (MUET) · Expected 2027",
     },
     {
       label: "Focus",
-      value: "Full-Stack Web & Applied AI",
-      detail: "React, Node.js, Python, Modular Architecture",
+      value: "Full-stack web & applied AI",
+      detail: "React, Python, modular architecture",
     },
     {
       label: "Currently",
-      value: "Building & Experimenting",
-      detail: "Client Interfaces & Intelligent Agent Workflows",
+      value: "Building & learning in public",
+      detail: "Client interfaces and intelligent workflows",
     },
     {
       label: "Location",
       value: "Hyderabad, Pakistan",
-      detail: "Open to Remote & Global Relocation",
+      detail: "Open to remote work and relocation",
     },
   ];
 
   const capabilities = [
     {
       index: "01",
-      title: "First-Principles Decomposition",
-      tag: "System Design",
+      title: "Clear system structure",
+      tag: "Design",
       description:
-        "Deconstructing ambiguous technical requirements into modular, single-responsibility components with predictable state flow and clear interfaces.",
+        "I break messy requirements into small, named parts with predictable state and interfaces that another engineer can follow.",
     },
     {
       index: "02",
-      title: "Software Quality & Accessibility",
-      tag: "Code Quality",
+      title: "Quality and accessibility",
+      tag: "Craft",
       description:
-        "Implementing WCAG 2.1 AA accessibility, keyboard-first navigation, strict schema validation, and thorough exception handling.",
+        "Keyboard paths, readable contrast, semantic markup, and checks that catch edge cases before a feature is treated as done.",
     },
     {
       index: "03",
-      title: "Agile Milestone Delivery",
+      title: "Delivery with documentation",
       tag: "Execution",
       description:
-        "Applying Google-certified project coordination methodologies, maintaining transparent documentation, and driving predictable releases.",
+        "Internship coordination at Excelerate taught me to keep milestones visible, write things down, and finish work on a schedule.",
     },
   ];
 
   return (
-    <section id="about" className="w-full bg-bg border-t border-border">
-      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column - Eyebrow & Sticky Heading */}
-          <div className="lg:col-span-4">
-            <div className="sticky top-28">
-              <span className="text-xs font-mono tracking-editorial text-accent uppercase block mb-3 font-medium">
-                01 &bull; ABOUT
-              </span>
-              <h2 className="font-heading font-bold text-3xl sm:text-5xl tracking-tight text-text uppercase mb-4 leading-[1.05]">
-                Engineering
+    <section
+      id="about"
+      data-theme="light"
+      className="w-full border-t border-border bg-bg text-text"
+    >
+      <span id="summary" className="sr-only">
+        Engineering profile
+      </span>
+      <div className="site-wrap section-pad">
+        <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <SectionReveal>
+              <span className="meta mb-3 block">01 · About</span>
+              <h2 className="font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+                A working engineer,
                 <br />
-                Profile
+                still in the making.
               </h2>
-              <div className="w-12 h-[1px] bg-border mb-6" />
-              <p className="text-xs font-mono tracking-editorial text-text-muted uppercase">
-                Engineering Mindset &bull; Systems Thinking
-              </p>
-            </div>
+              <div className="relative mt-10 overflow-hidden border border-border">
+                <img
+                  src={portraitImg}
+                  alt="Portrait of Romeel Iqbal, software engineer"
+                  className="aspect-[4/5] w-full object-cover object-top"
+                  loading="lazy"
+                />
+                <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between bg-charcoal/80 px-4 py-3 font-mono text-[10px] uppercase tracking-editorial text-[#F4F1EA]">
+                  <span>Romeel Iqbal</span>
+                  <span>Latifabad / Hyderabad, PK</span>
+                </div>
+              </div>
+            </SectionReveal>
           </div>
 
-          {/* Right Column - Unified Narrative, Definition List, and Ruled Disciplines */}
-          <div className="lg:col-span-8 space-y-12">
-            {/* Narrative Body */}
-            <div className="space-y-6 text-text-secondary text-base sm:text-[1.0625rem] leading-relaxed font-normal">
-              <p className="text-text font-medium text-lg leading-relaxed">
-                I am an undergraduate software engineer at Mehran University of
-                Engineering and Technology (MUET), building practical web
-                software, resilient backend scripts, and applied intelligent
-                tools.
-              </p>
-              <p>
-                I architect software from the data layer up—designing predictable
-                state flows, structured test suites that catch edge cases before
-                deployment, and responsive interfaces that load cleanly across all
-                devices. My technical focus bridges full-stack React workflows
-                with Python-based security research and AI agent integration.
-              </p>
-              <p>
-                I combine academic foundations with hands-on coordination from an
-                international project management internship at ExceLerate (Dubai)
-                and freelance web engineering for direct clients. This balance of
-                technical discipline and structured communication ensures that
-                solutions are robust, maintainable, and delivered on schedule.
-              </p>
+          <div className="lg:col-span-7 space-y-10">
+            <SectionReveal delay={0.08}>
+              <div className="space-y-5 text-base leading-relaxed text-text-secondary sm:text-[1.05rem]">
+                <p className="text-lg font-medium text-text">
+                  I study software engineering at Mehran University of
+                  Engineering &amp; Technology and spend most of my time
+                  building applications I can actually use.
+                </p>
+                <p>
+                  Dashboards, storefronts, and small intelligence tools are how
+                  I learn: start with a real problem, shape a readable
+                  interface, then keep the internals honest. I care about
+                  practical delivery more than spectacle.
+                </p>
+                <p>
+                  Alongside coursework I interned remotely with Excelerate in
+                  Dubai and take on freelance web work. That mix of academic
+                  foundations, client delivery, and testing is the through-line
+                  of this site.
+                </p>
+              </div>
+            </SectionReveal>
+
+            <div className="grid gap-x-8 gap-y-6 border-t border-border pt-8 sm:grid-cols-2">
+              {keyFacts.map((fact) => (
+                <div key={fact.label} className="border-b border-border pb-4">
+                  <span className="mb-1 block font-mono text-[10px] uppercase tracking-editorial text-accent">
+                    {fact.label}
+                  </span>
+                  <div className="font-heading text-base font-semibold text-text">
+                    {fact.value}
+                  </div>
+                  <div className="mt-1 font-mono text-xs text-text-muted">
+                    {fact.detail}
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* 4 Key Facts - Ruled Definition List (No Boxes) */}
-            <div className="pt-8 border-t border-border">
-              <span className="text-[11px] font-mono tracking-editorial text-text-muted uppercase block mb-6">
-                QUICK SPECIFICATIONS
-              </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                {keyFacts.map((fact) => (
-                  <div
-                    key={fact.label}
-                    className="border-b border-border/70 pb-4"
-                  >
-                    <span className="text-[10px] font-mono tracking-spacious text-accent uppercase block mb-1">
-                      {fact.label}
+            <div className="divide-y divide-border border-t border-border">
+              {capabilities.map((cap) => (
+                <div
+                  key={cap.index}
+                  className="grid gap-4 py-5 md:grid-cols-12"
+                >
+                  <div className="md:col-span-5">
+                    <span className="font-mono text-xs text-accent">
+                      [{cap.index}]
                     </span>
-                    <div className="font-heading font-semibold text-text text-base leading-snug">
-                      {fact.value}
-                    </div>
-                    <div className="text-xs font-mono text-text-muted mt-1 leading-normal">
-                      {fact.detail}
-                    </div>
+                    <h3 className="mt-1 font-heading text-base font-semibold text-text">
+                      {cap.title}
+                    </h3>
+                    <span className="mt-1 block font-mono text-[10px] uppercase tracking-editorial text-text-muted">
+                      {cap.tag}
+                    </span>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Core Engineering Disciplines - Ruled Hairlines (No Boxes) */}
-            <div className="pt-8 border-t border-border">
-              <span className="text-[11px] font-mono tracking-editorial text-text-muted uppercase block mb-6">
-                CORE ENGINEERING DISCIPLINES
-              </span>
-
-              <div className="divide-y divide-border">
-                {capabilities.map((cap) => (
-                  <div
-                    key={cap.index}
-                    className="py-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-start hover:bg-surface/40 transition-colors px-2 -mx-2"
-                  >
-                    <div className="md:col-span-5 flex items-start gap-3">
-                      <span className="text-xs font-mono text-accent font-semibold shrink-0 mt-0.5">
-                        [{cap.index}]
-                      </span>
-                      <div>
-                        <h3 className="font-heading font-semibold text-text text-base leading-snug">
-                          {cap.title}
-                        </h3>
-                        <span className="text-[10px] font-mono tracking-editorial text-text-muted uppercase mt-1 block">
-                          {cap.tag}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-7">
-                      <p className="text-sm text-text-secondary font-normal leading-relaxed">
-                        {cap.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  <p className="text-sm leading-relaxed text-text-secondary md:col-span-7">
+                    {cap.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

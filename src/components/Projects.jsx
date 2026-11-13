@@ -4,35 +4,26 @@ import ProjectItem from "./ProjectItem";
 
 export default function Projects() {
   return (
-    <section id="projects" className="w-full bg-bg-alt border-t border-border">
-      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-6">
-          <div>
-            <span className="text-xs font-mono tracking-editorial text-accent uppercase block mb-3 font-medium">
-              04 &bull; SELECTED WORK
-            </span>
-            <h2 className="font-heading font-bold text-3xl sm:text-5xl tracking-tight text-text uppercase break-normal hyphens-none">
-              Projects
-            </h2>
+    <section id="projects" className="w-full">
+      <div data-theme="dark" className="border-t border-border bg-bg text-text">
+        <div className="site-wrap pt-20 sm:pt-24 lg:pt-32">
+          <div className="flex flex-col justify-between gap-6 pb-10 lg:flex-row lg:items-end">
+            <div>
+              <span className="meta mb-3 block">04 · Selected work</span>
+              <h2 className="max-w-xl font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+                Projects with a problem, a build, and a paper trail.
+              </h2>
+            </div>
+            <p className="max-w-xs font-mono text-[11px] uppercase tracking-editorial text-text-muted">
+              Working applications · defensive research · clean codebases
+            </p>
           </div>
-          <p className="text-xs font-mono tracking-editorial text-text-muted uppercase max-w-xs">
-            Working applications &bull; Defensive research &bull; Clean
-            codebases
-          </p>
-        </div>
-
-        {/* Projects list */}
-        <div className="border-t border-border">
-          {projects.map((project, index) => (
-            <ProjectItem
-              key={project.id}
-              project={project}
-              isLast={index === projects.length - 1}
-            />
-          ))}
         </div>
       </div>
+
+      {projects.map((project, index) => (
+        <ProjectItem key={project.id} project={project} index={index} />
+      ))}
     </section>
   );
 }

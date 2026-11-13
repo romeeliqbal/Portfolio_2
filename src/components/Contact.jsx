@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Linkedin, Copy, Check } from "lucide-react";
+import { ArrowRight, Check, Copy, Linkedin, Mail } from "lucide-react";
 
 export default function Contact() {
-  const [contactMode, setContactMode] = useState("inquiry"); // 'inquiry' | 'feedback'
+  const [contactMode, setContactMode] = useState("inquiry");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
-
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -45,11 +44,8 @@ export default function Contact() {
       setErrors(validationErrors);
       return;
     }
-
     setErrors({});
     setSubmitting(true);
-
-    // Prepare dispatch
     setTimeout(() => {
       const subjectPrefix =
         contactMode === "feedback"
@@ -60,37 +56,32 @@ export default function Contact() {
       )}&body=${encodeURIComponent(
         `Type: ${contactMode === "feedback" ? "Developer Feedback" : "Project Inquiry"}\nFrom: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`,
       )}`;
-
       window.location.href = mailtoLink;
       setSubmitting(false);
       setSubmitted(true);
     }, 450);
   };
 
+  const fieldClass =
+    "w-full border border-border bg-bg px-4 py-3 text-sm text-text placeholder:text-text-muted focus:border-accent focus:outline-none";
+
   return (
     <section
       id="contact"
-      className="w-full bg-bg-accent border-t border-border-accent"
+      data-theme="dark"
+      className="w-full border-t border-border bg-bg text-text"
     >
-      <div className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column - Large Editorial Heading & Direct Links */}
-          <div className="lg:col-span-6 space-y-8">
+      <div className="site-wrap section-pad">
+        <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="space-y-8 lg:col-span-6">
             <div>
-              <span className="text-xs font-mono tracking-editorial text-accent uppercase block mb-3 font-medium">
-                08 &bull;{" "}
-                {contactMode === "feedback"
-                  ? "FEEDBACK & REVIEWS"
-                  : "INITIATE CONTACT"}
-              </span>
-              <h2 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.05] text-text uppercase mb-6 break-normal hyphens-none">
+              <span className="meta mb-3 block">08 · Contact</span>
+              <h2 className="font-heading text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
                 {contactMode === "feedback" ? (
                   <>
-                    Share your
+                    Share a note.
                     <br />
-                    feedback.
-                    <br />
-                    <span className="text-text-muted">Always learning.</span>
+                    <span className="text-text-muted">I read them.</span>
                   </>
                 ) : (
                   <>
@@ -98,50 +89,49 @@ export default function Contact() {
                     <br />
                     in mind?
                     <br />
-                    <span className="text-text-muted">Let's talk.</span>
+                    <span className="text-accent">Let’s talk.</span>
                   </>
                 )}
               </h2>
-              <p className="text-base sm:text-lg text-text-secondary font-normal max-w-lg leading-relaxed">
+              <p className="mt-6 max-w-lg text-base leading-relaxed text-text-secondary sm:text-lg">
                 {contactMode === "feedback"
-                  ? "Constructive reviews, architecture thoughts, and technical suggestions from fellow developers and hiring teams are always welcomed."
-                  : "Open for software engineering internships, technical collaborations, and full-stack web engagements. Let's discuss requirements and architecture."}
+                  ? "Architecture notes, demo feedback, and hiring-team reviews are welcome."
+                  : "Open to software engineering internships, collaborations, and freelance web work. This form opens your email client with a prepared draft — nothing is stored on a server."}
               </p>
             </div>
 
-            {/* Direct channels */}
-            <div className="space-y-3.5 pt-4 border-t border-border">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-surface border border-border hover:border-border-strong transition-all">
+            <div className="space-y-3 border-t border-border pt-6">
+              <div className="flex flex-col justify-between gap-3 border border-border bg-surface p-4 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-accent shrink-0" />
-                  <span className="text-xs sm:text-sm font-mono text-text break-all">
+                  <Mail className="h-4 w-4 shrink-0 text-accent" />
+                  <span className="break-all font-mono text-sm text-text">
                     {directEmail}
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-mono tracking-editorial uppercase border border-border hover:border-accent text-text-secondary hover:text-text transition-colors self-start sm:self-auto bg-surface-hover min-h-[44px]"
+                  className="inline-flex min-h-[44px] items-center gap-1.5 self-start border border-border px-3.5 py-2 font-mono text-xs uppercase tracking-editorial text-text-secondary hover:border-accent hover:text-text sm:self-auto"
                   aria-label="Copy direct email address"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-status-success" />
-                      <span className="text-status-success">Copied</span>
+                      <Check className="h-3.5 w-3.5 text-status-success" />
+                      Copied
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5 text-text-muted" />
-                      <span>Copy</span>
+                      <Copy className="h-3.5 w-3.5" />
+                      Copy
                     </>
                   )}
                 </button>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-surface border border-border hover:border-border-strong transition-all">
-                <div className="flex items-center gap-3 min-w-0">
-                  <Linkedin className="w-4 h-4 text-accent shrink-0" />
-                  <span className="text-xs sm:text-sm font-mono text-text truncate">
+              <div className="flex flex-col justify-between gap-3 border border-border bg-surface p-4 sm:flex-row sm:items-center">
+                <div className="flex min-w-0 items-center gap-3">
+                  <Linkedin className="h-4 w-4 shrink-0 text-accent" />
+                  <span className="truncate font-mono text-sm text-text">
                     linkedin.com/in/romeel-iqbal
                   </span>
                 </div>
@@ -149,32 +139,30 @@ export default function Contact() {
                   href={linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-mono tracking-editorial uppercase border border-border hover:border-accent text-text-secondary hover:text-text transition-colors bg-surface-hover self-start sm:self-auto shrink-0 min-h-[44px]"
+                  className="inline-flex min-h-[44px] items-center gap-1.5 self-start border border-border px-3.5 py-2 font-mono text-xs uppercase tracking-editorial text-text-secondary hover:border-accent hover:text-text sm:self-auto"
                 >
-                  <span>Profile</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  Profile
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Editorial Contact Form with Mode Tabs */}
-          <div className="lg:col-span-6 bg-surface border border-accent/30 p-6 sm:p-10 shadow-2xl space-y-6">
-            {/* Mode Switcher: Inquiry vs Feedback */}
-            <div className="flex items-center gap-2 pb-4 border-b border-border">
+          <div className="border border-border bg-surface p-6 shadow-lift sm:p-10 lg:col-span-6">
+            <div className="mb-6 flex gap-2 border-b border-border pb-4">
               <button
                 type="button"
                 onClick={() => {
                   setContactMode("inquiry");
                   setErrors({});
                 }}
-                className={`px-3.5 py-1.5 text-xs font-mono tracking-editorial uppercase transition-all border min-h-[40px] ${
+                className={`min-h-[40px] border px-3.5 py-1.5 font-mono text-xs uppercase tracking-editorial ${
                   contactMode === "inquiry"
-                    ? "border-accent text-accent bg-surface-hover font-semibold"
-                    : "border-border text-text-secondary hover:text-text bg-surface"
+                    ? "border-accent text-accent"
+                    : "border-border text-text-secondary hover:text-text"
                 }`}
               >
-                Project Inquiry
+                Project inquiry
               </button>
               <button
                 type="button"
@@ -182,13 +170,13 @@ export default function Contact() {
                   setContactMode("feedback");
                   setErrors({});
                 }}
-                className={`px-3.5 py-1.5 text-xs font-mono tracking-editorial uppercase transition-all border min-h-[40px] ${
+                className={`min-h-[40px] border px-3.5 py-1.5 font-mono text-xs uppercase tracking-editorial ${
                   contactMode === "feedback"
-                    ? "border-accent text-accent bg-surface-hover font-semibold"
-                    : "border-border text-text-secondary hover:text-text bg-surface"
+                    ? "border-accent text-accent"
+                    : "border-border text-text-secondary hover:text-text"
                 }`}
               >
-                Developer Feedback
+                Feedback
               </button>
             </div>
 
@@ -196,110 +184,69 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="py-10 text-center space-y-4"
+                className="space-y-4 py-10 text-center"
               >
-                <div className="w-12 h-12 border border-accent flex items-center justify-center mx-auto text-accent">
-                  <Check className="w-6 h-6" />
+                <div className="mx-auto flex h-12 w-12 items-center justify-center border border-accent text-accent">
+                  <Check className="h-6 w-6" />
                 </div>
-                <h3 className="font-heading font-bold text-2xl text-text uppercase">
-                  Draft Prepared
+                <h3 className="font-heading text-2xl font-semibold text-text">
+                  Draft prepared
                 </h3>
-                <p className="text-sm text-text-secondary font-normal max-w-sm mx-auto leading-relaxed">
-                  Your email client was prompted with the{" "}
-                  {contactMode === "feedback" ? "feedback" : "inquiry"} content.
-                  You can also reach out directly at{" "}
-                  <span className="text-accent font-mono">{directEmail}</span>.
+                <p className="mx-auto max-w-sm text-sm leading-relaxed text-text-secondary">
+                  Your email client should open with the message. You can also
+                  write directly to{" "}
+                  <span className="font-mono text-accent">{directEmail}</span>.
                 </p>
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="mt-6 text-xs font-mono tracking-editorial uppercase text-accent hover:text-accent-hover underline underline-offset-4 min-h-[44px]"
+                  className="min-h-[44px] font-mono text-xs uppercase tracking-editorial text-accent underline underline-offset-4"
                 >
                   Send another message
                 </button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-1.5"
-                  >
-                    Your Name *
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    placeholder="e.g. Alex Henderson"
-                    className="w-full bg-bg border border-border px-4 py-3 text-sm text-text placeholder:text-text-muted/60 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-colors"
-                  />
-                  {errors.name && (
-                    <p className="text-xs font-mono text-status-error mt-1.5">
-                      {errors.name}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-1.5"
-                  >
-                    Your Email *
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    placeholder="alex@company.com"
-                    className="w-full bg-bg border border-border px-4 py-3 text-sm text-text placeholder:text-text-muted/60 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-colors"
-                  />
-                  {errors.email && (
-                    <p className="text-xs font-mono text-status-error mt-1.5">
-                      {errors.email}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-1.5"
-                  >
-                    Subject *
-                  </label>
-                  <input
-                    id="subject"
-                    type="text"
-                    value={formData.subject}
-                    onChange={(e) =>
-                      setFormData({ ...formData, subject: e.target.value })
-                    }
-                    placeholder={
-                      contactMode === "feedback"
-                        ? "Portfolio Architecture Review / UI Feedback"
-                        : "Software Engineering Role / Project Inquiry"
-                    }
-                    className="w-full bg-bg border border-border px-4 py-3 text-sm text-text placeholder:text-text-muted/60 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-colors"
-                  />
-                  {errors.subject && (
-                    <p className="text-xs font-mono text-status-error mt-1.5">
-                      {errors.subject}
-                    </p>
-                  )}
-                </div>
+                {[
+                  ["name", "Your name", "text", "e.g. Alex Henderson"],
+                  ["email", "Your email", "email", "alex@company.com"],
+                  ["subject", "Subject", "text", null],
+                ].map(([id, label, type, placeholder]) => (
+                  <div key={id}>
+                    <label
+                      htmlFor={id}
+                      className="mb-1.5 block font-mono text-[10px] uppercase tracking-editorial text-text-muted"
+                    >
+                      {label} *
+                    </label>
+                    <input
+                      id={id}
+                      type={type}
+                      value={formData[id]}
+                      onChange={(e) =>
+                        setFormData({ ...formData, [id]: e.target.value })
+                      }
+                      placeholder={
+                        placeholder ||
+                        (contactMode === "feedback"
+                          ? "Portfolio review / UI feedback"
+                          : "Role or project inquiry")
+                      }
+                      className={fieldClass}
+                      aria-invalid={Boolean(errors[id])}
+                    />
+                    {errors[id] && (
+                      <p className="mt-1.5 font-mono text-xs text-status-error" role="alert">
+                        {errors[id]}
+                      </p>
+                    )}
+                  </div>
+                ))}
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="text-[10px] font-mono tracking-spacious text-text-muted uppercase block mb-1.5"
+                    className="mb-1.5 block font-mono text-[10px] uppercase tracking-editorial text-text-muted"
                   >
                     Message *
                   </label>
@@ -312,13 +259,14 @@ export default function Contact() {
                     }
                     placeholder={
                       contactMode === "feedback"
-                        ? "Share your feedback on the portfolio, code structure, project demos, or user experience..."
-                        : "Outline your timeline, requirements, or role specifications..."
+                        ? "Share notes on structure, demos, or experience..."
+                        : "Timeline, requirements, or role details..."
                     }
-                    className="w-full bg-bg border border-border px-4 py-3 text-sm text-text placeholder:text-text-muted/60 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-colors resize-none"
+                    className={`${fieldClass} resize-none`}
+                    aria-invalid={Boolean(errors.message)}
                   />
                   {errors.message && (
-                    <p className="text-xs font-mono text-status-error mt-1.5">
+                    <p className="mt-1.5 font-mono text-xs text-status-error" role="alert">
                       {errors.message}
                     </p>
                   )}
@@ -327,29 +275,14 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full flex items-center justify-center gap-3 py-3.5 bg-accent text-text-onAccent font-mono font-semibold text-xs tracking-editorial uppercase hover:bg-accent-hover transition-all disabled:opacity-50 min-h-[48px]"
+                  className="btn-primary w-full disabled:opacity-50"
                 >
-                  {submitting ? (
-                    <span className="font-mono text-xs tracking-spacious uppercase">
-                      [PREPARING DISPATCH...]
-                    </span>
-                  ) : (
-                    <>
-                      <span>
-                        {contactMode === "feedback"
-                          ? "Send Feedback"
-                          : "Send Message"}
-                      </span>
-                      <ArrowRight className="w-4 h-4" />
-                    </>
-                  )}
+                  {submitting ? "Preparing draft..." : "Send message"}
+                  <ArrowRight className="h-4 w-4" />
                 </button>
-
-                {/* Minimal Privacy Note */}
-                <p className="text-[10px] font-mono text-text-muted leading-relaxed pt-2 border-t border-border">
-                  Privacy note: Your contact details are used solely to reply
-                  directly to your inquiry or feedback. No information is stored
-                  in tracking databases or shared with third parties.
+                <p className="border-t border-border pt-3 font-mono text-[10px] leading-relaxed text-text-muted">
+                  The form prepares a mailto draft. Details are not stored in a
+                  database or shared with third parties.
                 </p>
               </form>
             )}
